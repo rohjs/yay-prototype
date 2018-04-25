@@ -1,0 +1,84 @@
+.hello
+  display: flex
+  align-items: center
+  width: 100%
+  height: 600px
+  h1
+    @extend %heading-1
+  p
+    @extend %body
+
+.demo
+  @extend %section
+  background-color: $bg-gray
+  h1
+    @extend %heading-2
+  p
+    @extend %body
+  
+.team
+  @extend %section
+  li
+    &:nth-child(1) .number
+      +bgp(0 0)
+    &:nth-child(2) .number
+      +bgp(-40px 0)
+    &:nth-child(3) .number
+      +bgp(-80px 0)
+    &:nth-child(4) .number
+      +bgp(-120px 0)
+  &__member
+    h1
+      @extend %heading-team
+      +mb(.5em)
+    p
+      +max-w(210px)
+      +mb()
+      line-height: 1
+      img
+        +w()
+        +h()
+  .number
+    +w(36px)
+    +h(60px)
+    +mb(20px)
+    +bgi('/images/text-group.svg')
+    +bgr()
+  
+.testimonial
+  +rel()
+  +flex(column)
+  +jc(center)
+  +h(450px)
+  +bgp()
+  +bgs()
+  +bgr()
+  blockquote
+    +rel()
+    +z()
+    +mb()
+    color: #fff
+    text-align: center
+    p
+      font-size: 23px
+      font-weight: 300
+      line-height: 1.43
+      +min-md()
+        font-size: 28px
+    cite
+      font-size: 14px
+      font-weight: 500
+      font-style: normal
+  &::after
+    content: ''
+    +abs()
+    +z(0)
+    +t()
+    +l()
+    +w()
+    +h(100%)  
+    +bgc(rgba(0, 0, 0, .1))
+
+  
+
+  
