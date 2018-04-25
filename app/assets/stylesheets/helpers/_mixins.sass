@@ -1,0 +1,130 @@
+=min-sm()
+  @media screen and (min-width: $sm)
+    @content
+
+=min-md()
+  @media screen and (min-width: $md)
+    @content
+
+=min-lg()
+  @media screen and (min-width: $lg)
+    @content
+
+=min-xl()
+  @media screen and (min-width: $xl)
+    @content
+
+=max-xs()
+  @media screen and (max-width: $xs)
+    @content
+
+=max-sm()
+  @media screen and (max-width: $sm)
+    @content
+
+=max-md()
+  @media screen and (max-width: $md)
+    @content
+
+=max-lg()
+  @media screen and (max-width: $lg)
+    @content
+
+=max-xl()
+  @media screen and (max-width: $xl)
+    @content
+
+=w($w: 100%)
+  width: $w
+
+=max-w($w: initial)
+  max-width: $w
+
+=min-w($w: initial)
+  min-width: $w
+
+=h($h: auto)
+  height: $h
+
+=max-h($h: initial)
+  max-height: $h
+
+=min-h($h: initial)
+  min-height: $h
+
+=pl($p: 0)
+  padding-left: $p
+
+=pr($p: 0)
+  padding-right: $p
+
+=pt($p: 0)
+  padding-top: $p
+
+=pb($p: 0)
+  padding-bottom: $p
+
+=p($p: 0)
+  padding: $p
+
+=ml($m: 0)
+  margin-left: $m
+
+=mr($m: 0)
+  margin-right: $m
+
+=mt($m: 0)
+  margin-top: $m
+
+=mb($m: 0)
+  margin-bottom: $m
+
+=m($m: 0)
+  margin: $m
+
+=flex($dir: row)
+  display: flex
+  flex-direction: $dir
+
+=jc($j: center)
+  justify-content: $j
+
+=ai($a: center)
+  align-items: $a
+
+=as($a: center)
+  align-self: $a
+
+=wrap($w: wrap)
+  flex-wrap: $w
+
+=gr($g: 0)
+  flex-grow: $g
+
+=sh($s: 0)
+  flex-shrink: $s
+
+=bgi($url)
+  background-image: url($url)
+
+=bgp($p: center center)
+  background-position: $p
+
+=bgc($c: transparent)
+  background-color: $c
+
+=bgs($s: cover)
+  background-size: $s
+
+=bgr($r: no-repeat)
+  background-repeat: $r
+
+=bg($url)
+  +bgi($url)
+  +bgs()
+  +bgp()
+  +bgr()
+
+
+
+   
