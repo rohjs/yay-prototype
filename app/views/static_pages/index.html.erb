@@ -1,189 +1,169 @@
-<header class="home-header">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="home-yay">
-          <a href="/">
-            <%= image_tag 'logo.svg', alt: "Yay" %>
-          </a>
-        </h1>
-        <div>
-          <a href="/"
-            class="btn--ghost">
-            로그인
-          </a>
-          <a href="/"
+<%= render "shared/static-header" %>
+
+<main>
+  <section class="hello">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>
+            함께 해서 즐거운 사람들<br/>
+            Yay팀을 소개합니다.
+          </h1>
+        </div>
+        <div class="col-12 col-md-10">
+          <p class="mb-0">
+            저희의 목표는 명확합니다.<br/>
+            웹 기술을 활용해 과테말라 사람들의 생활에 편의를 가져다줄 서비스를 제작하는 것.<br/>
+            국가 간 정보 격차로 점차 글로벌 사회에서 소외되어 가는 사람들에게 ICT 기술을 가르치는 것.<br/>
+            우리는 월드프렌즈 IT 봉사 활동을 통해 과테말라 사람들에게 의미 있고 긍정적인 변화를 일으키고자 합니다. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="photo"
+    style="background-image: url(<%= image_url 'bg-hello.jpg' %>)"
+    aria-hidden="true"
+  >
+  </div>
+  
+  <section class="demo">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-5">
+          <h1>
+            수업 개설에서<br/>
+            수료증 발급까지<br/>
+            모두 한 번에 관리하세요!
+          </h1>
+        </div>
+        <div class="col-12 col-md-7">
+          <p>
+            저희의 목표는 명확합니다. 웹 기술을 활용해 과테말라 사람들의 생활에 편의를 가져다줄 서비스를 제작하는 것. 국가 간 정보 격차로 점차 글로벌 사회에서 소외되어 가는 사람들에게 ICT 기술을 가르치는 것. 우리는 월드프렌즈 IT 봉사 활동을 통해 과테말라 사람들에게 의미 있고 긍정적인 변화를 일으키고자 합니다. 
+          </p>
+          <a href="#"
             class="btn--default">
-            회원가입하기
+            Live Demo
           </a>
         </div>
       </div>
     </div>
-  </div>
-</header>
-
-<section class="hello">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>
-          함께 해서 즐거운 사람들<br/>
-          Yay팀을 소개합니다.
-        </h1>
-      </div>
-      <div class="col-12 col-md-10">
-        <p class="mb-0">
-          저희의 목표는 명확합니다.<br/>
-          웹 기술을 활용해 과테말라 사람들의 생활에 편의를 가져다줄 서비스를 제작하는 것.<br/>
-          국가 간 정보 격차로 점차 글로벌 사회에서 소외되어 가는 사람들에게 ICT 기술을 가르치는 것.<br/>
-          우리는 월드프렌즈 IT 봉사 활동을 통해 과테말라 사람들에게 의미 있고 긍정적인 변화를 일으키고자 합니다. 
-        </p>
-      </div>
+  </section>
+  
+  
+  <section class="team">
+    <div class="container">
+      <ul class="row">
+        <li class="col-6 col-md-3 mb-5 mb-md-0">
+          <article class="team__member">
+            <div class="number"
+              aria-hidden="true">
+            </div>
+            <h1>
+              프로 휴학러<br/>
+              노우현
+            </h1>
+            <p>
+              <%= image_tag 'text-1.svg' %>
+            </p>
+          </article>
+        </li>
+        <li class="col-6 col-md-3 mb-5 mb-md-0">
+          <article class="team__member">
+            <div class="number"
+              aria-hidden="true">
+            </div>
+            <h1>
+              22세기형 인재<br/>
+              곽형민
+            </h1>
+            <p>
+                <%= image_tag 'text-2.svg' %>
+            </p>
+          </article>
+        </li>
+        <li class="col-6 col-md-3">
+          <article class="team__member">
+            <div class="number"
+              aria-hidden="true">
+            </div>
+            <h1>
+              리액션 장인<br/>
+              김상아
+            </h1>
+            <p>
+              <%= image_tag 'text-3.svg' %>
+            </p>
+          </article>
+        </li>
+        <li class="col-6 col-md-3">
+          <article class="team__member">
+            <div class="number"
+              aria-hidden="true">
+            </div>
+            <h1>
+              제목학원 다니는<br/>
+              이찬하
+            </h1>
+            <p>
+              <%= image_tag 'text-4.svg' %>
+            </p>
+          </article>
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
-
-<div class="photo"
-  style="background-image: url(<%= image_url 'bg-hello.jpg' %>)"
-  aria-hidden="true"
->
-</div>
-
-<section class="demo">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-5">
-        <h1>
-          수업 개설에서<br/>
-          수료증 발급까지<br/>
-          모두 한 번에 관리하세요!
-        </h1>
-      </div>
-      <div class="col-12 col-md-7">
-        <p>
-          저희의 목표는 명확합니다. 웹 기술을 활용해 과테말라 사람들의 생활에 편의를 가져다줄 서비스를 제작하는 것. 국가 간 정보 격차로 점차 글로벌 사회에서 소외되어 가는 사람들에게 ICT 기술을 가르치는 것. 우리는 월드프렌즈 IT 봉사 활동을 통해 과테말라 사람들에게 의미 있고 긍정적인 변화를 일으키고자 합니다. 
-        </p>
-        <a href="#"
-          class="btn--default">
-          Live Demo
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="team">
-  <div class="container">
-    <ul class="row">
-      <li class="col-6 col-md-3 mb-5 mb-md-0">
-        <article class="team__member">
-          <div class="number"
-            aria-hidden="true">
-          </div>
-          <h1>
-            프로 휴학러<br/>
-            노우현
+  </section>
+  
+  <section class="testimonial"
+    style="background-image: url(<%= image_url 'bg-testimonial.jpg' %>)">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="sr-only">
+            Yay의 모토
           </h1>
-          <p>
-            <%= image_tag 'text-1.svg' %>
-          </p>
-        </article>
-      </li>
-      <li class="col-6 col-md-3 mb-5 mb-md-0">
-        <article class="team__member">
-          <div class="number"
-            aria-hidden="true">
-          </div>
-          <h1>
-            22세기형 인재<br/>
-            곽형민
-          </h1>
-          <p>
-              <%= image_tag 'text-2.svg' %>
-          </p>
-        </article>
-      </li>
-      <li class="col-6 col-md-3">
-        <article class="team__member">
-          <div class="number"
-            aria-hidden="true">
-          </div>
-          <h1>
-            리액션 장인<br/>
-            김상아
-          </h1>
-          <p>
-            <%= image_tag 'text-3.svg' %>
-          </p>
-        </article>
-      </li>
-      <li class="col-6 col-md-3">
-        <article class="team__member">
-          <div class="number"
-            aria-hidden="true">
-          </div>
-          <h1>
-            제목학원 다니는<br/>
-            이찬하
-          </h1>
-          <p>
-            <%= image_tag 'text-4.svg' %>
-          </p>
-        </article>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section class="testimonial"
-  style="background-image: url(<%= image_url 'bg-testimonial.jpg' %>)">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="sr-only">
-          Yay의 모토
-        </h1>
-        <blockquote>
-          <p>
-            세상을 보고 무수한 장애물을 넘어<br/>
-            벽을 허물고 더 가까이 다가가 <span></span>서로를 알아가고 느끼는 것.<br/>
-            그것이 바로 우리가 살아가는 인생의 목적이다.
-          </p>
-          <cite>
-            LIFE지의 모토
-          </cite>
-        </blockquote>
+          <blockquote>
+            <p>
+              세상을 보고 무수한 장애물을 넘어<br/>
+              벽을 허물고 더 가까이 다가가 <span></span>서로를 알아가고 느끼는 것.<br/>
+              그것이 바로 우리가 살아가는 인생의 목적이다.
+            </p>
+            <cite>
+              LIFE지의 모토
+            </cite>
+          </blockquote>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="promise">
-  <div class="container">
-    <div class="promise__item row">
-      <div class="col-12 col-md-5">
-        <h1>
-          우리는 더 나은 세상의 가능성을 믿습니다.
-        </h1>
+  </section>
+  
+  <section class="promise">
+    <div class="container">
+      <div class="promise__item row">
+        <div class="col-12 col-md-5">
+          <h1>
+            우리는 더 나은 세상의 가능성을 믿습니다.
+          </h1>
+        </div>
+        <div class="col-12 col-md-7">
+          <p>
+            우리는 세상에 수없이 많은 가능성이 존재하고 모든 것들은 더욱 나아질 수 있다고 믿습니다.  가능성을 발견하기 위해 기꺼이 불편함을 감수하고, 새로운 시도와 도전을 멈추지 않는 사람들이 모였습니다. 끊임없는 시도와 노력으로 도움이 필요한 곳에 지속적인 진화를 만들어 내는 것. 그것이 우리가 추구하는 봉사 정신입니다. 
+          </p>
+        </div>
       </div>
-      <div class="col-12 col-md-7">
-        <p>
-          우리는 세상에 수없이 많은 가능성이 존재하고 모든 것들은 더욱 나아질 수 있다고 믿습니다.  가능성을 발견하기 위해 기꺼이 불편함을 감수하고, 새로운 시도와 도전을 멈추지 않는 사람들이 모였습니다. 끊임없는 시도와 노력으로 도움이 필요한 곳에 지속적인 진화를 만들어 내는 것. 그것이 우리가 추구하는 봉사 정신입니다. 
-        </p>
+      <div class="promise__item row">
+        <div class="col-12 col-md-5">
+          <h1>
+            우리는 더 나은 세상의 가능성을 믿습니다.
+          </h1>
+        </div>
+        <div class="col-12 col-md-7">
+          <p>
+            우리는 세상에 수없이 많은 가능성이 존재하고 모든 것들은 더욱 나아질 수 있다고 믿습니다.  가능성을 발견하기 위해 기꺼이 불편함을 감수하고, 새로운 시도와 도전을 멈추지 않는 사람들이 모였습니다. 끊임없는 시도와 노력으로 도움이 필요한 곳에 지속적인 진화를 만들어 내는 것. 그것이 우리가 추구하는 봉사 정신입니다. 
+          </p>
+        </div>
       </div>
     </div>
-    <div class="promise__item row">
-      <div class="col-12 col-md-5">
-        <h1>
-          우리는 더 나은 세상의 가능성을 믿습니다.
-        </h1>
-      </div>
-      <div class="col-12 col-md-7">
-        <p>
-          우리는 세상에 수없이 많은 가능성이 존재하고 모든 것들은 더욱 나아질 수 있다고 믿습니다.  가능성을 발견하기 위해 기꺼이 불편함을 감수하고, 새로운 시도와 도전을 멈추지 않는 사람들이 모였습니다. 끊임없는 시도와 노력으로 도움이 필요한 곳에 지속적인 진화를 만들어 내는 것. 그것이 우리가 추구하는 봉사 정신입니다. 
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>

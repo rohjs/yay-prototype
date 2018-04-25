@@ -1,0 +1,21 @@
+<%= render "shared/static-header" %>
+
+<main>
+  <section class="sign-up">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>
+            회원가입하기
+          </h1>
+        </div>
+        <div class="col-12 col-md-10">
+          <%= render partial: "form" %>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<%= render "devise/shared/links" %>
