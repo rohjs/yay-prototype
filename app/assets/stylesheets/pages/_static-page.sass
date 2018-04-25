@@ -8,6 +8,12 @@
   p
     @extend %body
 
+.photo
+  +h(450px)
+  +bgp()
+  +bgr()
+  +bgs()
+
 .demo
   @extend %section
   background-color: $bg-gray
@@ -63,8 +69,14 @@
       font-size: 23px
       font-weight: 300
       line-height: 1.43
+      span
+        display: block
+      +max-xs()
+        font-size: 21px
       +min-md()
         font-size: 28px
+        span
+          display: inline
     cite
       font-size: 14px
       font-weight: 500
