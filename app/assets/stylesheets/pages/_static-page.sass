@@ -1,8 +1,22 @@
+.home-header .col-12
+  +flex()
+  +jc(space-between)
+  +ai()
+  +h(64px)
+  +bgc(rgba(255, 255, 255, .9))
+  .home-yay
+    +mb()
+    a
+      display: block
+      transition: opacity 200ms
+      &:hover
+        opacity: .5
+
 .hello
-  display: flex
-  align-items: center
-  width: 100%
-  height: 600px
+  +flex()
+  +ai()
+  +w()
+  +h(600px)
   h1
     @extend %heading-1
   p
@@ -16,7 +30,7 @@
 
 .demo
   @extend %section
-  background-color: $bg-gray
+  +bgc($bg-gray)
   h1
     @extend %heading-2
   p
@@ -24,6 +38,9 @@
   
 .team
   @extend %section
+  +max-sm()
+    +pl(15px)
+    +pr(15px)
   li
     &:nth-child(1) .number
       +bgp(0 0)
@@ -63,7 +80,7 @@
     +rel()
     +z()
     +mb()
-    color: #fff
+    color: $white
     text-align: center
     p
       font-size: 23px
@@ -90,6 +107,20 @@
     +w()
     +h(100%)  
     +bgc(rgba(0, 0, 0, .1))
+
+.promise__item
+  +pt(60px)
+  +pb(60px)
+  +min-md()
+    +pt(80px)
+    +pb(80px)
+  h1
+    @extend %heading-3
+  p
+    @extend %body
+    +mb()
+  &:not(:last-child)
+    border-bottom: 1px solid $border-gray
 
   
 
