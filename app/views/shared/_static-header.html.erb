@@ -8,14 +8,17 @@
           </a>
         </h1>
         <div>
-          <a href="/users/sign_in"
-            class="btn--ghost">
-            로그인
-          </a>
-          <a href="/users/sign_up"
-            class="btn--default">
-            회원가입하기
-          </a>
+          <% if user_signed_in? %>
+            <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--ghost" %>
+          <% else %>
+            <% if !current_page?(new_user_session_path) %>
+              <%= link_to "로그인", new_user_session_path, class: "btn--ghost" %>
+            <% end %>
+
+            <% if !current_page?(new_user_registration_path) %>
+              <%= link_to "회원가입하기", new_user_registration_path, class: "btn--default" %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,0 +1,46 @@
+%form-style
+  +pr(15px)
+  +pl(15px)
+  display: block
+  border-radius: 4px
+  border: 1px solid $border-gray
+  box-shadow: 0 0 0 0px rgba($secondary-blue, .1)
+  transition: box-shadow 200ms, border-color 200ms
+  &:focus,
+  &:active
+    border-color: rgba($secondary-blue, .4)
+    outline: none
+    box-shadow: 0 0 0px 2px rgba($secondary-blue, .1)
+  
+.form
+  &__label
+    display: block
+    font-size: 13px
+    font-weight: 500
+    line-height: 1
+    color: $gray
+  &__input
+    @extend %form-style
+    +w()
+    +h(44px)
+    +mb(24px)
+    display: block
+  &__meta-text
+    +ml(4px)
+    font-size: 13px
+    line-height: 1
+    color: $muted-gray
+    font-style: normal
+  &__remember-me
+    +flex()
+    +ai()
+    label
+      +rel()
+      +t(3px)
+      +ml(8px)
+      +mb()
+  &__submit
+    +flex()
+    +jc()
+    +ai()
+    +mt(16px)
