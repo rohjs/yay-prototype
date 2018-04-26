@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title><%= @user.name %>님의 대시보드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="dashboard">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
