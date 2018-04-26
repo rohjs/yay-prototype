@@ -1,12 +1,8 @@
 .sign-in
+  @extend %section-with-top
   .row
-    @extend %full-section
     +jc()
-    +ai()
-  .col-12
-    +as(flex-start)
-  header.col-12
-    +as(flex-end)
+  header
     +mb(32px)
   h1
     @extend %heading-1
@@ -16,8 +12,10 @@
     +w()
   .form__remember-me
     +mb(24px)
+    & + .form__submit
+      +mt(40px)
   &__utils
-    +mt(16px)
+    +mt(12px)
     text-align: center
     a
       font-size: 13px
@@ -31,6 +29,7 @@
 
 
 .sign-up
+  @extend %section-with-top
   h1
     @extend %heading-1
     text-align: center

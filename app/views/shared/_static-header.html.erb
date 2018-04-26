@@ -8,14 +8,18 @@
           </a>
         </h1>
         <div>
-          <a href="/users/sign_in"
-            class="btn--ghost">
-            로그인
-          </a>
-          <a href="/users/sign_up"
-            class="btn--default">
-            회원가입하기
-          </a>
+          <% if !current_page?(new_user_session_path) %>
+            <a href="/users/sign_in"
+              class="btn--ghost">
+              로그인
+            </a>
+          <% end %>
+          <% if !current_page?(new_user_registration_path) %>
+            <a href="/users/sign_up"
+              class="btn--default">
+              회원가입하기
+            </a>
+          <% end %>
         </div>
       </div>
     </div>
