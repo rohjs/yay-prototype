@@ -30,15 +30,10 @@
   +min-lg()
     font-size: 26px
 
-
-%body
-  +mb(1em)
-  font-size: 14px
-  line-height: 1.5
-  color: $gray
-  letter-spacing: -.02em
-  +min-md() 
-    font-size: 16px
+%heading-sidebar
+  font-size: 20px
+  font-weight: 300
+  line-height: 1.2
 
 %heading-team
   font-size: 22px
@@ -50,5 +45,22 @@
     font-size: 24px
   +min-lg() 
     font-size: 28px
+
+%body
+  +mb(1em)
+  font-size: 14px
+  line-height: 1.5
+  color: $gray
+  letter-spacing: -.02em
+  +min-md() 
+    font-size: 16px
+
+%ui-secondary
+  +mb()
+  font-size: 14px
+  font-weight: 500
+  line-height: 1
+  color: $muted-gray
+
 
   
