@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-12">
         <h1 class="home-yay">
-          <a href="/">
+          <%= link_to root_path do %>
             <%= image_tag 'logo.svg', alt: "Yay" %>
-          </a>
+          <% end %>
         </h1>
         <div>
           <% if user_signed_in? %>
