@@ -1,0 +1,21 @@
+.dash__course
+  @extend %list-item
+  &:not(:last-of-type)
+    +mb(10px)
+  a
+    +flex(column)
+    +jc()
+    +w()
+    +h(88px)
+    +pl(30px)
+    +pr(30px)
+    transition: opacity 150ms
+    &:hover,
+    &:focus,
+    &:active
+      opacity: .5
+  h1
+    @extend %heading-list-item
+    +mb(10px)
+  p
+    @extend %ui-secondary
