@@ -1,27 +1,28 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  hi
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form__item">
+    <%= f.label :email, '이메일', class: "form__label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="form__item">
+    <%= f.label :password, class: "form__label" do %>
+      <% if @minimum_password_length %>
+        비밀번호
+        <em class="form__meta-text">비밀번호는 최소 <%= @minimum_password_length %>자리 이상으로 만들어야 합니다.</em>
+      <% end %>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", class: "form__input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form__item">
+    <%= f.label :password_confirmation, '비밀번호 확인', class: "form__label" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form__input" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form__submit">
+    <%= f.submit "회원가입하기", class: "form__submit btn--default" %>
   </div>
 
 <% end %>

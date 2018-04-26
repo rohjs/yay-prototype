@@ -1,7 +1,37 @@
 .sign-in
   .row
     @extend %full-section
-    +flex()
+    +jc()
+    +ai()
+  .col-12
+    +as(flex-start)
+  header.col-12
+    +as(flex-end)
+    +mb(32px)
+  h1
+    @extend %heading-1
+    +mb()
+    text-align: center
+  form
+    +w()
+  .form__remember-me
+    +mb(24px)
+  &__utils
+    +mt(16px)
+    text-align: center
+    a
+      font-size: 13px
+      line-height: 1
+      color: $gray
+      transition: color $fast
+      &:hover
+        color: $muted-gray
+      &:first-child
+        +mr(16px)
+
+
+.sign-up
   h1
     @extend %heading-1
     text-align: center
+  
