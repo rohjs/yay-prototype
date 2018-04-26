@@ -1,11 +1,15 @@
 %form-style
-  +pr(15px)
-  +pl(15px)
+  +pr(10px)
+  +pl(10px)
   display: block
   border-radius: 4px
   border: 1px solid $border-gray
   box-shadow: 0 0 0 0px rgba($secondary-blue, .1)
   transition: box-shadow 200ms, border-color 200ms
+  font-size: 14px
+  line-height: 1
+  +min-md()
+    font-size: 15px
   &:focus,
   &:active
     border-color: rgba($secondary-blue, .4)
@@ -13,12 +17,31 @@
     box-shadow: 0 0 0px 2px rgba($secondary-blue, .1)
   
 .form
+  &__radio
+    +flex()
+    +wrap()
+    +ai()
+    +mb(28px)
+    & > *
+      +mb()
+    .form__label
+      +w()
+      +mb(.75em)
+  &__radio-btn
+    +mr(8px)
   &__label
+    +mb(.5em)
     display: block
     font-size: 13px
     font-weight: 500
     line-height: 1
     color: $gray
+    &--radio
+      +mr(32px)
+      font-size: 14px
+      line-height: 1
+      +min-md()
+        font-size: 15px
   &__input
     @extend %form-style
     +w()
