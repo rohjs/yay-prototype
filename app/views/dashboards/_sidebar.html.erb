@@ -12,9 +12,8 @@
         <%= user.user_type == 0 ? "학생" : "선생님 " %>
       </p>
     </header>
-    <a href="/"
-      class="btn--default btn--large">
-      수업 개설하기
-    </a>
+    <% if @user.user_type == 1 %>
+      <%= link_to '수업 개설하기', new_course_path, class: "btn--default btn--large" %>
+    <% end %>
   </aside>
 </div>
