@@ -7,7 +7,11 @@
   <% f.object.start_date = Date.today %>
   <% f.object.end_date = Date.today %>
   <% f.object.closing_date = Date.tomorrow %>
+  <% f.object.title = "찬하의 아가리 레일즈" %>
+  <% f.object.description = "레일즈배우즈아" %>
 <% end %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
 
 
 <div class="form__item">
@@ -44,6 +48,17 @@
     <%= f.number_field :capacity, autocomplete: "off", class: "form__input" %>
   </div>
 </div>
+
+<%= f.fields_for :requirements do |requirement| %>
+  <div class="form__item">
+    <%= requirement.label :title, "수료조건", class: "form__label" %>
+    <%= requirement.text_field :title, autocomplete: "off", class: "form__input" %>
+  </div>
+  <div class="form__item">
+    <%= requirement.label :description, "수료조건 상세", class: "form__label" %>
+    <%= requirement.text_field :description, autocomplete: "off", class: "form__input" %>
+  </div>
+<% end %>
 
 <div class="form__group">
   <div class="form__item mr-3"

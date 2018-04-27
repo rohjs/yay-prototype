@@ -12,12 +12,14 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new()
+    2.times { @course.requirements.new() }
   end
 
   def create
     @course = Course.create(course_params)
-    puts "--------------------------"
+    puts "------------"
     puts @course.errors.full_messages
+
     if @course.save
       redirect_to @course
     else
@@ -46,6 +48,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:title, :teacher_id, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date)
+      params.require(:course).permit(:title, :user_id, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:title, :description])
     end
 end

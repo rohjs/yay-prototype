@@ -15,20 +15,6 @@
         style="max-height: 294px;">
         <ul class="dash__courses">
 
-          <% @ongoing_courses.each do |course| %>
-            <li class="dash__course">
-              <article class="dash__course-item">
-                <%= link_to course_path(course) do %>
-                  <h1>
-                    <%= course.title %>
-                  </h1>
-                  <p>
-                    <%= course.category %>  |  <%= course.level %>
-                  </p>
-                <% end %>
-              </article>
-            </li>
-          <% end %>
           
         </ul>
       </div>
@@ -43,20 +29,6 @@
       <div class="dash-section__content">
         <ul class="dash__courses">
 
-          <% @completed_courses.each do |course| %>
-            <li class="dash__course">
-              <article class="dash__course-item">
-                <%= link_to course_path(course) do %>
-                  <h1>
-                    <%= course.title %>
-                  </h1>
-                  <p>
-                    <%= course.category %>  |  <%= course.level %>
-                  </p>
-                <% end %>
-              </article>
-            </li>
-          <% end %>
         </ul>
       </div>
     </section>
