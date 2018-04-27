@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :dashboards
   resources :courses
-  devise_for :users,
-    :controllers => { :registrations => "registrations" }
+  devise_for :users
 
 
   root "homes#index"
