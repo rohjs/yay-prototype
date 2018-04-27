@@ -1,7 +1,7 @@
 <%= form_for(@course) do |f| %>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.hidden_field :teacher_id, value: current_user.teacher.id %>
+<%= f.hidden_field :teacher_id, value: @teacher_id %>
 
 <div class="form__item">
   <p class="form__label">선생님</p>
@@ -23,6 +23,9 @@
       options_for_select({
         '3학점' => 0,
         '6학점' => 1,
+        '9학점' => 2,
+        '12학점' => 3,
+        '15학점' => 4,
       }, 0),
       {},
     class: "form__input" %>
