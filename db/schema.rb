@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(version: 20180427063317) do
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "category", default: 0
-    t.integer "integer", default: 0
+    t.integer "category"
     t.integer "level"
     t.integer "credit"
     t.integer "capacity"
