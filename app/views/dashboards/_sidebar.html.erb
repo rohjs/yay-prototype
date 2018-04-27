@@ -2,8 +2,7 @@
   <aside class="sidebar">
     <header class="sidebar__header">
       <div class="sidebar__user-image">
-        <img src="/images/img-sample-user.jpg"
-          alt="" />
+        <%= image_tag current_user.profile.url%>      
       </div>
       <h1>
         <%= user.name[1..-1] %>님, 안녕하세요!

@@ -13,6 +13,11 @@
   </div>
 
   <div class="form__item">
+    <%= f.label :profile, '프로필 사진', class: "form__label" %>
+    <%= f.file_field :profile, autofocus: false, autocomplete: "off", class: "form__input" %>
+  </div>
+
+  <div class="form__item">
     <%= f.label :email, '이메일', class: "form__label" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__input" %>
   </div>
@@ -60,6 +65,3 @@
   </div>
 
 <% end %>
-
-
-
