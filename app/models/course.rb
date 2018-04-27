@@ -17,11 +17,11 @@ class Course < ApplicationRecord
   }
 
   enum credit: {
-    3_credit: 0,
-    6_credit: 1,
-    9_credit: 2,
-    12_credit: 3,
-    15_credit: 4
+    credit_3: 0,
+    credit_6: 1,
+    credit_9: 2,
+    credit_12: 3,
+    credit_15: 4
   }
 
 end
