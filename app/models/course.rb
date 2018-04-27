@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
-  belongs_to :teacher
+  belongs_to :user
+  has_many :requirements
 
   enum level: {
     introductory: 0,

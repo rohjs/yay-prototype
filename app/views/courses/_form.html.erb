@@ -9,8 +9,6 @@
   <% f.object.closing_date = Date.tomorrow %>
 <% end %>
 
-<%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.hidden_field :teacher_id, value: current_user.teacher.id %>
 
 <div class="form__item">
   <p class="form__label">선생님</p>
