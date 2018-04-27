@@ -4,3 +4,23 @@
     .container,
     .row
       +h(100%)
+
+
+.dash-header
+  h1
+    @extend %heading-dashboard-header
+    +mb()
+  &__detail
+    +flex()
+    dl:not(:last-child)
+      +mr(50px)
+    dt
+      @extend %ui-secondary
+      +mb(10px)
+    dd
+      @extend %ui-primary
+
+.dash-content
+  .flex-column > &
+    +gr(1)
+    overflow-y: auto

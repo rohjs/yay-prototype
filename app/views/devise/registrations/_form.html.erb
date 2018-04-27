@@ -34,7 +34,7 @@
 
   <div class="form__item">
     <%= f.label :department, '학부', class: "form__label" %>
-    <%= select_tag :department,
+    <%= f.select :department,
       options_for_select({
         '국제인문학부' => 0,
         '사회과학부' => 1,
@@ -46,6 +46,7 @@
         '커뮤니케이션학부' => 7,
         '법학부' => 8
       }, 0),
+      {},
       class: "form__input" %>
   </div>
 

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title><%= @user.name %>님의 대시보드</title>
+    <title>
+      <%= content_for(:title) || "함께 하면 좋은 사람들, Yay!" %>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
@@ -14,9 +16,7 @@
     
     <main>
       <div class="container">
-        <div class="row align-items-stretch pb-4">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
     </main>
   </body>
