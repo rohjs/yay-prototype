@@ -1,3 +1,138 @@
-student dashboard 
+<% content_for :title, "메인 | #{@user.name}님의 대시보드" %>
 
-<% @user.email %>
+<%= render partial: "sidebar", locals: { user: @user } %>
+
+<div class="col-lg-9 d-flex flex-column">
+  <section class="dash-section mb-5">
+    <header class="dash-section__header">
+      <h1>
+        수강중인 수업
+      </h1>
+    </header>
+    <div class="dash-section__content"
+      style="max-height: 294px;">
+      <ul class="dash__courses">
+        <li class="dash__course">
+          <article class="dash__course-item">
+            <a href="/">
+              <h1>
+                HTML, CSS로 시작하는 웹 개발
+              </h1>
+              <p>
+                웹 프로그래밍  |  Basic
+              </p>
+            </a>
+          </article>
+        </li>
+        <li class="dash__course">
+          <article class="dash__course-item">
+            <a href="/">
+              <h1>
+                HTML, CSS로 시작하는 웹 개발
+              </h1>
+              <p>
+                웹 프로그래밍  |  Basic
+              </p>
+            </a>
+          </article>
+        </li>
+        <li class="dash__course">
+          <article class="dash__course-item">
+            <a href="/">
+              <h1>
+                HTML, CSS로 시작하는 웹 개발
+              </h1>
+              <p>
+                웹 프로그래밍  |  Basic
+              </p>
+            </a>
+          </article>
+        </li>
+        <li class="dash__course">
+          <article class="dash__course-item">
+            <a href="/">
+              <h1>
+                HTML, CSS로 시작하는 웹 개발
+              </h1>
+              <p>
+                웹 프로그래밍  |  Basic
+              </p>
+            </a>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="dash-section d-flex flex-column">
+    <header class="dash-section__header">
+      <h1>
+        지난 수업
+      </h1>
+    </header>
+    <div class="dash-section__content">
+       <ul class="dash__courses">
+        <li class="dash__course">
+            <article class="dash__course-item">
+              <a href="/">
+                <h1>
+                  HTML, CSS로 시작하는 웹 개발
+                </h1>
+                <p>
+                  웹 프로그래밍  |  Basic
+                </p>
+              </a>
+            </article>
+          </li>
+          <li class="dash__course">
+            <article class="dash__course-item">
+              <a href="/">
+                <h1>
+                  HTML, CSS로 시작하는 웹 개발
+                </h1>
+                <p>
+                  웹 프로그래밍  |  Basic
+                </p>
+              </a>
+            </article>
+          </li>
+        <li class="dash__course">
+          <article class="dash__course-item">
+            <a href="/">
+              <h1>
+                HTML, CSS로 시작하는 웹 개발
+              </h1>
+              <p>
+                웹 프로그래밍  |  Basic
+              </p>
+            </a>
+          </article>
+        </li>
+        <li class="dash__course">
+          <article class="dash__course-item">
+            <a href="/">
+              <h1>
+                HTML, CSS로 시작하는 웹 개발
+              </h1>
+              <p>
+                웹 프로그래밍  |  Basic
+              </p>
+            </a>
+          </article>
+        </li>
+        <li class="dash__course">
+          <article class="dash__course-item">
+            <a href="/">
+              <h1>
+                HTML, CSS로 시작하는 웹 개발
+              </h1>
+              <p>
+                웹 프로그래밍  |  Basic
+              </p>
+            </a>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
