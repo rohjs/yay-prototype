@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  
+
   layout "dashboard"
 
   def index
@@ -16,7 +16,8 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.create(course_params)
-
+    puts "--------------------------"
+    puts @course.errors.full_messages
     if @course.save
       redirect_to @course
     else

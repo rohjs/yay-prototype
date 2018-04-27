@@ -1,7 +1,16 @@
 <%= form_for(@course) do |f| %>
+<% if Rails.env.development? %>
+  <%# f.object.title = "[테스트용] 역삼 롯데" %>
+  <%# f.object.description = "멋진 곳" %>
+  <%# f.object.address1 = "서울 강남구 강남대로 238 (도곡동, 스카이쏠라빌딩)" %>
+  <%# f.object.address2 = "좋은 곳" %>
+  <% f.object.start_date = Date.today %>
+  <% f.object.end_date = Date.today %>
+  <% f.object.closing_date = Date.tomorrow %>
+<% end %>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.hidden_field :teacher_id, value: @teacher_id %>
+<%= f.hidden_field :teacher_id, value: current_user.teacher.id %>
 
 <div class="form__item">
   <p class="form__label">선생님</p>
@@ -49,11 +58,11 @@
         '디자인' => "design",
         '마케팅' => "marketing",
         '비즈니스' => "business"
-      }, 0), 
+      }, 0),
       {},
       class: "form__input" %>
   </div>
-  
+
   <div class="form__item"
     style="flex-grow: 1;">
     <%= f.label :level, "수업 난이도", class: "form__label" %>
