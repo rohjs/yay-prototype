@@ -1,51 +1,5 @@
 <% content_for :title, "수업 개설하기 | 님의 대시보드" %>
 
-<div class="row pb-4"
-  id="course-new">
-  <div class="col-12 mb-5">
-    <header class="dash-header">
-      <h1><%= @course.title %></h1>
-      <div class="dash-header__detail">
-        <dl>
-          <dt>분야</dt>
-          <dd>
-            <%= @course.category %>
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>학점</dt>
-          <dd>
-            <%= @course.credit %>
-          </dd>
-        </dl>
-        
-        <dl>
-          <dt>레벨</dt>
-          <dd>
-            <%= @course.level %>
-          </dd>
-        </dl>
-        
-        <dl>
-          <dt>수강인원</dt>
-          <dd>
-            0 / <%= @course.capacity %>
-          </dd>
-        </dl>
-        
-
-        <dl>
-          <dt>목표</dt>
-          <dd>
-            <%= @course.description %>
-          </dd>
-        </dl>
-      </div>
-    </header>
-  </div>
-  <div class="col-lg-9">
-    <div class="dash-content">
-    </div>
-  </div>
-</div>
+<% if current_user.user_type == 1 %>
+  <%= render partial: "show-teacher", locals: { course: @course, students: @students } %>
+<% end %>

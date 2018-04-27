@@ -9,12 +9,35 @@
       <header class="dash-section__header">
         <h1>
           진행중인 수업
+          <span aria-label="<%= @ongoing_courses.length %>개">
+            <%= @ongoing_courses.length %>
+          </span>
         </h1>
       </header>
       <div class="dash-section__content"
         style="max-height: 294px;">
         <ul class="dash__courses">
 
+          <%= @ongoing_courses.each do |c| %>
+
+            <li>
+              <% @ongoing_courses.each do |course| %>
+                <li class="dash__course">
+                  <article class="dash__course-item">
+                    <%= link_to course_path(course) do %>
+                      <h1>
+                        <%= course.title %>
+                      </h1>
+                      <p>
+                        <%= course.category %>  |  <%= course.level %>
+                      </p>
+                    <% end %>
+                  </article>
+                </li>
+              <% end %>
+            </li>
+
+          <% end %>
           
         </ul>
       </div>
@@ -24,10 +47,28 @@
       <header class="dash-section__header">
         <h1>
           지난 수업
+          <span aria-label="<%= @completed_courses.length %>개">
+            <%= @completed_courses.length %>
+          </span>
         </h1>
       </header>
       <div class="dash-section__content">
         <ul class="dash__courses">
+
+          <% @completed_courses.each do |course| %>
+            <li class="dash__course">
+              <article class="dash__course-item">
+                <%= link_to course_path(course) do %>
+                  <h1>
+                    <%= course.title %>
+                  </h1>
+                  <p>
+                    <%= course.category %>  |  <%= course.level %>
+                  </p>
+                <% end %>
+              </article>
+            </li>
+          <% end %>
 
         </ul>
       </div>

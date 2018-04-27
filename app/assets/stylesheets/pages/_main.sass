@@ -1,5 +1,10 @@
 .dash-section
   &__header
     @extend %dashboard-header
+    h1
+      > span
+        @extend %ui-primary
+        color: $primary-blue
+        font-weight: 700
   &__content
     overflow-y: auto

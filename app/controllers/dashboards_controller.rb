@@ -9,6 +9,11 @@ class DashboardsController < ApplicationController
       when 0
         render "dashboards/students/show"
       when 1
+        courses = @user.courses
+
+        @ongoing_courses = courses.where("closing_date >= ?", Date.today)
+
+        @completed_courses = courses.where("closing_date < ?", Date.today)
         render "dashboards/teachers/show"
     end
   end
