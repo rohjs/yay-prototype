@@ -1,6 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :user
   has_many :requirements
+  accepts_nested_attributes_for :requirements
 
   enum level: {
     introductory: 0,
@@ -34,6 +35,5 @@ class Course < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :closing_date, presence: true
-  #validates :teacher_id, presence: true
 
 end
