@@ -8,14 +8,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    @students = User.where("user_type == 0")
-  end
-
-  def add_student
-    student = User.find(params[:student_id])
-    course = Course.find(params[:course_id])
-    
-    course.students << student
+    @students = User.where("user_type == 0") - @course.users
   end
 
   def new
@@ -24,7 +17,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.create(course_params)
+    @course = current_user.courses.create(course_params)
 
     if @course.save
       redirect_to @course
@@ -47,6 +40,15 @@ class CoursesController < ApplicationController
     end
   end
 
+  def add_student
+    student = User.find(params[:student_id])
+    course = Course.find(params[:course_id])
+
+    course.users << student
+
+    redirect_to course
+  end
+
   private
 
     def set_course
@@ -54,7 +56,7 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:title, :user_id, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:title, :description])
+      params.require(:course).permit(:title, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:title, :description])
     end
 
 end

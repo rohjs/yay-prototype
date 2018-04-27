@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  User.create(
+    email: "chanha#{i}@naver.com",
+    name: "chanha#{i}",
+    user_type: 0,
+    phone_number: "xxx-xxx-xxxx",
+    department: rand(1..5),
+    password: "123456",
+    password_confirmation: "123456"
+  )
+end

@@ -21,21 +21,21 @@
             <%= course.credit %>
           </dd>
         </dl>
-        
+
         <dl>
           <dt>레벨</dt>
           <dd>
             <%= course.level %>
           </dd>
         </dl>
-        
+
         <dl>
           <dt>수강인원</dt>
           <dd>
             0 / <%= course.capacity %>
           </dd>
         </dl>
-        
+
 
         <dl>
           <dt>목표</dt>
@@ -54,13 +54,16 @@
         </h1>
       </header>
       <div class="dash-section__content">
+        <% course.users.where(user_type: 0).each do |stu| %>
+          <%= stu.name%><br>
+       <% end %>
       </div>
     </section>
   </div>
 </div>
 
 <section>
-  
+
   <h1>수강생을 추가하는 모달</h1>
   <div>
     <% students.each do |student| %>
