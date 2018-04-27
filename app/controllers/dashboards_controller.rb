@@ -9,7 +9,7 @@ class DashboardsController < ApplicationController
       when 0
         render "dashboards/students/show"
       when 1
-        teacher_id = current_user.teacher.id
+        teacher_id = Teacher.where(:user_id => @user.id)
         courses = Course.where(:teacher_id => teacher_id)
         @ongoing_courses = courses.select {|course| course[:closing_date] >= Time.now}
         @completed_courses = courses.select{|course| course[:closing_date] < Time.now}
