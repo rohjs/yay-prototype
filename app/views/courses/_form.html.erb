@@ -1,0 +1,117 @@
+<%= form_for(@course) do |f| %>
+<% if Rails.env.development? %>
+  <%# f.object.title = "[테스트용] 역삼 롯데" %>
+  <%# f.object.description = "멋진 곳" %>
+  <%# f.object.address1 = "서울 강남구 강남대로 238 (도곡동, 스카이쏠라빌딩)" %>
+  <%# f.object.address2 = "좋은 곳" %>
+  <% f.object.start_date = Date.today %>
+  <% f.object.end_date = Date.today %>
+  <% f.object.closing_date = Date.tomorrow %>
+  <% f.object.title = "찬하의 아가리 레일즈" %>
+  <% f.object.description = "레일즈배우즈아" %>
+<% end %>
+
+<div class="form__item">
+  <p class="form__label">선생님</p>
+  <p class="form__input--disabled">
+    <%= current_user.name %>
+  </p>
+</div>
+
+<div class="form__item"
+  style="flex-grow: 2;">
+  <%= f.label :title, "수업명", class: "form__label" %>
+  <%= f.text_field :title, autofocus: true, autocomplete: "off", class: "form__input" %>
+</div>
+<div class="form__group">
+  <div class="form__item mr-3"
+    style="flex-grow: 1;">
+    <%= f.label :credit, "학점", class: "form__label" %>
+    <%= f.select :credit,
+      options_for_select({
+        "3학점" => "credit_3",
+        "6학점" => "credit_6",
+        "9학점" => "credit_9",
+        "12학점" => "credit_12",
+        "15학점" => "credit_15",
+      }, 0),
+      {},
+    class: "form__input" %>
+  </div>
+
+  <div class="form__item"
+    style="flex-grow: 1;">
+    <%= f.label :capacity, "수강인원", class: "form__label" %>
+    <%= f.number_field :capacity, autocomplete: "off", class: "form__input" %>
+  </div>
+</div>
+
+<%= f.fields_for :requirements do |requirement| %>
+  <div class="form__item">
+    <%= requirement.label :title, "수료조건", class: "form__label" %>
+    <%= requirement.text_field :title, autocomplete: "off", class: "form__input" %>
+  </div>
+  <div class="form__item">
+    <%= requirement.label :description, "수료조건 상세", class: "form__label" %>
+    <%= requirement.text_field :description, autocomplete: "off", class: "form__input" %>
+  </div>
+<% end %>
+
+<div class="form__group">
+  <div class="form__item mr-3"
+    style="flex-grow: 2;">
+    <%= f.label :category, "수업 분야", class: "form__label" %>
+    <%= f.select :category,
+      options_for_select({
+        '웹 프로그래밍' => "programming",
+        '데이터 사이언스' => "data_science",
+        '디자인' => "design",
+        '마케팅' => "marketing",
+        '비즈니스' => "business"
+      }, 0),
+      {},
+      class: "form__input" %>
+  </div>
+
+  <div class="form__item"
+    style="flex-grow: 1;">
+    <%= f.label :level, "수업 난이도", class: "form__label" %>
+    <%= f.select :level,
+      options_for_select({
+        '입문' => "introductory",
+        '초급' => "basic",
+        '중급' => "intermediate",
+        '고급' => "advanced"
+      }, 0),
+      {},
+      class: "form__input" %>
+  </div>
+</div>
+
+<div class="form__group">
+  <div class="form__item mr-3"
+    style="flex-grow: 1">
+    <%= f.label :start_date, "수업 개강 날짜", class: "form__label" %>
+    <%= f.date_field :start_date, autofocus: false, autocomplete: "off", class: "form__input" %>
+  </div>
+  <div class="form__item mr-3"
+    style="flex-grow: 1">
+    <%= f.label :end_date, "수업 종강 날짜", class: "form__label" %>
+    <%= f.date_field :end_date, autofocus: false, autocomplete: "off", class: "form__input" %>
+  </div>
+  <div class="form__item"
+    style="flex-grow: 1">
+    <%= f.label :closing_date, "성적 입력 마감 날짜", class: "form__label" %>
+    <%= f.date_field :closing_date, autofocus: false, autocomplete: "off", class: "form__input" %>
+  </div>
+</div>
+
+<div class="form__item">
+  <%= f.label :description, "수업 소개", class: "form__label" %>
+  <%= f.text_area :description, autofocus: false, autocomplete: "off", class: "form__textarea" %>
+</div>
+
+<div class="form__submit">
+  <%= f.submit "수업 개설하기", class: "form__submit btn--default" %>
+</div>
+<% end %>

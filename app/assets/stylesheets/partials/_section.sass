@@ -6,8 +6,23 @@
     +pb(100px)
 
 %section-with-top
-  +pt(150px)
+  +pt(120px)
   +pb(120px)
+  +min-sm()
+    +pt(140px)
+    +pb(140px)
   +min-md()
-    +pt(200px)
-    +pb(160px)
+    +pt(180px)
+    +pb(180px)
+
+%dashboard
+  +pt(120px)
+  +min-h(100vh)
+  +min-lg()
+    +h(100vh)
+
+%dashboard-header
+  +mb(20px)
+  h1
+    @extend %ui-primary
+    +m()

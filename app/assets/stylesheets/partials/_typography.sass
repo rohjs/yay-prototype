@@ -30,15 +30,17 @@
   +min-lg()
     font-size: 26px
 
+%heading-sidebar
+  font-size: 20px
+  font-weight: 300
+  line-height: 1.2
 
-%body
-  +mb(1em)
-  font-size: 14px
-  line-height: 1.5
-  color: $gray
-  letter-spacing: -.02em
-  +min-md() 
-    font-size: 16px
+%heading-dashboard-header
+  font-size: 25px
+  font-weight: 300
+  line-height: 1
+  +min-md()
+    font-size: 28px
 
 %heading-team
   font-size: 22px
@@ -50,5 +52,36 @@
     font-size: 24px
   +min-lg() 
     font-size: 28px
+
+%heading-list-item
+  font-size: 18px
+  line-height: 1
+  font-weight: 400
+  color: $black
+
+%body
+  +mb(1em)
+  font-size: 14px
+  line-height: 1.5
+  color: $gray
+  letter-spacing: -.02em
+  +min-md() 
+    font-size: 16px
+
+%ui-primary
+  +mb()
+  font-size: 14px
+  font-weight: 500
+  line-height: 1
+  color: $gray
+
+%ui-secondary
+  +mb()
+  font-size: 14px
+  font-weight: 500
+  line-height: 1
+  color: $muted-gray
+
+
 
   

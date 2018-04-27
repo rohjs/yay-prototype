@@ -1,0 +1,26 @@
+<header class="home-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="home-yay">
+          <%= link_to root_path do %>
+            <%= image_tag 'logo-home.svg', alt: "Yay" %>
+          <% end %>
+        </h1>
+        <div>
+          <% if user_signed_in? %>
+            <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--ghost" %>
+          <% else %>
+            <% if !current_page?(new_user_session_path) %>
+              <%= link_to "로그인", new_user_session_path, class: "btn--ghost" %>
+            <% end %>
+
+            <% if !current_page?(new_user_registration_path) %>
+              <%= link_to "회원가입하기", new_user_registration_path, class: "btn--default" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

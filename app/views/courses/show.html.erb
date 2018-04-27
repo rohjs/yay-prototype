@@ -1,0 +1,5 @@
+<% content_for :title, "수업 개설하기 | 님의 대시보드" %>
+
+<% if current_user.user_type == 1 %>
+  <%= render partial: "show-teacher", locals: { course: @course, students: @students } %>
+<% end %>

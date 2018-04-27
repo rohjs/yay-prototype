@@ -1,0 +1,28 @@
+.home-header,
+.dashboard-header
+  +fixed()
+  +z(100)
+  +t()
+  +l()
+  +w()
+  +bgc(rgba(255, 255, 255, .9))
+  .col-12
+    +flex()
+    +jc(space-between)
+    +ai()
+    +h(64px)
+
+.home-yay,
+.dashboard-yay
+  +mb()
+  a
+    display: block
+    transition: opacity 200ms
+    &:hover
+      opacity: .5
+  img
+    +w(auto)
+    +h(48px)
+.dashboard-header
+  border-bottom: 1px solid $light-gray
+

@@ -1,11 +1,11 @@
-<header class="home-header">
+<header class="dashboard-header">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="home-yay">
-          <a href="/">
-            <%= image_tag 'logo.svg', alt: "Yay" %>
-          </a>
+        <h1 class="dashboard-yay">
+          <%= link_to root_path do %>
+            <%= image_tag 'logo-dashboard.svg', alt: "Yay" %>
+          <% end %>
         </h1>
         <div>
           <% if user_signed_in? %>

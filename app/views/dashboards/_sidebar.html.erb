@@ -1,0 +1,19 @@
+<div class="col-lg-3">
+  <aside class="sidebar">
+    <header class="sidebar__header">
+      <div class="sidebar__user-image">
+        <img src="/images/img-sample-user.jpg"
+          alt="" />
+      </div>
+      <h1>
+        <%= user.name[1..-1] %>님, 안녕하세요!
+      </h1>
+      <p>
+        <%= user.user_type == 0 ? "학생" : "선생님 " %>
+      </p>
+    </header>
+    <% if @user.user_type == 1 %>
+      <%= link_to '수업 개설하기', new_course_path, class: "btn--default btn--large" %>
+    <% end %>
+  </aside>
+</div>
