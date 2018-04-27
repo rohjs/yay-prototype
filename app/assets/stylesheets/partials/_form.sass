@@ -48,6 +48,17 @@
     +h(44px)
     +mb(24px)
     display: block
+    &--disabled
+      @extend .form__input
+      +flex()
+      +ai()
+      border: none
+  &__textarea
+    @extend %form-style
+    +w()
+    +min-h(100px)
+    +pt(10px)
+    +pb(10px)
   &__meta-text
     +ml(4px)
     font-size: 13px
@@ -67,3 +78,6 @@
     +jc()
     +ai()
     +mt(16px)
+  &__group
+    +flex()
+    +ai()
