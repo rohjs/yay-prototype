@@ -21,11 +21,11 @@
     <%= f.label :credit, "학점", class: "form__label" %>
     <%= f.select :credit,
       options_for_select({
-        '3학점' => 0,
-        '6학점' => 1,
-        '9학점' => 2,
-        '12학점' => 3,
-        '15학점' => 4,
+        "3학점" => "credit_3",
+        "6학점" => "credit_6",
+        "9학점" => "credit_9",
+        "12학점" => "credit_12",
+        "15학점" => "credit_15",
       }, 0),
       {},
     class: "form__input" %>
@@ -44,11 +44,11 @@
     <%= f.label :category, "수업 분야", class: "form__label" %>
     <%= f.select :category,
       options_for_select({
-        '웹 프로그래밍' => 0,
-        '데이터 사이언스' => 1,
-        '디자인' => 2,
-        '마케팅' => 3,
-        '비즈니스' => 4
+        '웹 프로그래밍' => "programming",
+        '데이터 사이언스' => "data_science",
+        '디자인' => "design",
+        '마케팅' => "marketing",
+        '비즈니스' => "business"
       }, 0), 
       {},
       class: "form__input" %>
@@ -59,10 +59,10 @@
     <%= f.label :level, "수업 난이도", class: "form__label" %>
     <%= f.select :level,
       options_for_select({
-        '입문' => 0,
-        '초급' => 1,
-        '중급' => 2,
-        '고급' => 3
+        '입문' => "introductory",
+        '초급' => "basic",
+        '중급' => "intermediate",
+        '고급' => "advanced"
       }, 0),
       {},
       class: "form__input" %>
