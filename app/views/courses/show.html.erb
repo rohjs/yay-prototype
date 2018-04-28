@@ -1,4 +1,5 @@
-<% content_for :title, "수업 개설하기 | #{current_user.name}님의 대시보드" %>
+<% content_for :title, "#{@course.title} | #{current_user.name}님의 대시보드" %>
+<% content_for :main_class, "--fixed" %>
 
 <% if current_user.user_type == 1 %>
   <%= render partial: "show_teacher", locals: { course: @course, students: @students } %>
