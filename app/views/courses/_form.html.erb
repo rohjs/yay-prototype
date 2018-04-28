@@ -95,9 +95,9 @@
     <%= f.label :description, "수업 소개", class: "form__label" %>
     <%= f.text_area :description, autofocus: false, autocomplete: "off", class: "form__textarea" %>
   </div>
-  
 
-    
+
+
   <section class="form__nested-items"
     id="requirements">
     <p class="count">
@@ -105,7 +105,7 @@
         <%= @course.requirements.count %>
       </span>
     </p>
-    
+
 
     <%= link_to_add_association '평가항목 추가하기', f, :requirements %>
 
