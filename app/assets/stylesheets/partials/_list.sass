@@ -1,3 +1,13 @@
 %list-item
+  +dashboard-card-animation(150ms)
   border-radius: 2px
   border: 1px solid $light-gray
+  cursor: pointer
+  &:not(:last-of-type)
+    +mb(12px)
+    
+%list-item-anchor
+  +w()
+  +pl(30px)
+  +pr(30px)
+    

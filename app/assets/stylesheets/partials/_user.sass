@@ -1,0 +1,35 @@
+%user__img,
+.user__img
+  +ai()
+  +jc()
+  +w(36px)
+  +h(36px)
+  +m()
+  display: inline-flex
+  border-radius: 100px
+  overflow: hidden
+  img
+    +w()
+    +h()
+
+%user__img--placeholder
+  +jc()
+  +ai()
+  +m()
+  +bgc($foggy-gray)
+  border-radius: 100px
+  font-weight: 300
+  color: #fff
+  text-transform: uppercase
+  text-align: center
+
+
+=user__img--placeholder($s: 36px, $fs: 18px)
+  @extend %user__img--placeholder
+  +w(36px)
+  +h(36px)
+  font-size: $fs
+  line-height: $s
+
+.user__img--placeholder
+  +user__img--placeholder()

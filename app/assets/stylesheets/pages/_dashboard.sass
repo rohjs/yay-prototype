@@ -23,7 +23,15 @@
   &__detail
     +flex()
     dl:not(:last-child)
+      +sh()
       +mr(50px)
+    dl:last-child
+      +gr(1)
+      +sh(1)
+      dd
+        +h(80px)
+        line-height: 1.35
+        overflow: hidden
     dt
       @extend %ui-secondary
       +mb(10px)
@@ -31,6 +39,5 @@
       @extend %ui-primary
 
 .dash-content
-  .flex-column > &
-    +gr(1)
+  .dash-section__content.height--max
     overflow-y: auto

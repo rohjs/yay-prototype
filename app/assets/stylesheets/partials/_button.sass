@@ -21,13 +21,15 @@
     transform: translateY(2px)
 
 %button-icon
-  +w(25px)
-  +h(25px)
+  +rel()
+  +t(-3px)
+  +w(28px)
+  +h(28px)
   +bgr()
   +bgp()
   +bgs(contain)
   display: inline-block
-
+  text-indent: -9999px
 
 .btn--default
   @extend %button
@@ -54,4 +56,5 @@
 .btn--icon
   @extend %button-icon
   &.btn--settings
-    +bgi-url(image-url('icon-settings.svg'))    
+    +ml(4px)
+    +bgi-url(image-url('icons/icon-settings.svg'))  
