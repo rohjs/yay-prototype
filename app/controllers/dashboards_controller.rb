@@ -5,10 +5,11 @@ class DashboardsController < ApplicationController
   layout "dashboard"
 
   def show
+    courses = @user.courses
+
     if current_user.student?
         render "dashboards/students/show"
     elsif current_user.teacher?
-        courses = @user.courses
 
         @ongoing_courses = courses.where("closing_date >= ?", Date.today)
 
