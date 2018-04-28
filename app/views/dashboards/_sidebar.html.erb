@@ -2,7 +2,9 @@
   <aside class="sidebar">
     <header class="sidebar__header">
       <div class="sidebar__user-image">
-        <%= image_tag current_user.profile.url%>      
+        <% if current_user.profile.present? %>
+          <%= image_tag current_user.profile.url%>
+        <% end %>
       </div>
       <h1>
         <%= user.name[1..-1] %>님, 안녕하세요!

@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course_and_user, only: [:add_student, :minus_student]
 
   layout "dashboard"
 
@@ -41,12 +42,15 @@ class CoursesController < ApplicationController
   end
 
   def add_student
-    student = User.find(params[:student_id])
-    course = Course.find(params[:course_id])
+    @course.users << @student
 
-    course.users << student
+    redirect_to @course
+  end
 
-    redirect_to course
+  def minus_student
+    @course.users.delete(@student)
+
+    redirect_to @course
   end
 
   private
@@ -57,6 +61,11 @@ class CoursesController < ApplicationController
 
     def course_params
       params.require(:course).permit(:title, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:title, :description])
+    end
+
+    def set_course_and_user
+      @student = User.find(params[:id])
+      @course = Course.find(params[:course_id])
     end
 
 end

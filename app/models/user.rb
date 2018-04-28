@@ -9,4 +9,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def student?
+    self.user_type == 0 ? true : false
+  end
+
+  def teacher?
+    self.user_type == 1 ? true : false
+  end
 end

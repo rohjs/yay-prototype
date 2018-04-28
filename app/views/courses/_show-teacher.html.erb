@@ -55,7 +55,9 @@
       </header>
       <div class="dash-section__content">
         <% course.users.where(user_type: 0).each do |stu| %>
-          <%= stu.name%><br>
+          <%= stu.name%>
+          <%= link_to '[x]', minus_student_course_user_path(course.id, stu.id)%>
+          <br />
        <% end %>
       </div>
     </section>
@@ -67,7 +69,7 @@
   <h1>수강생을 추가하는 모달</h1>
   <div>
     <% students.each do |student| %>
-      <%= link_to add_student_path(course.id, student.id) do %>
+      <%= link_to add_student_course_user_path(course.id, student.id) do %>
         <%= student.name %>
       <% end %>
       </p>

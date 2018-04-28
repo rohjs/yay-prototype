@@ -3,12 +3,11 @@ class DashboardsController < ApplicationController
   before_action :set_user
 
   layout "dashboard"
-  
+
   def show
-    case @user.user_type
-      when 0
+    if current_user.student?
         render "dashboards/students/show"
-      when 1
+    elsif current_user.teacher?
         courses = @user.courses
 
         @ongoing_courses = courses.where("closing_date >= ?", Date.today)
