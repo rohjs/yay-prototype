@@ -43,12 +43,18 @@ class CoursesController < ApplicationController
 
   def add_student
     @course.users << @student
+    @course.requirements.each do |req|
+      Assignment.create!(user_id: @student.id, requirement_id: req.id)
+    end
 
     redirect_to @course
   end
 
   def minus_student
     @course.users.delete(@student)
+    @course.requirements.each do |req|
+      Assignment.where(user_id: @student, requirement_id: req.id).destroy_all
+    end
 
     redirect_to @course
   end
@@ -67,5 +73,7 @@ class CoursesController < ApplicationController
       @student = User.find(params[:id])
       @course = Course.find(params[:course_id])
     end
+
+
 
 end
