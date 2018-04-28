@@ -20,7 +20,7 @@
     <section class="dashboard-section height--max">
       <header class="dashboard-section__header">
         <h1>
-          수강 가능한 과목
+          수업 목록
           <span>
             <%= @courses.count %>
           </span>
@@ -29,57 +29,24 @@
 
       <div class="dashboard__content height--max"
         style="flex-grow: 1">
-        <ul class="user__list">
-
+        <ul class="dash__courses">
           <% @courses.each do |course| %>
           
-            <li class="user__item">
-              <article class="user">
-                <div class="col-12 mt-24">
-                  <div class="dashboard__header__detail">
-                    <dl>
-                      <dt>분야</dt>
-                      <dd>
-                        <%= course.course_category_str %>
-                      </dd>
-                    </dl>
-              
-                    <dl>
-                      <dt>학점</dt>
-                      <dd>
-                        <%= course.course_credit_str %>
-                      </dd>
-                    </dl>
-              
-                    <dl>
-                      <dt>레벨</dt>
-                      <dd>
-                        <%= course.course_level_str %>
-                      </dd>
-                    </dl>
-              
-                    <dl>
-                      <dt>수강인원</dt>
-                      <dd>
-                        <%= course.users.count %> / <%= course.capacity %>
-                      </dd>
-                    </dl>
-              
-              
-                    <dl>
-                      <dt>목표</dt>
-                      <dd>
-                        <%= course.description %>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-                <header class="user__header">
+            <li class="dash__course">
+              <article>
+                <%= link_to course_path(course) do %>
                   <h1>
                     <%= course.title %>
                   </h1>
-                </header>
-
+                  <p>
+                    <em>
+                      <%= course.users.where(id: current_user.id) ? "수강중" : "" %>
+                    </em>
+                    <span>
+                      <%= course.course_category_str %>  |  <%= course.course_level_str %>
+                    </span>
+                  </p>
+                <% end %>
               </article>
             </li>
           <% end %>

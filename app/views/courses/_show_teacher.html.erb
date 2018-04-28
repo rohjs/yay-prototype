@@ -62,7 +62,8 @@
 <div class="row"
   style="flex-grow: 1">
 
-  <div class="col-lg-9 height--max">
+  <div class="col-lg-9 height--max"
+    id="enrolled-students">
 
     <section class="dashboard-section height--max">
       <header class="dashboard-section__header">
@@ -85,7 +86,10 @@
               <article class="user">
                 <header class="user__header">
                   <% if stu.profile.url %>
-                    <%= image_tag stu.profile.url %>
+                    <p class="user__img"
+                      aria-hidden="true">
+                      <%= image_tag stu.profile.url %>
+                    </p>
                   <% else %>
                     <p class="user__img--placeholder"
                       aria-hidden="true">
@@ -99,8 +103,37 @@
                     서강대학교 / <%= stu.user_department_str %>
                   </p>
                 </header>
+
                 <section class="user__content">
-                  <%= link_to '삭제하기', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
+                  <ul class="user__assignments">
+
+                    <% course.requirements.each do |r| %>
+                      <li class="user__assignment">
+                        <article>
+                          <h1>
+                            <%= r.title %>
+                          </h1>
+                          <dl>
+                            <dt class="sr-only">수행여부</dt>
+                            <dd>제출</dd>
+                          </dl>
+                          <dl>
+                            <dt class="sr-only">학점</dt>
+                            <dd>A</dd>
+                          </dl>
+                        </article>
+                      </li>
+                    <% end %>
+
+                  </ul>
+                  
+
+                  <footer>
+                    <%= link_to '삭제하기', minus_student_course_user_path(course.id, stu.id), class: "ui--accent mr-3" %>
+                    
+                    <%= link_to '수정하기', '#', class: "ui--accent" %>
+                  </footer>
+                  
 
                 </section>
               </article>
@@ -175,11 +208,41 @@
   (function() {
     var addStudent = document.getElementById("btn-add-student");
     var modal = document.getElementById("modal");
+    var userItems = document.querySelectorAll("#enrolled-students .user__header");
+    var activeUserItem = null;
 
-    addStudent.addEventListener('click', toggleModal)
+    Array.prototype.slice.call(userItems);
+
+    addStudent.addEventListener("click", toggleModal)
+    
+    userItems.forEach(function(item) {
+      item.addEventListener("click", function() {
+        console.log("item:", item)
+        toggleListItem(this, "active")
+      });
+    })
 
     function toggleModal () {
-      modal.classList.toggle('active')
+      modal.classList.toggle("active")
     }
+
+    function toggleListItem (elm, classname) {
+      var parentNode = elm.parentNode;
+      var parentNodeClassList = parentNode.classList;
+
+      parentNodeClassList.toggle(classname);
+
+      console.log("activeUserItem:", activeUserItem)
+      if (activeUserItem == null) activeUserItem = elm;
+      else if (activeUserItem === elm) activeUserItem = null;
+      else {
+        console.log("why activeUserItem:", activeUserItem);
+        console.log("why activeUserItem parent:", activeUserItem.parentNode);
+
+        activeUserItem.parentNode.classList.toggle(classname);
+        activeUserItem = elm;
+      }
+    }
+      
   })()
 </script>

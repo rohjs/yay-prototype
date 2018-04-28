@@ -11,11 +11,11 @@
         opacity: .5
       a
         +p()
-    &.active
-      @extend %dashboard-card-active
-      .user__header
-        +bgc($bg-gray)
-        box-shadow: 0 1px 1px 0 $light-gray
+  &.active
+    @extend %dashboard-card-active
+    +bgc($bg-gray)
+    .user__header
+      box-shadow: 0 1px 1px 0 $light-gray
   &__header,
   &__wrap
     +rel()
@@ -28,6 +28,38 @@
     [class*="user__img"]
       +mr(10px)
   &__content
+    +max-h(0)
     +pl(62px)
-    +pt(16px)
-    +pb(16px)
+    +pr(62px)
+    transition: max-height 800ms ease-in-out, padding 800ms  ease-in-out
+    overflow: hidden
+    .user.active &
+      +max-h(400px)
+      +pt(16px)
+      +pb(16px)
+      +bgc($white)
+      transition: max-height 600ms ease-in-out, padding 600ms  ease-in-out
+    footer
+      +pt(8px)
+      text-align: right
+  &__assignment
+    article
+      +flex()
+      +jc(space-between)
+      +ai()
+      +w()
+      +h(48px)
+    h1,
+    dd
+      @extend %ui-primary
+      font-weight: 400
+    h1
+      +gr(1)
+    dl
+      +w(64px)
+      text-align: right
+    dd
+      +mb()
+      
+      
+      

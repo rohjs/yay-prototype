@@ -7,9 +7,24 @@
             <%= image_tag 'logo-dashboard.svg', alt: "Yay" %>
           <% end %>
         </h1>
-        <div>
+        <nav class="dashboard-nav">
+          
+        </nav>
+
+        <div class="d-flex align-items-center">
           <% if user_signed_in? %>
             <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--ghost" %>
+
+            <% if current_user.profile.url %>
+              <p class="user__img">
+                <%= image_tag current_user.profile.url %>
+              </p>
+            <% else %>
+              <p class="user__img--placeholder"
+                aria-hidden="true">
+                <%= current_user.name %>
+              </p>
+            <% end %>
           <% else %>
             <% if !current_page?(new_user_session_path) %>
               <%= link_to "로그인", new_user_session_path, class: "btn--ghost" %>

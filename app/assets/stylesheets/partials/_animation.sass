@@ -1,15 +1,22 @@
 %dashboard-card-hover
-  box-shadow: 0 4px 10px 0 $light-gray
+  box-shadow: 0 4px 10px 0 rgba($gray, .2)
 
 %dashboard-card-active
-  box-shadow: 0 4px 20px 0 $light-gray
+  box-shadow: 0 4px 20px 0 rgba($gray, .2)
 
 =dashboard-card-animation($t: 250ms)
-  transition: box-shadow $t
+  transition: box-shadow $t, background-color $t
   &:hover,
   &:focus,
   &:active
     @extend %dashboard-card-hover
-    a
-      opacity: .75
+    +bgc($bg-gray)
+    
+
+=dashboard-card-bg-animation($t: 250ms)
+  transition: background-color $t, box-shadow $t
+  &:hover,
+  &:focus,
+  &:active
+    +bgc($bg-gray)
     

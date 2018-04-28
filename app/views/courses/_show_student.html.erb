@@ -7,12 +7,21 @@
     </header>
   </div>
 
+  
   <div class="col-3">
-    <button type="button"
-      class="btn--default btn--large"
+    <% if  %>
+      <button type="button"
+        class="btn--default btn--large"
+        id="btn-add-student">
+      수강 신청하기
+      </button>
+    <% else %>
+      <button type="button"
+      class="btn--ghost btn--large"
       id="btn-add-student">
-      수강 취소하기
-    </a>
+        수강 취소하기
+      </button>
+    <% end %>
   </div>
 
   <div class="col-12 mt-24">
