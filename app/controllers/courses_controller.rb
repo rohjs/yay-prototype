@@ -14,12 +14,12 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new()
-    2.times { @course.requirements.new() }
   end
 
   def create
     @course = current_user.courses.create(course_params)
-
+    puts "------------------------------"
+    puts @course.errors.full_messages
     if @course.save
       redirect_to @course
     else
@@ -28,9 +28,16 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @course = Course.find_by(id: params[:id])
   end
-
+  
   def update
+    @course = Course.find_by(id: params[:id])
+    if @course.update_attributes(course_params)
+      redirect_to @course
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -66,7 +73,7 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:title, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:title, :description])
+      params.require(:course).permit(:title, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:title, :description, :_destroy])
     end
 
     def set_course_and_user
