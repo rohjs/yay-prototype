@@ -7,12 +7,12 @@
     <% f.object.description = "HTML, CSS을 통해 배우는 웹 개발 개론" %>
   <% end %>
 
-  <div class="form__item">
+  <!-- <div class="form__item">
     <p class="form__label">선생님</p>
     <p class="form__input--disabled">
       <%= current_user.name %>
     </p>
-  </div>
+  </div>-->
 
   <div class="form__item"
     style="flex-grow: 2;">
@@ -41,17 +41,6 @@
       <%= f.number_field :capacity, autocomplete: "off", class: "form__input" %>
     </div>
   </div>
-
-  <%= f.fields_for :requirements do |requirement| %>
-    <div class="form__item">
-      <%= requirement.label :title, "수료조건", class: "form__label" %>
-      <%= requirement.text_field :title, autocomplete: "off", class: "form__input" %>
-    </div>
-    <div class="form__item">
-      <%= requirement.label :description, "수료조건 상세", class: "form__label" %>
-      <%= requirement.text_field :description, autocomplete: "off", class: "form__input" %>
-    </div>
-  <% end %>
 
   <div class="form__group">
     <div class="form__item mr-3"
@@ -106,6 +95,19 @@
     <%= f.label :description, "수업 소개", class: "form__label" %>
     <%= f.text_area :description, autofocus: false, autocomplete: "off", class: "form__textarea" %>
   </div>
+
+  <section class="form__nested-items">
+    <%= f.fields_for :requirements do |requirement| %>
+      <div class="form__item">
+        <%= requirement.label :title, "수료조건 항목", class: "form__label" %>
+        <%= requirement.text_field :title, autocomplete: "off", class: "form__input" %>
+      </div>
+      <div class="form__item">
+        <%= requirement.label :description, "수료조건 상세내용", class: "form__label" %>
+        <%= requirement.text_field :description, autocomplete: "off", class: "form__input" %>
+      </div>
+    <% end %>
+  </section>
 
   <div class="form__submit">
     <%= f.submit "수업 개설하기", class: "form__submit btn--default" %>
