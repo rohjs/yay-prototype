@@ -137,8 +137,8 @@
 
             <% students.each do |stu| %>
 
-              <li>
-                <%= link_to add_student_course_user_path(course.id, stu.id), class: "dash-section__info" do %>
+              <li class="user__item">
+                <%= link_to add_student_course_user_path(course.id, stu.id), class: "user__header" do %>
                   <% if stu.profile.url %>
                     <%= image_tag stu.profile.url %>
                   <% else %>

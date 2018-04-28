@@ -1,6 +1,16 @@
 .user
   &__item
     @extend %list-item
+    #modal &
+      +mb(16px)
+      border: none
+      &:hover,
+      &:focus,
+      &:active
+        box-shadow: none
+        opacity: .5
+      a
+        +p()
     &.active
       @extend %dashboard-card-active
       .user__header
