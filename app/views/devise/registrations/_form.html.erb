@@ -41,15 +41,15 @@
     <%= f.label :department, '학부', class: "form__label" %>
     <%= f.select :department,
       options_for_select({
-        '국제인문학부' => 0,
-        '사회과학부' => 1,
-        '지식융합학부' => 2,
-        '자연과학부' => 3,
-        '공학부' => 4,
-        '경제학부' => 5,
-        '경영학부' => 6,
-        '커뮤니케이션학부' => 7,
-        '법학부' => 8
+        "국제인문학부" => "korean_language",
+        "사회과학부" => "social_science",
+        "지식융합학부" => "integrated_knowledge",
+        "자연과학부" => "science",
+        "공학부" => "engineering",
+        "경제학부" => "economics",
+        "경영학부" => "business_administration",
+        "커뮤니케이션학부" => "communication",
+        "법학부" => "law"ㄴ
       }, 0),
       {},
       class: "form__input" %>

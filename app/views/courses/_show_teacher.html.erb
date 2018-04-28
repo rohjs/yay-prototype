@@ -1,71 +1,111 @@
-<div class="row pb-4"
-  id="course-new">
-  <div class="col-12 mb-5">
+<div class="row flex--freeze">
+  <div class="col-9">
     <header class="dash-header">
-      <h1><%= course.title %></h1>
-      <%= link_to '수정ㅎ', edit_course_path(course) %>
-      <button type="button"
-        class="btn--default">
-        수강생 추가하기
-      </button>
-      <div class="dash-header__detail">
-        <dl>
-          <dt>분야</dt>
-          <dd>
-            <%= course.category %>
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>학점</dt>
-          <dd>
-            <%= course.credit %>
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>레벨</dt>
-          <dd>
-            <%= course.level %>
-          </dd>
-        </dl>
-
-        <dl>
-          <dt>수강인원</dt>
-          <dd>
-            0 / <%= course.capacity %>
-          </dd>
-        </dl>
-
-
-        <dl>
-          <dt>목표</dt>
-          <dd>
-            <%= course.description %>
-          </dd>
-        </dl>
-      </div>
+      <h1>
+        <%= course.title %>
+        <%= link_to edit_course_path(course), class: "btn--icon btn--settings" do %>
+          수업 수정하기
+        <% end %>
+      </h1>
     </header>
   </div>
-  <div class="col-lg-9">
-    <section class="dash-section d-flex flex-column">
+
+  <div class="col-3">
+    <button type="button"
+      class="btn--default btn--large"
+      id="btn-add-student">
+      수강생 추가하기
+    </a>
+  </div>
+
+  <div class="col-12 mt-24">
+    <div class="dash-header__detail">
+      <dl>
+        <dt>분야</dt>
+        <dd>
+          <%= course.course_category_str %>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>학점</dt>
+        <dd>
+          <%= course.course_credit_str %>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>레벨</dt>
+        <dd>
+          <%= course.course_level_str %>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>수강인원</dt>
+        <dd>
+          0 / <%= course.capacity %>
+        </dd>
+      </dl>
+
+
+      <dl>
+        <dt>목표</dt>
+        <dd>
+          <%= course.description %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<div class="row"
+  style="flex-grow: 1">
+
+  <div class="col-lg-9 height--max">
+
+    <section class="dash-section height--max">
       <header class="dash-section__header">
         <h1>
           수강생 대시보드
         </h1>
       </header>
-      <div class="dash-section__content">
-        <% course.users.where(user_type: 0).each do |stu| %>
-          <%= stu.name%>
-          <%= link_to '[x]', minus_student_course_user_path(course.id, stu.id)%>
-          <br />
-       <% end %>
+
+      <div class="dash-section__content height--max"
+        style="flex-grow: 1">
+        <ul class="student__list">
+          <% course.users.where(user_type: 0).each do |stu| %>
+            <li class="student__item">
+              <header class="student__header">
+                <% if stu.profile.url %>
+                  <%= image_tag stu.profile.url %>
+                <% else %>
+                  <p class="user__img--placeholder"
+                    aria-hidden="true">
+                    <%= stu.name[0] %>
+                  </p>
+                <% end %>
+                <h1>
+                  <%= stu.name%>
+                </h1>
+                <p class="ui--secondary">
+                  서강대학교 / <%= stu.user_department_str %>
+                </p>
+              </header>
+              
+              <!--<%= link_to '[x]', minus_student_course_user_path(course.id, stu.id)%>-->
+            </li>
+          <% end %>
+        </ul>
       </div>
     </section>
+
   </div>
+
 </div>
 
-<section>
+<section class="modal"
+  id="modal" style="display: block; width: 100px">
 
   <h1>수강생을 추가하는 모달</h1>
   <div>
@@ -79,3 +119,16 @@
 
 
 </section>
+
+<script>
+  (function() {
+    var addStudent = document.getElementById("btn-add-student");
+    var modal = document.getElementById("modal");
+
+    addStudent.addEventListener('click', toggleModal)
+
+    function toggleModal () {
+      modal.classList.toggle('active')
+    }
+  })()
+</script>

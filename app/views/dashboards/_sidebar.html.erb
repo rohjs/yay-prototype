@@ -12,7 +12,7 @@
         <%= user.name[1..-1] %>님, 안녕하세요!
       </h1>
       <p>
-        <%= user.user_type == 0 ? "학생" : "선생님 " %>
+        <%= user.student? ? "학생" : "선생님" %>
       </p>
     </header>
     <% if @user.user_type == 1 %>
