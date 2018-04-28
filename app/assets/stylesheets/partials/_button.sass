@@ -20,6 +20,15 @@
     text-decoration: none
     transform: translateY(2px)
 
+%button-icon
+  +w(25px)
+  +h(25px)
+  +bgr()
+  +bgp()
+  +bgs(contain)
+  display: inline-block
+
+
 .btn--default
   @extend %button
   +bgc($primary-blue) 
@@ -41,3 +50,8 @@
   &:hover
     color: $black
     
+
+.btn--icon
+  @extend %button-icon
+  &.btn--settings
+    +bgi-url(image-url('icon-settings.svg'))    
