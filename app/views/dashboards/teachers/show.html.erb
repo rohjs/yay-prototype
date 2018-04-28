@@ -27,7 +27,7 @@
             <li>
               <% @ongoing_courses.each do |course| %>
                 <li class="dash__course">
-                  <article class="dash__course-item">
+                  <article>
                     <%= link_to course_path(course) do %>
                       <h1>
                         <%= course.title %>
@@ -61,7 +61,7 @@
 
           <% @completed_courses.each do |course| %>
             <li class="dash__course--completed">
-              <article class="dash__course-item">
+              <article>
                 <%= link_to course_path(course) do %>
                   <h1>
                     <%= course.title %>

@@ -1,20 +1,13 @@
 .dash__course
   @extend %list-item
-  &-item
-    +dashboard-card-animation()
   &--completed
     @extend .dash__course
     +bgc($bg-gray)
-  &:not(:last-of-type)
-    +mb(12px)
   a
+    @extend %list-item-anchor
     +flex(column)
     +jc()
-    +w()
     +h(88px)
-    +pl(30px)
-    +pr(30px)
-    transition: opacity 150ms
   h1
     @extend %heading-list-item
     +mb(8px)
