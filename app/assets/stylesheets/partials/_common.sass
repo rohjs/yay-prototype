@@ -16,3 +16,39 @@ a
   &:hover
     text-decoration: none
     color: inherit
+
+
+@each $sizing in $sizing-lists
+  .mt-#{$sizing/($sizing*0+1)}
+    +mt($sizing)
+
+  .mb-#{$sizing/($sizing*0+1)}
+    +mb($sizing)
+
+  .ml-#{$sizing/($sizing*0+1)}
+    +ml($sizing)
+  
+  .mr-#{$sizing/($sizing*0+1)}
+    +mr($sizing)
+
+  .pt-#{$sizing/($sizing*0+1)}
+    +pt($sizing)
+
+  .pb-#{$sizing/($sizing*0+1)}
+    +pb($sizing)
+
+  .pl-#{$sizing/($sizing*0+1)}
+    +pl($sizing)
+  
+  .pr-#{$sizing/($sizing*0+1)}
+    +pr($sizing)
+
+
+  
+.height--max
+  +flex(column)
+  +gr(1)
+
+.flex--freeze
+  +gr()
+  +sh()
