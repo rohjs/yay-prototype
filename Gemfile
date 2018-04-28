@@ -54,3 +54,5 @@ gem 'devise'
 # Front-end Dependencies
 gem 'bootstrap', '~> 4.1.0'
 gem 'carrierwave'
+gem 'jquery-rails'
+gem 'cocoon'
