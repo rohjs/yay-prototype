@@ -6,10 +6,10 @@
   <%= render partial: "sidebar", locals: { user: @user } %>
 
   <div class="col-lg-9 height--max">
-    <section class="dash-section"
+    <section class="dashboard-section"
       style="margin-bottom: 40px">
       
-      <header class="dash-section__header">
+      <header class="dashboard-section__header">
         <h1>
           진행중인 수업
           <span aria-label="<%= @ongoing_courses.length %>개">
@@ -18,7 +18,7 @@
         </h1>
       </header>
 
-      <div class="dash-section__content"
+      <div class="dashboard__content"
         style="height: 408px;">
         <ul class="dash__courses">
 
@@ -47,8 +47,8 @@
       </div>
     </section>
   
-    <section class="dash-section height--max">
-      <header class="dash-section__header">
+    <section class="dashboard-section height--max">
+      <header class="dashboard-section__header">
         <h1>
           지난 수업
           <span aria-label="<%= @completed_courses.length %>개">
@@ -56,7 +56,7 @@
           </span>
         </h1>
       </header>
-      <div class="dash-section__content">
+      <div class="dashboard__content">
         <ul class="dash__courses">
 
           <% @completed_courses.each do |course| %>

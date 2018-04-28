@@ -16,7 +16,7 @@
     +pt(56px)
 
 
-.dash-header
+.dashboard__header
   h1
     @extend %heading-dashboard-header
     +mb()
@@ -39,8 +39,9 @@
     dd
       @extend %ui-primary
 
-.dash-content
-  .dash-section__content.height--max
+.dashboard__content
+  @extend %dashboard-stretch-height
+  .height--max &
     overflow-y: auto
 
 #modal

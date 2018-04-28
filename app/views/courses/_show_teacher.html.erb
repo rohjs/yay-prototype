@@ -1,6 +1,6 @@
 <div class="row flex--freeze">
   <div class="col-9">
-    <header class="dash-header">
+    <header class="dashboard__header">
       <h1>
         <%= course.title %>
         <%= link_to edit_course_path(course), class: "btn--icon btn--settings" do %>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="col-12 mt-24">
-    <div class="dash-header__detail">
+    <div class="dashboard__header__detail">
       <dl>
         <dt>분야</dt>
         <dd>
@@ -64,8 +64,8 @@
 
   <div class="col-lg-9 height--max">
 
-    <section class="dash-section height--max">
-      <header class="dash-section__header">
+    <section class="dashboard-section height--max">
+      <header class="dashboard-section__header">
         <h1>
           수강생 대시보드
           <span>
@@ -75,31 +75,37 @@
         </h1>
       </header>
 
-      <div class="dash-section__content height--max"
+      <div class="dashboard__content height--max"
         style="flex-grow: 1">
-        <ul class="student__list">
+        <ul class="user__list">
 
           <% enrolled_students.each do |stu| %>
           
-            <li class="student__item">
-              <header class="student__header">
-                <% if stu.profile.url %>
-                  <%= image_tag stu.profile.url %>
-                <% else %>
-                  <p class="user__img--placeholder"
-                    aria-hidden="true">
-                    <%= stu.name[0] %>
+            <li class="user__item">
+              <article class="user">
+                <header class="user__header">
+                  <% if stu.profile.url %>
+                    <%= image_tag stu.profile.url %>
+                  <% else %>
+                    <p class="user__img--placeholder"
+                      aria-hidden="true">
+                      <%= stu.name[0] %>
+                    </p>
+                  <% end %>
+                  <h1>
+                    <%= stu.name%>
+                  </h1>
+                  <p class="ui--secondary">
+                    서강대학교 / <%= stu.user_department_str %>
                   </p>
-                <% end %>
-                <h1>
-                  <%= stu.name%>
-                </h1>
-                <p class="ui--secondary">
-                  서강대학교 / <%= stu.user_department_str %>
-                </p>
-              </header>
+                </header>
+                <section class="user__content">
+                  <%= link_to '삭제하기', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
+
+                </section>
+              </article>
               
-              <!--<%= link_to '[x]', minus_student_course_user_path(course.id, stu.id)%>-->
+              
             </li>
           <% end %>
 
@@ -111,15 +117,18 @@
 
   <div class="col-lg-3 height--max"
     id="modal">
-    <section class="dash-section height--max">
-      <header class="dash-section__header">
+    <section class="dashboard-section height--max">
+      <header class="dashboard-section__header">
         <h1>
-          수강생을 추가하는 모달
+          수강생 추가하기
+          <span>
+            <%= students.count %>
+          </span>
         </h1>
       </header>
 
-      <div class="dash-section__content">
-        <ul class="student__list">
+      <div class="dashboard__content">
+        <ul class="user__list">
           <% if students.count == 0 %>
             <li class="ui--secondary pt-16 pb-16 text-center">
               추가 가능한 학생이 없습니다.
@@ -129,7 +138,7 @@
             <% students.each do |stu| %>
 
               <li>
-                <%= link_to add_student_course_user_path(course.id, stu.id), class: "student__info" do %>
+                <%= link_to add_student_course_user_path(course.id, stu.id), class: "dash-section__info" do %>
                   <% if stu.profile.url %>
                     <%= image_tag stu.profile.url %>
                   <% else %>

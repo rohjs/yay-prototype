@@ -1,0 +1,22 @@
+.user
+  &__item
+    @extend %list-item
+    &.active
+      @extend %dashboard-card-active
+      .user__header
+        +bgc($bg-gray)
+        box-shadow: 0 1px 1px 0 $light-gray
+  &__header
+    +rel()
+    +flex()
+    +ai()
+    +p(16px)
+    h1
+      @extend %ui-heading
+      +mr(10px)
+    [class*="user__img"]
+      +mr(10px)
+  &__content
+    +pl(62px)
+    +pt(16px)
+    +pb(16px)

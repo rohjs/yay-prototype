@@ -3,13 +3,13 @@
 <%= render partial: "sidebar", locals: { user: @user } %>
 
 <div class="col-lg-9 height--max">
-  <section class="dash-section mb-5">
-    <header class="dash-section__header">
+  <section class="dashboard-section mb-5">
+    <header class="dashboard-section__header">
       <h1>
         수강중인 수업
       </h1>
     </header>
-    <div class="dash-section__content"
+    <div class="dashboard__content"
       style="height: 408px;">
       <ul class="dash__courses">
         <% current_user.courses.each do |course| %>
@@ -31,13 +31,13 @@
     </div>
   </section>
 
-  <section class="dash-section height--max">
-    <header class="dash-section__header">
+  <section class="dashboard-section height--max">
+    <header class="dashboard-section__header">
       <h1>
         지난 수업
       </h1>
     </header>
-    <div class="dash-section__content">
+    <div class="dashboard__content">
        <ul class="dash__courses">
         <li class="dash__course">
             <article>

@@ -1,9 +1,15 @@
+%dashboard-card-hover
+  box-shadow: 0 4px 10px 0 $light-gray
+
+%dashboard-card-active
+  box-shadow: 0 4px 20px 0 $light-gray
+
 =dashboard-card-animation($t: 250ms)
   transition: box-shadow $t
   &:hover,
   &:focus,
   &:active
-    box-shadow: 0 4px 10px 0 $light-gray
+    @extend %dashboard-card-hover
     a
       opacity: .75
     
