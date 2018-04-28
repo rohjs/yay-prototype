@@ -1,0 +1,95 @@
+<% content_for :title, "수업보기 | #{current_user.name}님의 대시보드" %>
+
+<% content_for :main_class, "--fixed" %>
+
+<div class="row flex--freeze">
+  <div class="col-9">
+    <header class="dashboard__header">
+      <h1>
+        수강신청
+      </h1>
+    </header>
+  </div>
+</div>
+
+<div class="row"
+  style="flex-grow: 1">
+
+  <div class="col-lg-9 height--max">
+
+    <section class="dashboard-section height--max">
+      <header class="dashboard-section__header">
+        <h1>
+          수강 가능한 과목
+          <span>
+            <%= @courses.count %>
+          </span>
+        </h1>
+      </header>
+
+      <div class="dashboard__content height--max"
+        style="flex-grow: 1">
+        <ul class="user__list">
+
+          <% @courses.each do |course| %>
+          
+            <li class="user__item">
+              <article class="user">
+                <div class="col-12 mt-24">
+                  <div class="dashboard__header__detail">
+                    <dl>
+                      <dt>분야</dt>
+                      <dd>
+                        <%= course.course_category_str %>
+                      </dd>
+                    </dl>
+              
+                    <dl>
+                      <dt>학점</dt>
+                      <dd>
+                        <%= course.course_credit_str %>
+                      </dd>
+                    </dl>
+              
+                    <dl>
+                      <dt>레벨</dt>
+                      <dd>
+                        <%= course.course_level_str %>
+                      </dd>
+                    </dl>
+              
+                    <dl>
+                      <dt>수강인원</dt>
+                      <dd>
+                        <%= course.users.count %> / <%= course.capacity %>
+                      </dd>
+                    </dl>
+              
+              
+                    <dl>
+                      <dt>목표</dt>
+                      <dd>
+                        <%= course.description %>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+                <header class="user__header">
+                  <h1>
+                    <%= course.title %>
+                  </h1>
+                </header>
+
+              </article>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </section>
+
+  </div>
+  
+</div>
+  
+  

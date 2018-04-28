@@ -1,105 +1,81 @@
 <% content_for :title, "메인 | #{@user.name}#{current_user.name}님의 대시보드" %>
+<% content_for :main_class, "--fixed" %>
 
-<%= render partial: "sidebar", locals: { user: @user } %>
+<div class="row">
 
-<div class="col-lg-9 height--max">
-  <section class="dashboard-section mb-5">
-    <header class="dashboard-section__header">
-      <h1>
-        수강중인 수업
-      </h1>
-    </header>
-    <div class="dashboard__content"
-      style="height: 408px;">
-      <ul class="dash__courses">
-        <% current_user.courses.each do |course| %>
-        <li class="dash__course">
-          <%= link_to course_path(course) do%>
-          <article>
-              <h1>
-                <%= course.title%>
-              </h1>
-              <p>
-                <%= course.description%>
-              </p>
-            </a>
-          </article>
+  <%= render partial: "sidebar", locals: { user: @user } %>
+
+  <div class="col-lg-9 height--max">
+    <section class="dashboard-section"
+      style="margin-bottom: 40px">
+      
+      <header class="dashboard-section__header">
+        <h1>
+          수강중인 수업
+          <span aria-label="<%= @ongoing_courses.length %>개">
+            <%= @ongoing_courses.length %>
+          </span>
+        </h1>
+      </header>
+
+      <div class="dashboard__content"
+        style="height: 408px;">
+        <ul class="dash__courses">
+
+          <% @ongoing_courses.each do |c| %>
+
+            <li>
+              <% @ongoing_courses.each do |course| %>
+                <li class="dash__course">
+                  <article>
+                    <%= link_to course_path(course) do %>
+                      <h1>
+                        <%= course.title %>
+                      </h1>
+                      <p>
+                        <%= course.course_category_str %>  |  <%= course.course_level_str %>
+                      </p>
+                    <% end %>
+                  </article>
+                </li>
+              <% end %>
+            </li>
+
           <% end %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </section>
+          
+        </ul>
+      </div>
+    </section>
+  
+    <section class="dashboard-section height--max">
+      <header class="dashboard-section__header">
+        <h1>
+          지난 수업
+          <span aria-label="<%= @completed_courses.length %>개">
+            <%= @completed_courses.length %>
+          </span>
+        </h1>
+      </header>
+      <div class="dashboard__content">
+        <ul class="dash__courses">
 
-  <section class="dashboard-section height--max">
-    <header class="dashboard-section__header">
-      <h1>
-        지난 수업
-      </h1>
-    </header>
-    <div class="dashboard__content">
-       <ul class="dash__courses">
-        <li class="dash__course">
-            <article>
-              <a href="/">
-                <h1>
-                  HTML, CSS로 시작하는 웹 개발
-                </h1>
-                <p>
-                  웹 프로그래밍  |  Basic
-                </p>
-              </a>
-            </article>
-          </li>
-          <li class="dash__course">
-            <article>
-              <a href="/">
-                <h1>
-                  HTML, CSS로 시작하는 웹 개발
-                </h1>
-                <p>
-                  웹 프로그래밍  |  Basic
-                </p>
-              </a>
-            </article>
-          </li>
-        <li class="dash__course">
-          <article>
-            <a href="/">
-              <h1>
-                HTML, CSS로 시작하는 웹 개발
-              </h1>
-              <p>
-                웹 프로그래밍  |  Basic
-              </p>
-            </a>
-          </article>
-        </li>
-        <li class="dash__course">
-          <article>
-            <a href="/">
-              <h1>
-                HTML, CSS로 시작하는 웹 개발
-              </h1>
-              <p>
-                웹 프로그래밍  |  Basic
-              </p>
-            </a>
-          </article>
-        </li>
-        <li class="dash__course">
-          <article>
-            <a href="/">
-              <h1>
-                HTML, CSS로 시작하는 웹 개발
-              </h1>
-              <p>
-                웹 프로그래밍  |  Basic
-              </p>
-            </a>
-          </article>
-        </li>
-      </ul>
-    </div>
-  </section>
+          <% @completed_courses.each do |course| %>
+            <li class="dash__course--completed">
+              <article>
+                <%= link_to course_path(course) do %>
+                  <h1>
+                    <%= course.title %>
+                  </h1>
+                  <p>
+                    <%= course.course_category_str %>  |  <%= course.course_level_str %>
+                  </p>
+                <% end %>
+              </article>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </section>
+  </div>
 </div>

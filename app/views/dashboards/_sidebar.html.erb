@@ -2,8 +2,8 @@
   <aside class="sidebar">
     <header class="sidebar__header">
       <div class="sidebar__user-image">
-        <% if current_user.profile.present? %>
-          <%= image_tag current_user.profile.url%>
+        <% if user.profile.present? %>
+          <%= image_tag user.profile.url%>
         <% else %>
           <%= image_tag "http://img.insight.co.kr/static/2017/11/25/700/5vbqt8orbz5q7e66r7d6.jpg"%>
         <% end %>
@@ -15,8 +15,10 @@
         <%= user.student? ? "학생" : "선생님" %>
       </p>
     </header>
-    <% if @user.user_type == 1 %>
+    <% if user.teacher? %>
       <%= link_to '수업 개설하기', new_course_path, class: "btn--default btn--large" %>
+    <% elsif user.student? %>
+      <%= link_to '수강신청', courses_path, class: "btn--default btn--large" %>
     <% end %>
   </aside>
 </div>

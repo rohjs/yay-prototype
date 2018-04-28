@@ -1,0 +1,151 @@
+<div class="row flex--freeze">
+  <div class="col-9">
+    <header class="dashboard__header">
+      <h1>
+        <%= course.title %>
+      </h1>
+    </header>
+  </div>
+
+  <div class="col-3">
+    <button type="button"
+      class="btn--default btn--large"
+      id="btn-add-student">
+      수강 취소하기
+    </a>
+  </div>
+
+  <div class="col-12 mt-24">
+    <div class="dashboard__header__detail">
+      <dl>
+        <dt>분야</dt>
+        <dd>
+          <%= course.course_category_str %>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>학점</dt>
+        <dd>
+          <%= course.course_credit_str %>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>레벨</dt>
+        <dd>
+          <%= course.course_level_str %>
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>수강인원</dt>
+        <dd>
+          <%= course.users.count %> / <%= course.capacity %>
+        </dd>
+      </dl>
+
+
+      <dl>
+        <dt>목표</dt>
+        <dd>
+          <%= course.description %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+  
+<div class="row"
+  style="flex-grow: 1">
+
+  <div class="col-lg-9 height--max">
+
+    <section class="dashboard-section height--max">
+      <header class="dashboard-section__header">
+        <h1>
+          평가 항목
+          <span>
+            <%= course.requirements.count %>
+          </span>
+        </h1>
+      </header>
+
+      <div class="dashboard__content height--max"
+        style="flex-grow: 1">
+        <ul class="user__list">
+          
+          <% course.requirements.each do |r| %>
+            <li class="user__item">
+              <article class="user__wrap">
+                <h1>
+                  <%= r.title %>
+                </h1>
+                <p class="ui--secondary">
+                  <%= r.description %>
+                </p>
+              </article>
+            </li>
+          <% end %>
+        
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="col-lg-3 height--max active"
+    id="modal">
+    <section class="dashboard-section height--max">
+      <header class="dashboard-section__header">
+        <h1>
+          함께 수강하는 사람들
+          <span>
+            <%= @enrolled_students.count %>
+          </span>
+        </h1>
+      </header>
+
+      <div class="dashboard__content">
+        <ul class="user__list">
+          <% if @enrolled_students.count == 0 %>
+            <li class="ui--secondary pt-16 pb-16 text-center">
+              함께 수강하는 친구가 없습니다.
+            </li>
+          <% else %>
+            <% @enrolled_students.each do |stu| %>
+            
+              <li class="user__item">
+                <header class="user__header"
+                  style="padding: 0">
+                  <% if stu.profile.url %>
+                    <p class="user__img">
+                      <%= image_tag stu.profile.url %>
+                    </p>
+                  <% else %>
+                    <p class="user__img--placeholder"
+                      aria-hidden="true">
+                      <%= stu.name[0] %>
+                    </p>
+                  <% end %>
+
+                  <h1>
+                    <%= stu.name %>
+                    <span class="ui--secondary d-block mt-1">
+                      <%= stu.user_department_str %>
+                    </span>
+                  </h1>
+                </header>
+              </li>
+            <% end %>
+
+          <% end %>
+          
+        </ul>
+      </div>
+    </section>
+  </div>
+
+</div>
+  
+  

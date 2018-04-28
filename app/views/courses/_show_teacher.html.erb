@@ -140,7 +140,9 @@
               <li class="user__item">
                 <%= link_to add_student_course_user_path(course.id, stu.id), class: "user__header" do %>
                   <% if stu.profile.url %>
-                    <%= image_tag stu.profile.url %>
+                    <p class="user__img">
+                      <%= image_tag stu.profile.url %>
+                    </p>
                   <% else %>
                     <p class="user__img--placeholder"
                       aria-hidden="true">
@@ -150,7 +152,7 @@
 
                   <h1>
                     <%= stu.name %>
-                    <span class="ui--secondary d-block">
+                    <span class="ui--secondary d-block mt-1">
                       <%= stu.user_department_str %>
                     </span>
                   </h1>

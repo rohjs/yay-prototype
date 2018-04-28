@@ -5,11 +5,16 @@ class CoursesController < ApplicationController
   layout "dashboard"
 
   def index
+    @courses = Course.all.order(id: :desc)
   end
 
   def show
     @course = Course.find(params[:id])
     @students = User.where("user_type == 0") - @course.users
+    case current_user.user_type
+      when 0 
+        @enrolled_students = @course.users
+    end
   end
 
   def new
@@ -80,7 +85,4 @@ class CoursesController < ApplicationController
       @student = User.find(params[:id])
       @course = Course.find(params[:course_id])
     end
-
-
-
 end
