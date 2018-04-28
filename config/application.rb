@@ -19,8 +19,12 @@ Bundler.require(*Rails.groups)
 
 module YayPrototype
   class Application < Rails::Application
+    config.i18n.default_locale = :ko
+    config.time_zone = 'Seoul'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

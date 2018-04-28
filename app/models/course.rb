@@ -36,4 +36,15 @@ class Course < ApplicationRecord
   validates :end_date, presence: true
   validates :closing_date, presence: true
 
+  def course_category_str
+    I18n.t("activerecord.attributes.course.category_types.#{self.category}")
+  end
+
+  def course_level_str
+    I18n.t("activerecord.attributes.course.level_types.#{self.level}")
+  end
+
+  def course_credit_str
+    I18n.t("activerecord.attributes.course.credit_types.#{self.credit}")
+  end
 end
