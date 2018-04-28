@@ -16,13 +16,26 @@
     +pb(180px)
 
 %dashboard
-  +pt(120px)
-  +min-h(100vh)
-  +min-lg()
-    +h(100vh)
+  +flex(column)
+  +w()
+  +h(100vh)
+
+%dashboard-fixed-height
+  +flex(column)
+  +w()
+  +h(100vh)
+  +pb(16px)
+  overflow: hidden
+
+%dashboard-stretch-height
+  +gr(1)
+  +flex(column)
+  +w()
+  overflow: hidden
 
 %dashboard-header
   +mb(20px)
   h1
     @extend %ui-primary
     +m()
+

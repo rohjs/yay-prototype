@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="dashboard">
+  <body class="dashboard<%= content_for(:main_class) || "" %>">
     <%= render "shared/dashboard-header" %>
     
     <main>

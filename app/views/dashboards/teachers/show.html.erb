@@ -1,11 +1,14 @@
 <% content_for :title, "메인 | #{@user.name}님의 대시보드" %>
+<% content_for :main_class, "--fixed" %>
 
-<div class="row align-items-stretch pb-4">
+<div class="row">
 
   <%= render partial: "sidebar", locals: { user: @user } %>
 
   <div class="col-lg-9 d-flex flex-column">
-    <section class="dash-section mb-5">
+    <section class="dash-section"
+      style="margin-bottom: 40px">
+      
       <header class="dash-section__header">
         <h1>
           진행중인 수업
@@ -14,11 +17,12 @@
           </span>
         </h1>
       </header>
+
       <div class="dash-section__content"
-        style="max-height: 294px;">
+        style="height: 408px;">
         <ul class="dash__courses">
 
-          <%= @ongoing_courses.each do |c| %>
+          <% @ongoing_courses.each do |c| %>
 
             <li>
               <% @ongoing_courses.each do |course| %>
@@ -56,7 +60,7 @@
         <ul class="dash__courses">
 
           <% @completed_courses.each do |course| %>
-            <li class="dash__course">
+            <li class="dash__course--completed">
               <article class="dash__course-item">
                 <%= link_to course_path(course) do %>
                   <h1>

@@ -1,9 +1,18 @@
 .dashboard
+  @extend %dashboard
   main
-    @extend %dashboard
-    .container,
-    .row
-      +h(100%)
+    +gr(1)
+    +pt(56px)
+    overflow: auto
+    
+
+.dashboard--fixed
+  @extend %dashboard-fixed-height
+  main,
+  .container
+    @extend %dashboard-stretch-height
+  main
+    +pt(56px)
 
 
 .dash-header
