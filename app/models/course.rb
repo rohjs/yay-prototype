@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   has_and_belongs_to_many :users
-  has_many :requirements
-  accepts_nested_attributes_for :requirements
+  has_many :requirements, dependent: :destroy
+  accepts_nested_attributes_for :requirements, allow_destroy: true
 
   enum level: {
     introductory: 0,

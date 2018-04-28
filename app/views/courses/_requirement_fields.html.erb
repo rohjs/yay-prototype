@@ -1,0 +1,15 @@
+<section class="form__nested-items">
+  <div class="form__item">
+    <%= f.label :title, "평가 항목", class: "form__label" %>
+    <%= f.text_field :title, autocomplete: "off", class: "form__input" %>
+  </div>
+  
+  <div class="form__item">
+    <%= f.label :description, "평가 내용", class: "form__label" %>
+    <%= f.text_field :description, autocomplete: "off", class: "form__input" %>
+  </div>
+
+  <%= f.check_box :_destroy %>
+  
+  <%= link_to_remove_association "평가항목 삭제하기", f %>
+</section>
