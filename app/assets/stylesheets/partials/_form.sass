@@ -58,8 +58,8 @@
     @extend %form-style
     +w()
     +min-h(100px)
-    +pt(10px)
-    +pb(10px)
+    +pt(12px)
+    +pb(12px)
     +mb(24px)
   &__meta-text
     +ml(4px)
@@ -84,8 +84,7 @@
     +flex()
     +ai()
 
-
-.form__nested-items
+.form__section
   +mt(100px)
   header
     h1
@@ -93,3 +92,8 @@
     p
       @extend %ui-secondary
       line-height: 1.2 !important
+  &--nested
+    +p(24px 32px 16px)
+    +mb(16px)
+    +bgc($bg-gray)
+    border-radius: 4px

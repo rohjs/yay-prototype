@@ -68,13 +68,19 @@
       <header class="dash-section__header">
         <h1>
           수강생 대시보드
+          <span>
+              <% enrolled_students = course.users.where(user_type: 0) %>
+              <%= enrolled_students.count %>
+          </span>
         </h1>
       </header>
 
       <div class="dash-section__content height--max"
         style="flex-grow: 1">
         <ul class="student__list">
-          <% course.users.where(user_type: 0).each do |stu| %>
+
+          <% enrolled_students.each do |stu| %>
+          
             <li class="student__item">
               <header class="student__header">
                 <% if stu.profile.url %>
@@ -96,29 +102,63 @@
               <!--<%= link_to '[x]', minus_student_course_user_path(course.id, stu.id)%>-->
             </li>
           <% end %>
+
         </ul>
       </div>
     </section>
 
   </div>
 
-</div>
+  <div class="col-lg-3 height--max"
+    id="modal">
+    <section class="dash-section height--max">
+      <header class="dash-section__header">
+        <h1>
+          수강생을 추가하는 모달
+        </h1>
+      </header>
 
-<section class="modal"
-  id="modal" style="display: block; width: 100px">
+      <div class="dash-section__content">
+        <ul class="student__list">
+          <% if students.count == 0 %>
+            <li class="ui--secondary pt-16 pb-16 text-center">
+              추가 가능한 학생이 없습니다.
+            </li>
+          <% else %>
 
-  <h1>수강생을 추가하는 모달</h1>
-  <div>
-    <% students.each do |student| %>
-      <%= link_to add_student_course_user_path(course.id, student.id) do %>
-        <%= student.name %>
-      <% end %>
-      </p>
-    <% end %>
+            <% students.each do |stu| %>
+
+              <li>
+                <%= link_to add_student_course_user_path(course.id, stu.id), class: "student__info" do %>
+                  <% if stu.profile.url %>
+                    <%= image_tag stu.profile.url %>
+                  <% else %>
+                    <p class="user__img--placeholder"
+                      aria-hidden="true">
+                      <%= stu.name[0] %>
+                    </p>
+                  <% end %>
+
+                  <h1>
+                    <%= stu.name %>
+                    <span class="ui--secondary d-block">
+                      <%= stu.user_department_str %>
+                    </span>
+                  </h1>
+                <% end %>
+              </li>
+
+            <% end %>
+
+          <% end %>
+          
+        </ul>
+      </div>
+    </section>
   </div>
 
+</div>
 
-</section>
 
 <script>
   (function() {

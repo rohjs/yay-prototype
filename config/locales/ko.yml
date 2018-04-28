@@ -68,7 +68,7 @@ ko:
           design": "디자인"
           marketing": "마케팅'"
           business: "비즈니스"
-        level: "수준"
+        level: "난이도"
         level_types:
           introductory: "입문"
           basic: "초급"
