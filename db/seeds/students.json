@@ -1,0 +1,74 @@
+[
+  {
+    "name": "노우현",
+    "email": "woohyeon@yay.com",
+    "user_type": 0,
+    "department": "integrated_knowledge",
+    "phone_number": "010-1234-5685",
+    "password": "123123",
+    "password_confirmation": "123123"
+  },
+  {
+    "name": "곽형민",
+    "email": "hyungmin@yay.com",
+    "user_type": 0,
+    "department": "business_administration",
+    "phone_number": "010-1234-5686",
+    "password": "123123",
+    "password_confirmation": "123123"
+  },
+  {
+    "name": "김상아",
+    "email": "sangah@yay.com",
+    "user_type": 0,
+    "department": "integrated_knowledge",
+    "phone_number": "010-1234-5687",
+    "password": "123123",
+    "password_confirmation": "123123"
+  },
+  {
+    "name": "이찬하",
+    "email": "chanha@yay.com",
+    "user_type": 0,
+    "department": "business_administration",
+    "phone_number": "010-1234-5688",
+    "password": "123123",
+    "password_confirmation": "123123"
+  },
+  {
+    "name": "심민정",
+    "email": "minjeong@yay.com",
+    "user_type": 0,
+    "department": "economics",
+    "phone_number": "010-1234-5689",
+    "password": "123123",
+    "password_confirmation": "123123"
+  },
+  {
+    "name": "민보윤",
+    "email": "boyoon@yay.com",
+    "user_type": 0,
+    "department": "social_science",
+    "phone_number": "010-1234-5690",
+    "password": "123123",
+    "password_confirmation": "123123"
+  },
+  {
+    "name": "신수민",
+    "email": "soomin@yay.com",
+    "user_type": 0,
+    "department": "science",
+    "phone_number": "010-1234-5691",
+    "password": "123123",
+    "password_confirmation": "123123"
+  },
+  {
+    "name": "백진현",
+    "email": "jinhyeon@yay.com",
+    "user_type": 0,
+    "department": "engineering",
+    "phone_number": "010-1234-5692",
+    "password": "123123",
+    "password_confirmation": "123123"
+  }
+]
