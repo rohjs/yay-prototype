@@ -5,7 +5,9 @@
         <% if user.profile.present? %>
           <%= image_tag user.profile.url%>
         <% else %>
-          <%= image_tag "http://img.insight.co.kr/static/2017/11/25/700/5vbqt8orbz5q7e66r7d6.jpg"%>
+          <p aria-hidden="true">
+            <%= user.name[0] %>
+          </p>
         <% end %>
       </div>
       <h1>

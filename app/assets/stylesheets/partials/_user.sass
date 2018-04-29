@@ -23,11 +23,10 @@
   text-transform: uppercase !important
   text-align: center
 
-
 =user__img--placeholder($s: 36px, $fs: 18px)
   @extend %user__img--placeholder
-  +w(36px)
-  +h(36px)
+  +w($s)
+  +h($s)
   font-size: $fs
   line-height: $s
 
