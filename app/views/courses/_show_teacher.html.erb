@@ -44,7 +44,7 @@
       <dl>
         <dt>수강인원</dt>
         <dd>
-          <%= course.users.count %> / <%= course.capacity %>
+          <%= course.users.where(:user_type => 0).count %> / <%= course.capacity %>
         </dd>
       </dl>
 
