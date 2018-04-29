@@ -30,7 +30,7 @@ ko:
     intermediate: "중급"
     advance: "고급"
     department: "학부"
-    korean_language: "국제인문학부"
+    humanities: "국제인문학부"
     social_science: "사회과학부"
     integrated_knowledge: "지식융합학부"
     science: "자연과학부"
@@ -51,7 +51,7 @@ ko:
         phone_number: "휴대 전화 번호"
         department: "학부"
         department_types:
-          korean_language: "국제인문학부"
+          humanities: "국제인문학부"
           social_science: "사회과학부"
           integrated_knowledge: "지식융합학부"
           science: "자연과학부"

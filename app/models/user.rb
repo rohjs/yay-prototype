@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :courses
 
   enum department: {
-    korean_language: 0,
+    humanities: 0,
     social_science: 1,
     integrated_knowledge: 2,
     science: 3,
