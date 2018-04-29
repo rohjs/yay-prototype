@@ -73,7 +73,7 @@ ko:
           introductory: "입문"
           basic: "초급"
           intermediate: "중급"
-          advance: "고급"
+          advanced: "고급"
         credit: "학점"
         credit_types:
           credit_3: "3학점"
