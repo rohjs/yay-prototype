@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "homes#index"
+
   resources :dashboards
   resources :courses do
     resources :users do
@@ -9,9 +11,8 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+  post '/assignments/check_assignment' => 'assignments#check_assignment', as: 'check_assignment'
 
-
-  root "homes#index"
   #get "/courses/:course_id/students/:student_id", to: "courses#add_student", as: "add_student"
   # get "/courses/:course_id/students/:student_id", to: "courses#add_student", as: "add_student"
 

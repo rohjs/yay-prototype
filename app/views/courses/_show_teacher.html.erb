@@ -81,7 +81,7 @@
         <ul class="user__list">
 
           <% enrolled_students.each do |stu| %>
-          
+
             <li class="user__item">
               <article class="user">
                 <header class="user__header">
@@ -115,7 +115,7 @@
                           </h1>
                           <dl>
                             <dt class="sr-only">수행여부</dt>
-                            <dd>제출</dd>
+                            <dd>true</dd>
                           </dl>
                           <dl>
                             <dt class="sr-only">학점</dt>
@@ -123,22 +123,30 @@
                           </dl>
                         </article>
                       </li>
+
+                      <%= form_for Assignment.find_by(requirement_id: r.id, user_id: stu.id), url: check_assignment_path, method: :post do |f| %>
+                        <%= f.hidden_field :user_id, value: stu.id%>
+                        <%= f.hidden_field :requirement_id, value: r.id%>
+                        <%= f.text_field :status%>
+                        <%=f.submit%>
+                      <% end %>
+
                     <% end %>
 
                   </ul>
-                  
+
 
                   <footer>
                     <%= link_to '삭제하기', minus_student_course_user_path(course.id, stu.id), class: "ui--accent mr-3" %>
-                    
-                    <%= link_to '수정하기', '#', class: "ui--accent" %>
+
+                    <%= link_to '수정하기', '#', class: "ui--accent", method: :post%>
                   </footer>
-                  
+
 
                 </section>
               </article>
-              
-              
+
+
             </li>
           <% end %>
 
@@ -195,7 +203,7 @@
             <% end %>
 
           <% end %>
-          
+
         </ul>
       </div>
     </section>
@@ -214,7 +222,7 @@
     Array.prototype.slice.call(userItems);
 
     addStudent.addEventListener("click", toggleModal)
-    
+
     userItems.forEach(function(item) {
       item.addEventListener("click", function() {
         console.log("item:", item)
@@ -243,6 +251,6 @@
         activeUserItem = elm;
       }
     }
-      
+
   })()
 </script>

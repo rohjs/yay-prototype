@@ -12,10 +12,8 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @students = User.where("user_type == 0") - @course.users
 
-    case current_user.user_type
-      when 0 
-        @enrolled_students = @course.users
-    end
+    @enrolled_students = @course.users.where(user_type: 0)
+
   end
 
   def new
@@ -36,7 +34,7 @@ class CoursesController < ApplicationController
   def edit
     @course = Course.find_by(id: params[:id])
   end
-  
+
   def update
     @course = Course.find_by(id: params[:id])
     if @course.update_attributes(course_params)

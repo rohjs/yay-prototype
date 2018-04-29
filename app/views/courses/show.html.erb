@@ -1,8 +1,10 @@
 <% content_for :title, "#{@course.title} | #{current_user.name}님의 대시보드" %>
 <% content_for :main_class, "--fixed" %>
 
-<% if current_user.user_type == 1 %>
-  <%= render partial: "show_teacher", locals: { course: @course, students: @students } %>
-<% else %>
-  <%= render partial: "show_student", locals: { course: @course } %>
+<% if user_signed_in? %>
+  <% if current_user.user_type == 1 %>
+    <%= render partial: "show_teacher", locals: { course: @course, students: @students } %>
+  <% else %>
+    <%= render partial: "show_student", locals: { course: @course } %>
+  <% end %>
 <% end %>
