@@ -1,7 +1,7 @@
 [
   {
     "name": "노우현",
-    "profile": "/users/user-woohyeon.jpg",
+    "profile": "/uploads/user/profile/9/user-woohyeon.jpg",
     "email": "woohyeon@yay.com",
     "user_type": 0,
     "department": "integrated_knowledge",
@@ -11,7 +11,7 @@
   },
   {
     "name": "곽형민",
-    "profile": "/users/user-hyungmin.jpg",
+    "profile": "/uploads/user/profile/10/user-hyungmin.jpg",
     "email": "hyungmin@yay.com",
     "user_type": 0,
     "department": "business_administration",
@@ -21,7 +21,7 @@
   },
   {
     "name": "김상아",
-    "profile": "/users/user-sangah.jpg",
+    "profile": "/uploads/user/profile/11/user-sangah.jpg",
     "email": "sangah@yay.com",
     "user_type": 0,
     "department": "integrated_knowledge",
@@ -31,7 +31,7 @@
   },
   {
     "name": "이찬하",
-    "profile": "/users/user-chanha.jpg",
+    "profile": "/uploads/user/profile/12/user-chanha.jpg",
     "email": "chanha@yay.com",
     "user_type": 0,
     "department": "business_administration",
