@@ -7,7 +7,7 @@ class Course < ApplicationRecord
     introductory: 0,
     basic: 1,
     intermediate: 2,
-    advanced: 3,
+    advanced: 3
   }
 
   enum category: {
@@ -15,7 +15,8 @@ class Course < ApplicationRecord
     data_science: 1,
     design: 2,
     marketing: 3,
-    business: 4
+    business: 4,
+    volunteer: 5
   }
 
   enum credit: {

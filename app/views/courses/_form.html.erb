@@ -1,4 +1,3 @@
-<%= form_for(@course) do |f| %>
   <div class="form__item"
     style="flex-grow: 2;">
     <%= f.label :title, "수업명", class: "form__label" %>
@@ -37,7 +36,8 @@
           '데이터 사이언스' => "data_science",
           '디자인' => "design",
           '마케팅' => "marketing",
-          '비즈니스' => "business"
+          '비즈니스' => "business",
+          "봉사" => "volunteer"
         }, 0),
         {},
         class: "form__input" %>
@@ -115,6 +115,5 @@
 
 
   <div class="form__submit">
-    <%= f.submit "수업 개설하기", class: "form__submit btn--default" %>
+    <%= f.submit btn, class: "form__submit btn--default" %>
   </div>
-<% end %>

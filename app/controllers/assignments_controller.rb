@@ -8,7 +8,7 @@ class AssignmentsController < ApplicationController
       user_id: assignment_params[:user_id] )
       .update(status: assignment_params[:status])
 
-    course =  Requirement.find(assignment_params[:requirement_id]).course
+    course = Requirement.find(assignment_params[:requirement_id]).course
     redirect_to course
   end
 
