@@ -1,71 +1,82 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  
-  <% if !is_edit %>
-    <div class="form__radio"></div>
-      <p class="form__label">사용자 유형</p>
-      <%= f.radio_button :user_type, 0, :checked => true, class: "form__radio-btn" %>
-      <%= f.label :user_type, '학생', :value => 0 , class: "form__label--radio" %>
-      <%= f.radio_button :user_type, 1, class: "form__radio-btn" %>
-      <%= f.label :user_type, '선생님', :value => 1, class: "form__label--radio" %>
-    </div>
-  <% end %>
-  
-  <div class="form__item">
-    <%= f.label :name, '이름', class: "form__label" %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "off", class: "form__input" %>
+<% if !is_edit %>
+  <div class="form__radio">
+    <p class="form__label">사용자 유형</p>
+    <%= f.radio_button :user_type, 0, :checked => true, class: "form__radio-btn" %>
+    <%= f.label :user_type, '학생', :value => 0 , class: "form__label--radio" %>
+    <%= f.radio_button :user_type, 1, class: "form__radio-btn" %>
+    <%= f.label :user_type, '선생님', :value => 1, class: "form__label--radio" %>
   </div>
-
-  <div class="form__item">
-    <%= f.label :profile, '프로필 사진', class: "form__label" %>
-    <%= f.file_field :profile, autofocus: false, autocomplete: "off", class: "form__input form__file" %>
-  </div>
-
-  <div class="form__item">
-    <%= f.label :email, '이메일', class: "form__label" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__input" %>
-  </div>
-
-  <div class="form__item">
-    <%= f.label :password, class: "form__label" do %>
-      <% if @minimum_password_length %>
-        비밀번호
-        <em class="form__meta-text">최소 <%= @minimum_password_length %>자리 이상</em>
-      <% end %>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "off", class: "form__input" %>
-  </div>
-
-  <div class="form__item">
-    <%= f.label :password_confirmation, '비밀번호 확인', class: "form__label" %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form__input" %>
-  </div>
-
-  <div class="form__item">
-    <%= f.label :department, '학부', class: "form__label" %>
-    <%= f.select :department,
-      options_for_select({
-        "국제인문학부" => "humanities",
-        "사회과학부" => "social_science",
-        "지식융합학부" => "integrated_knowledge",
-        "자연과학부" => "science",
-        "공학부" => "engineering",
-        "경제학부" => "economics",
-        "경영학부" => "business_administration",
-        "커뮤니케이션학부" => "communication",
-        "법학부" => "law"
-      }, 0),
-      {},
-      class: "form__input" %>
-  </div>
-
-  <div class="form__item">
-    <%= f.label :phone_number, '휴대 전화 번호', class: "form__label" %>
-    <%= f.text_field :phone_number, autocomplete: "off", class: "form__input" %>
-  </div>
-
-  <div class="form__submit">
-    <%= f.submit btn, class: "form__submit btn--default" %>
-  </div>
-
 <% end %>
+
+<div class="form__item">
+  <%= f.label :name, '이름', class: "form__label" %>
+  <%= f.text_field :name, autofocus: true, autocomplete: "off", class: "form__input" %>
+</div>
+
+<div class="form__item">
+  <%= f.label :profile, '프로필 사진', class: "form__label" %>
+  <%= f.file_field :profile, autofocus: false, autocomplete: "off", class: "form__input form__file" %>
+</div>
+
+<div class="form__item">
+  <%= f.label :email, '이메일', class: "form__label" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__input" %>
+</div>
+
+<div class="form__item">
+  <%= f.label :password, class: "form__label" do %>
+    <% if @minimum_password_length %>
+      비밀번호
+      <em class="form__meta-text">
+        최소 <%= @minimum_password_length %>자리 이상
+      </em>
+    <% end %>
+  <% end %>
+  <%= f.password_field :password, autocomplete: "off", class: "form__input" %>
+</div>
+
+<div class="form__item">
+  <%= f.label :password_confirmation, '비밀번호 확인', class: "form__label" %>
+  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form__input" %>
+</div>
+
+<% if is_edit %>
+  <div class="form__item">
+    <%= f.label :current_password, class: "form__label" do %>
+      현재 비밀번호
+      <em class="form__meta-text">
+        프로필을 업데이트 하기 위해 비밀번호를 입력해주세요.
+      </em>
+    <% end %>
+    <%= f.password_field :current_password, autocomplete: "off", class: "form__input" %>
+  </div>
+<% end %>
+
+<div class="form__item">
+  <% default_option = is_edit ? f.object.department : 0 %>
+  <%= f.label :department, '학부', class: "form__label" %>
+  <%= f.select :department,
+    options_for_select({
+      "국제인문학부" => "humanities",
+      "사회과학부" => "social_science",
+      "지식융합학부" => "integrated_knowledge",
+      "자연과학부" => "science",
+      "공학부" => "engineering",
+      "경제학부" => "economics",
+      "경영학부" => "business_administration",
+      "커뮤니케이션학부" => "communication",
+      "법학부" => "law"
+    }, default_option),
+    {},
+    class: "form__input" %>
+</div>
+
+<div class="form__item">
+  <%= f.label :phone_number, '휴대 전화 번호', class: "form__label" %>
+  <%= f.text_field :phone_number, autocomplete: "off", class: "form__input" %>
+</div>
+
+<div class="form__submit">
+  <%= f.submit btn, class: "form__submit btn--default" %>
+</div>
+

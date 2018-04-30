@@ -1,0 +1,20 @@
+%error
+  +p(16px)
+  +pl(44px)
+  +bgi-url(image-url('icons/icon-warning.svg'))
+  +bgs(contain)
+  +bgp(left center)
+  +bgr()
+  +bgc(rgba(0, 0, 0, .7))
+  border-radius: 2px
+  color: $white
+  box-shadow: 0 4px 10px 0 rgba($gray, .5)
+  h1
+    +w()
+    +mb()
+    font-size: 14px !important 
+    font-weight: 400
+
+#message--error
+  @extend %error
+  +mb(32px)

@@ -1,4 +1,4 @@
-<% content_for :title, "프로필 수정하기 | #{@user.name}#{current_user.name}님의 대시보드" %>
+<% content_for :title, "프로필 수정하기 | #{@user.name}님의 대시보드" %>
 
 <% content_for :main_class, "--fixed" %>
 
@@ -10,10 +10,15 @@
         프로필 수정하기
       </h1>
     </header>
-
+    <%= devise_error_messages! %>
     <section class="dashboard__content pr-56">
       
-      <%= render partial: "form", locals: { btn: "프로필 업데이트", is_edit: true } %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+        <%= render partial: "form", locals: { f: f, btn: "프로필 업데이트", is_edit: true } %>
+
+      <% end %>
+
       <div class="form__section pb-56">
         <header>
           <h1>회원탈퇴</h1>
@@ -23,6 +28,7 @@
         </header>
         <%= button_to "회원탈퇴 하기", registration_path(resource_name), data: { confirm: "정말 탈퇴하시겠습니까?" }, method: :delete, class: "btn--ghost mt-4" %>
       </div>
+      
     </section>
   </div>
 </div>

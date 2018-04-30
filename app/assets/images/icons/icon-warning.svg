@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-warning" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" x="0" y="0" width="40" height="40"></rect>
+        <path d="M13,26.65625 L20.34375,14 L27.65625,26.65625 L13,26.65625 Z M21,24.65625 L21,23.3125 L19.65625,23.3125 L19.65625,24.65625 L21,24.65625 Z M21,22 L21,19.3125 L19.65625,19.3125 L19.65625,22 L21,22 Z" fill="#FFFFFF"></path>
+    </g>
+</svg>
