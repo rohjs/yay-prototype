@@ -1,0 +1,37 @@
+<div class="dashboard__header__detail">
+  <dl>
+    <dt>분야</dt>
+    <dd>
+      <%= course.course_category_str %>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>학점</dt>
+    <dd>
+      <%= course.course_credit_str %>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>레벨</dt>
+    <dd>
+      <%= course.course_level_str %>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt>수강인원</dt>
+    <dd>
+      <%= enrolled_students.count %> / <%= course.capacity %>
+    </dd>
+  </dl>
+
+
+  <dl>
+    <dt>목표</dt>
+    <dd>
+      <%= course.description %>
+    </dd>
+  </dl>
+</div>
