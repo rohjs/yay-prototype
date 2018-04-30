@@ -10,14 +10,14 @@ teachers_json = ActiveSupport::JSON.decode(File.read("db/seeds/teachers.json"))
 
 students_json = ActiveSupport::JSON.decode(File.read("db/seeds/students.json"))
 
-teachers_json.each do |t, i|
+teachers_json.each do |t|
   User.create!(t)
-    puts "Teacher #{i} is created!"
+    puts "A teacher is created!"
 end
 
-students_json.each do |s, i|
+students_json.each do |s|
   User.create!(s)
-    puts "Student #{i} is created!"
+    puts "A student is created!"
 end
 
 # 5.times do |i|
