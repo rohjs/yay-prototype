@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
-  layout "dashboard", only: [:edit], if: :devise_controller?
+  layout "dashboard", only: [:edit, :update, :show], if: :devise_controller?
 
   def after_sign_in_path_for(resource)
     dashboard_path(resource.id)
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    keys = [:name, :department, :user_type, :phone_number, :profile]
+    keys = [:name, :user_type, :profile, :department, :phone_number]
     devise_parameter_sanitizer.permit(:sign_up, keys: keys)
     devise_parameter_sanitizer.permit(:account_update, keys: keys)
   end
