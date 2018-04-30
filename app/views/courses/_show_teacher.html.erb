@@ -44,7 +44,7 @@
       <dl>
         <dt>수강인원</dt>
         <dd>
-          <%= course.users.where(:user_type => 0).count %> / <%= course.capacity %>
+          <%= @enrolled_students.count %> / <%= course.capacity %>
         </dd>
       </dl>
 
@@ -70,87 +70,68 @@
         <h1>
           수강생 대시보드
           <span>
-              <% enrolled_students = course.users.where(user_type: 0) %>
-              <%= enrolled_students.count %>
+            <%= @enrolled_students.count %>
           </span>
         </h1>
       </header>
 
-      <div class="dashboard__content height--max"
+      <div class="dashboard__content height--max pb-32"
         style="flex-grow: 1">
-        <ul class="user__list">
+        <% if @enrolled_students.empty? %>
+          <p class="ui--secondary pt-40 text-center">
+            수강생이 없습니다.
+          </p>
+        <% else %>
 
-          <% enrolled_students.each do |stu| %>
+          <ul class="user__list">
+            <% @enrolled_students.each do |stu| %>
 
-            <li class="user__item">
-              <article class="user">
-                <header class="user__header">
-                  <% if stu.profile.url %>
-                    <p class="user__img"
-                      aria-hidden="true">
-                      <%= image_tag stu.profile.url %>
-                    </p>
-                  <% else %>
-                    <p class="user__img--placeholder"
-                      aria-hidden="true">
-                      <%= stu.name[0] %>
-                    </p>
-                  <% end %>
-                  <h1>
-                    <%= stu.name%>
-                  </h1>
-                  <p class="ui--secondary">
-                    서강대학교 / <%= stu.user_department_str %>
-                  </p>
-                </header>
+              <li class="user__item">
 
-                <section class="user__content">
-                  <ul class="user__assignments">
+                <article class="user">
 
-                    <% course.requirements.each do |r| %>
-                      <li class="user__assignment">
-                        <article>
-                          <h1>
-                            <%= r.title %>
-                          </h1>
-                          <dl>
-                            <dt class="sr-only">수행여부</dt>
-                            <dd>true</dd>
-                          </dl>
-                          <dl>
-                            <dt class="sr-only">학점</dt>
-                            <dd>A</dd>
-                          </dl>
-                        </article>
-                      </li>
-
-                      <%= form_for Assignment.find_by(requirement_id: r.id, user_id: stu.id), url: check_assignment_path, method: :post do |f| %>
-                        <%= f.hidden_field :user_id, value: stu.id%>
-                        <%= f.hidden_field :requirement_id, value: r.id%>
-                        <%= f.text_field :status%>
-                        <%=f.submit%>
-                      <% end %>
-
+                  <header class="user__header">
+                    <% if stu.profile.url %>
+                      <p class="user__img"
+                        aria-hidden="true">
+                        <%= image_tag stu.profile.url %>
+                      </p>
+                    <% else %>
+                      <p class="user__img--placeholder"
+                        aria-hidden="true">
+                        <%= stu.name[0] %>
+                      </p>
                     <% end %>
 
-                  </ul>
+                    <h1>
+                      <%= stu.name %>
+                    </h1>
+                    <p class="ui--secondary">
+                      서강대학교 / <%= stu.user_department_str %>
+                    </p>
+                  </header>
+
+                  <section class="user__content">
+                    <ul class="user__assignments">
+
+                      <% course.requirements.each do |r| %>
+                        <%= render partial: "assignment", locals: { stu: stu, r: r } %>
+                      <% end %>
+
+                    </ul>
+
+                    <footer>
+                      <%= link_to '수강생 삭제', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
+                    </footer>
+                  </section>
+                </article>
 
 
-                  <footer>
-                    <%= link_to '삭제하기', minus_student_course_user_path(course.id, stu.id), class: "ui--accent mr-3" %>
+              </li>
+            <% end %>
 
-                    <%= link_to '수정하기', '#', class: "ui--accent", method: :post%>
-                  </footer>
-
-
-                </section>
-              </article>
-
-
-            </li>
-          <% end %>
-
-        </ul>
+          </ul>
+        <% end %>
       </div>
     </section>
 

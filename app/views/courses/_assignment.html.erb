@@ -1,0 +1,27 @@
+<li class="user__assignment">
+  <article>
+    <h1>
+      <%= r.title %>
+    </h1>
+    <dl>
+      <dt class="sr-only">수행여부</dt>
+      <dd>
+        <%= form_for Assignment.find_by(requirement_id: r.id, user_id: stu.id), url: check_assignment_path, method: :post do |f| %>
+          <%= f.hidden_field :user_id, value: stu.id %>
+          <%= f.hidden_field :requirement_id, value: r.id %>
+          <div class="form__inline">
+            <%= f.select :status,
+              options_for_select({
+                "제출" => true,
+                "미제출" => false
+              }, f.object.status),
+              {},
+              class: "form__input form__select" %>
+            <%= f.submit "수정", class: "btn--text" %>
+          </div>
+        <% end %>
+      </dd>
+    </dl>
+  </article>
+</li>
+
