@@ -94,4 +94,15 @@ ko:
       dashboard: 대시보드
       requirement: 평가요소
       user: 사용자
-
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              blank: "패스워드없음"
+  devise:
+    registrations:
+      user:
+        uh oh! no pasword!
+  errors:
+    messages: "문제잇네"
