@@ -12,16 +12,11 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @students = User.where("user_type == 0") - @course.users
 
-<<<<<<< HEAD
-    @enrolled_students = @course.users.where(user_type: 0)
-
-=======
     case current_user.user_type
       when 0 
         @enrolled_students = @course.users.where(user_type: 0)
         @is_user_enrolled = @enrolled_students.where(id: current_user.id).exists? ? true : false
     end
->>>>>>> origin/style-course-form
   end
 
   def new
@@ -30,8 +25,6 @@ class CoursesController < ApplicationController
 
   def create
     @course = current_user.courses.create(course_params)
-    puts "------------------------------"
-    puts @course.errors.full_messages
     if @course.save
       redirect_to @course
     else
