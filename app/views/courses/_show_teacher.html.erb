@@ -14,8 +14,8 @@
     <button type="button"
       class="btn--default btn--large"
       id="btn-add-student">
-      수강생 추가하기
-    </a>
+      평가항목 수정하기
+    </button>
   </div>
 
   <div class="col-12 mt-24">
@@ -121,7 +121,7 @@
                     </ul>
 
                     <footer>
-                      <%= link_to '수강생 삭제', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
+                      <%= link_to '이 수강생을 목록에서 제거', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
                     </footer>
                   </section>
                 </article>
@@ -185,43 +185,47 @@
 
 <script>
   (function() {
-    var addStudent = document.getElementById("btn-add-student");
-    var panel = document.getElementById("panel");
     var userItems = document.querySelectorAll("#enrolled-students .user__header");
+    var parentItems = {};
     var activeUserItem = null;
 
     Array.prototype.slice.call(userItems);
 
-    addStudent.addEventListener("click", togglePanel)
-    
-    userItems.forEach(function(item) {
+    userItems.forEach(function(item, index) {
       item.addEventListener("click", function() {
-        console.log("item:", item)
-        toggleListItem(this, "active")
+        toggleListItem(this, index, "active")
       });
     })
 
-    function togglePanel () {
-      Panel.classList.toggle("active")
+    function generateId (index) {
+      return "id" + index;
     }
 
-    function toggleListItem (elm, classname) {
-      var parentNode = elm.parentNode;
-      var parentNodeClassList = parentNode.classList;
+    function toggleListItem (elm, index, classname) {
+      var id = generateId(index)
+      var parentNode;
+      var parentNodeClassList;
+
+      if (parentItems[id]) {
+        parentNode = parentItems[id]
+      } else {
+        parentNode = elm.parentNode;
+        parentItems[id] = parentNode;
+      }
+
+      parentNodeClassList = parentNode.classList;
 
       parentNodeClassList.toggle(classname);
 
-      console.log("activeUserItem:", activeUserItem)
-      if (activeUserItem == null) activeUserItem = elm;
-      else if (activeUserItem === elm) activeUserItem = null;
+      if (activeUserItem == null) activeUserItem = index;
+      else if (activeUserItem === index) activeUserItem = null;
       else {
-        console.log("why activeUserItem:", activeUserItem);
-        console.log("why activeUserItem parent:", activeUserItem.parentNode);
-
-        activeUserItem.parentNode.classList.toggle(classname);
-        activeUserItem = elm;
+        parentItems[generateId(activeUserItem)].classList.toggle(classname);
+        activeUserItem = index;
       }
+
     }
+
 
   })()
 </script>
