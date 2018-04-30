@@ -30,7 +30,7 @@ ko:
     intermediate: "중급"
     advance: "고급"
     department: "학부"
-    korean_language: "국제인문학부"
+    humanities: "국제인문학부"
     social_science: "사회과학부"
     integrated_knowledge: "지식융합학부"
     science: "자연과학부"
@@ -51,7 +51,7 @@ ko:
         phone_number: "휴대 전화 번호"
         department: "학부"
         department_types:
-          korean_language: "국제인문학부"
+          humanities: "국제인문학부"
           social_science: "사회과학부"
           integrated_knowledge: "지식융합학부"
           science: "자연과학부"
@@ -73,7 +73,7 @@ ko:
           introductory: "입문"
           basic: "초급"
           intermediate: "중급"
-          advance: "고급"
+          advanced: "고급"
         credit: "학점"
         credit_types:
           credit_3: "3학점"
@@ -94,4 +94,15 @@ ko:
       dashboard: 대시보드
       requirement: 평가요소
       user: 사용자
-
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              blank: "패스워드없음"
+  devise:
+    registrations:
+      user:
+        uh oh! no pasword!
+  errors:
+    messages: "문제잇네"

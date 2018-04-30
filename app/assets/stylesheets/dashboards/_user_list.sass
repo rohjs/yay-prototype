@@ -1,16 +1,6 @@
 .user
   &__item
     @extend %list-item
-    #modal &
-      +mb(16px)
-      border: none
-      &:hover,
-      &:focus,
-      &:active
-        box-shadow: none
-        opacity: .5
-      a
-        +p()
   &.active
     @extend %dashboard-card-active
     +bgc($bg-gray)
@@ -51,8 +41,7 @@
       +h(48px)
     h1,
     dd
-      @extend %ui-primary
-      font-weight: 400
+      @extend %ui-primary-text
     h1
       +gr(1)
     dl
@@ -60,6 +49,7 @@
       text-align: right
     dd
       +mb()
+
       
       
       

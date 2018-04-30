@@ -1,0 +1,19 @@
+<div class="panel__content">
+  <% if stu.profile.url %>
+    <p class="user__img">
+      <%= image_tag stu.profile.url %>
+    </p>
+  <% else %>
+    <p class="user__img--placeholder"
+      aria-hidden="true">
+      <%= stu.name[0] %>
+    </p>
+  <% end %>
+
+  <h1>
+    <%= stu.name %>
+    <span class="ui--secondary d-block mt-1">
+      <%= stu.user_department_str %>
+    </span>
+  </h1>
+</div>

@@ -104,52 +104,44 @@
   </div>
 
   <div class="col-lg-3 height--max active"
-    id="modal">
+    id="panel">
     <section class="dashboard-section height--max">
       <header class="dashboard-section__header">
         <h1>
-          함께 수강하는 사람들
+          수강생 목록
           <span>
             <%= @enrolled_students.count %>
           </span>
         </h1>
       </header>
 
+      
+
       <div class="dashboard__content">
         <ul class="user__list">
-          <% if @enrolled_students.count == 0 %>
-            <li class="ui--secondary pt-16 pb-16 text-center">
-              함께 수강하는 친구가 없습니다.
-            </li>
-          <% else %>
-            <% @enrolled_students.each do |stu| %>
-            
-              <li class="user__item">
-                <header class="user__header"
-                  style="padding: 0">
-                  <% if stu.profile.url %>
-                    <p class="user__img">
-                      <%= image_tag stu.profile.url %>
-                    </p>
-                  <% else %>
-                    <p class="user__img--placeholder"
-                      aria-hidden="true">
-                      <%= stu.name[0] %>
-                    </p>
-                  <% end %>
 
-                  <h1>
-                    <%= stu.name %>
-                    <span class="ui--secondary d-block mt-1">
-                      <%= stu.user_department_str %>
-                    </span>
-                  </h1>
-                </header>
-              </li>
-            <% end %>
+          <% if @enrolled_students.count == 0 %>
+
+            <p class="ui--secondary pt-16 pb-16 text-center">
+              수강생이 아직 없습니다.
+            </p>
+
+          <% else %>
+
+            <ul class="panel__list">
+
+              <% @enrolled_students.each do |stu| %>
+
+                <li class="panel__item">
+                  <%= render partial: "panel_item", locals: { stu: stu } %>
+                </li>
+
+              <% end %>
+              
+            </ul>
 
           <% end %>
-          
+
         </ul>
       </div>
     </section>

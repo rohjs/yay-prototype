@@ -15,12 +15,15 @@
       </h1>
       <p>
         <%= user.student? ? "학생" : "선생님" %> / <%= user.user_department_str %>
+        <% if !is_edit  %>
+          <%= link_to edit_user_registration_path(user), class: "btn--icon btn--settings" do %>
+            프로필 수정하기
+          <% end %>
+        <% end %>
       </p>
     </header>
     <% if user.teacher? %>
       <%= link_to '수업 개설하기', new_course_path, class: "btn--default btn--large" %>
-    <% elsif user.student? %>
-      <%#= link_to '수강신청', courses_path, class: "btn--default btn--large" %>
     <% end %>
   </aside>
 </div>

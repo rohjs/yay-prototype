@@ -1,19 +1,4 @@
 <%= form_for(@course) do |f| %>
-  <% if Rails.env.development? %>
-    <% f.object.start_date = Date.today %>
-    <% f.object.end_date = Date.today %>
-    <% f.object.closing_date = Date.tomorrow %>
-    <% f.object.title = "HTML, CSS로 시작하는 웹 개발" %>
-    <% f.object.description = "HTML, CSS을 통해 배우는 웹 개발 개론" %>
-  <% end %>
-
-  <!-- <div class="form__item">
-    <p class="form__label">선생님</p>
-    <p class="form__input--disabled">
-      <%= current_user.name %>
-    </p>
-  </div>-->
-
   <div class="form__item"
     style="flex-grow: 2;">
     <%= f.label :title, "수업명", class: "form__label" %>

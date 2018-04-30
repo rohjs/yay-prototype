@@ -3,7 +3,7 @@
 
 <div class="row">
 
-  <%= render partial: "sidebar", locals: { user: @user } %>
+  <%= render partial: "shared/sidebar", locals: { user: @user, is_edit: false } %>
 
   <div class="col-lg-9 height--max">
     <section class="dashboard-section"

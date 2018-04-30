@@ -1,60 +1,28 @@
-<%= render "shared/home-header" %>
+<% content_for :title, "프로필 수정하기 | #{@user.name}#{current_user.name}님의 대시보드" %>
 
-<main>
-  <section class="sign-up">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <h1>
-            회원정보 수정하기
-          </h1>
-        </div>
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-          <%= render partial: "form" %>
-        </div>
+<% content_for :main_class, "--fixed" %>
+
+<div class="row">
+  <%= render partial: "shared/sidebar", locals: { user: @user, is_edit: true } %>
+  <div class="col-lg-9 height--max">
+    <header class="dashboard__header fixed--height flex--freeze">
+      <h1>
+        프로필 수정하기
+      </h1>
+    </header>
+
+    <section class="dashboard__content pr-56">
+      
+      <%= render partial: "form", locals: { btn: "프로필 업데이트", is_edit: true } %>
+      <div class="form__section pb-56">
+        <header>
+          <h1>회원탈퇴</h1>
+          <p>
+            회원 탈퇴 이후 모든 데이터는 사라지고 탈퇴한 계정에 대한 데이터 복구가 불가능합니다.
+          </p>
+        </header>
+        <%= button_to "회원탈퇴 하기", registration_path(resource_name), data: { confirm: "정말 탈퇴하시겠습니까?" }, method: :delete, class: "btn--ghost mt-4" %>
       </div>
-    </div>
-  </section>
-</main>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </section>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

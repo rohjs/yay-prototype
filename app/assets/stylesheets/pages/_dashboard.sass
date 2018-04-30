@@ -20,6 +20,8 @@
   h1
     @extend %heading-dashboard-header
     +mb()
+  &.fixed--height
+    +h(80px)
   &__detail
     +flex()
     dl:not(:last-child)
@@ -29,22 +31,22 @@
       +gr(1)
       +sh(1)
       dd
-        +h(32px)
+        +h(36px)
         +mb(48px)
-        line-height: 1.35
+        line-height: 1.38
         overflow: hidden
     dt
       @extend %ui-secondary
       +mb(10px)
     dd
-      @extend %ui-primary
+      @extend %ui-primary-text
 
 .dashboard__content
   @extend %dashboard-stretch-height
   .height--max &
     overflow-y: auto
 
-#modal
+#panel
   display: none
   &.active
     display: flex
