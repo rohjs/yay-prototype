@@ -1,17 +1,17 @@
 <% content_for :title, "수업 개설하기 | #{current_user.name}님의 대시보드" %>
 
-<div class="row">
-  <div class="col-12">
-    <header class="dashboard__header mb-72">
-      <h1>수업 개설하기</h1>
-    </header>
-  </div>
-</div>
+<% content_for :main_class, "--fixed" %>
 
 <div class="row">
-  <div class="col-lg-9">
-    <div class="dash-content">
-      <%= render "form" %>
-    </div>
+  <%= render partial: "shared/sidebar", locals: { user: current_user, is_edit: false } %>
+
+  <div class="col-lg-9 height--max">
+    <header class="dashboard__header fixed--height flex--freeze">
+      <h1>수업 개설하기</h1>
+    </header>
+
+    <section class="dashboard__content pb-80">
+      <%= render partial: "form", locals: { user: current_user, course: @course }  %>
+    </section>
   </div>
 </div>

@@ -4,6 +4,7 @@
 
 <div class="row">
   <%= render partial: "shared/sidebar", locals: { user: @user, is_edit: true } %>
+
   <div class="col-lg-9 height--max">
     <header class="dashboard__header fixed--height flex--freeze">
       <h1>
@@ -11,7 +12,7 @@
       </h1>
     </header>
     <%= devise_error_messages! %>
-    <section class="dashboard__content pr-56">
+    <section class="dashboard__content">
       
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
@@ -19,7 +20,7 @@
 
       <% end %>
 
-      <div class="form__section pb-56">
+      <div class="form__section pb-80">
         <header>
           <h1>회원탈퇴</h1>
           <p>

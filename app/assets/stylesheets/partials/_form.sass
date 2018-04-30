@@ -107,11 +107,14 @@
       @extend %ui-secondary
       line-height: 1.2 !important
   &--nested
-    +p(24px 32px 16px)
+    +pr(16px)
+    +pl(16px)
     +mb(16px)
     +bgc($bg-gray)
     border-radius: 4px
-
+    .form__item
+      +pt(24px)
+      +pb(16px)
 
 .form__inline
   .form__input

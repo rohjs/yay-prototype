@@ -14,7 +14,8 @@ class User < ApplicationRecord
     economics: 5,
     business_administration: 6,
     communication: 7,
-    law: 8
+    law: 8,
+    etc: 9
   }
 
   # Include default devise modules. Others available are:

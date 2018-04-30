@@ -60,6 +60,7 @@ ko:
           business_administration: "경영학부"
           communication: "커뮤니케이션학부"
           law: "법학부"
+          etc: "기타"
       course:
         category: "카테고리"
         category_types: 
