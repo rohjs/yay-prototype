@@ -50,7 +50,7 @@
       <dl>
         <dt>수강인원</dt>
         <dd>
-          <%= course.users.count %> / <%= course.capacity %>
+          <%= @enrolled_students.count %> / <%= course.capacity %>
         </dd>
       </dl>
 
@@ -87,12 +87,20 @@
           <% course.requirements.each do |r| %>
             <li class="user__item">
               <article class="user__wrap">
-                <h1>
-                  <%= r.title %>
-                </h1>
-                <p class="ui--secondary">
-                  <%= r.description %>
-                </p>
+                <div>
+                  <h1>
+                    <%= r.title %>
+                  </h1>
+                  <p class="ui--secondary-text mt-1">
+                    <%= r.description %>
+                  </p>
+                </div>
+                <% status = r.assignments.where(user_id: current_user.id).first.status %>
+                <% if status %>
+                  <p class="user__status--completed">제출</p>
+                <% else %>
+                  <p class="user__status">미제출</p>
+                <% end %>
               </article>
             </li>
           <% end %>
