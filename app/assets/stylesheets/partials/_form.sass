@@ -8,6 +8,7 @@
   transition: box-shadow 200ms, border-color 200ms
   font-size: 14px
   line-height: 1
+  color: $black
   +min-md()
     font-size: 15px
   &:focus,
@@ -18,6 +19,8 @@
 
   
 .form
+  &__item:not(.nested-fields)
+    +mb(24px)
   &__radio
     +flex()
     +wrap()
@@ -45,15 +48,17 @@
         font-size: 15px
   &__input
     @extend %form-style
+    @extend %ui-black
     +w()
     +h(44px)
-    +mb(24px)
     display: block
     &--disabled
       @extend .form__input
       +flex()
       +ai()
       border: none
+  &__select
+    +bgc($white)
   &__file
     +pt(12px)
     font-size: 14px
@@ -86,6 +91,11 @@
   &__group
     +flex()
     +ai()
+  &__inline
+    +gr()
+    +sh()
+    +flex()
+    +ai()
 
 .form__section
   +mt(100px)
@@ -100,3 +110,10 @@
     +mb(16px)
     +bgc($bg-gray)
     border-radius: 4px
+
+
+.form__inline
+  .form__input
+    +w(100px)
+    +h(40px)
+    +mb()

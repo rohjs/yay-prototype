@@ -24,14 +24,26 @@
     transition: max-height 800ms ease-in-out, padding 800ms  ease-in-out
     overflow: hidden
     .user.active &
-      +max-h(400px)
+      +max-h(800px)
       +pt(16px)
       +pb(16px)
       +bgc($white)
       transition: max-height 600ms ease-in-out, padding 600ms  ease-in-out
     footer
       +pt(8px)
-      text-align: right
+  &__wrap
+    +flex()
+    +jc(space-between)
+    +ai()
+    +pr(20px)
+  &__status
+    +mb()
+    font-size: 16px
+    color: $black
+    line-height: 1
+    &--completed
+      @extend .user__status
+      color: $primary-blue
   &__assignment
     article
       +flex()
@@ -45,10 +57,25 @@
     h1
       +gr(1)
     dl
-      +w(64px)
-      text-align: right
+      +sh()
     dd
       +mb()
+      text-align: right
+    
+    .form__inline
+      .form__input
+        border: 1px solid $white
+        appearance: none
+        &:hover,
+        &:focus,
+        &:active
+          +bgi-url(image-url('icons/icon-caret.svg'))  
+          +bgs(contain)
+          +bgp(64px center)
+          +bgr()
+          border: 1px solid $light-gray
+
+
 
       
       

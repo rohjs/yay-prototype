@@ -54,6 +54,14 @@
     color: $black
     
 
+.btn--text
+  @extend %ui-accent
+  +sh()
+  +pr()
+  +bgc($white)
+  border: none
+  cursor: pointer
+
 .btn--icon
   @extend %button-icon
   &.btn--settings
