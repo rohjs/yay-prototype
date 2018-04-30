@@ -99,7 +99,7 @@ ko:
         user:
           attributes:
             current_password:
-              blank: "패스워드없음"
+              blank: "현재 비밀번호를 입력하셔야 프로필이 업데이트 됩니다."
   devise:
     failure:
       already_authenticated: '이미 로그인하셨습니다.'
