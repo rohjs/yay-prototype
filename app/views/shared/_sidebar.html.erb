@@ -1,17 +1,19 @@
 <div class="col-lg-3">
   <aside class="sidebar">
     <header class="sidebar__header">
-      <div class="sidebar__user-image">
+      <%= link_to root_path, class: "sidebar__user-image" do %>
         <% if user.profile.present? %>
-          <%= image_tag user.profile.url%>
+          <%= image_tag user.profile.url %>
         <% else %>
           <p aria-hidden="true">
             <%= user.name[0] %>
           </p>
         <% end %>
-      </div>
+      <% end %>
+      
       <h1>
-        <%= user.name %>님, 안녕하세요!
+        <%= user.name %> 님<br/>
+        안녕하세요!
       </h1>
       <p>
         <%= user.student? ? "학생" : "선생님" %> / <%= user.user_department_str %>

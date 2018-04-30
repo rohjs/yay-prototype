@@ -19,6 +19,56 @@
   img
     +w(auto)
     +h(48px)
+
 .dashboard-header
   border-bottom: 1px solid $light-gray
+  .container
+    overflow: initial !important
+  .d-flex.align-items-center
+    +rel()
+  #profile-menu
+    +abs()
+    +z(1)
+    +l(50%)
+    +b(-40px)
+    white-space: nowrap
+    box-shadow: 0 4px 20px 0 rgba($gray, .2)
+    transform: translateX(-50%)
+    opacity: 0
+    transition: bottom 200ms, transform 250ms, opacity 200ms
+    &::after
+      +abs()
+      +l(50%)
+      +t(-8px)
+      +w(0)
+      +h(0)
+      content: ""
+      border-top: 4px solid transparent
+      border-bottom: 4px solid rgba($black, .9)
+      border-left: 4px solid transparent
+      border-right: 4px solid transparent
+      transform: translateX(-50%)
+      transition: transform 250ms
+    &:hover
+      &::after
+        transform: translate(-50%, 2px)
+    .btn--ghost
+      +bgc(rgba($black, .9))
+      color: $white
+      border: none
+    &.active
+      +b(-46px)
+      opacity: 1
+
+
+  .user__img,
+  .user__img--placeholder
+    cursor: pointer
+    transition: box-shadow 200ms, border-color 200ms, opacity 100ms
+    &:hover:not(.active)
+      opacity: .8
+    &.active
+      border-color: rgba($secondary-blue, .4)
+      outline: none
+      box-shadow: 0 0 0px 4px rgba($secondary-blue, .45)
 

@@ -3,7 +3,7 @@
     +mb(20px)
     h1
       @extend %heading-sidebar
-      +mb(5px)
+      +mb(8spx)
     p
       @extend %ui-secondary
       +flex()
@@ -12,6 +12,9 @@
       .btn--settings
         +w(20px)
         +h(20px)
+        +mt(3px)
+        &:hover
+          opacity: .5
   &__user-image
     +flex()
     +jc()

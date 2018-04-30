@@ -7,24 +7,38 @@
             <%= image_tag 'logo-dashboard.svg', alt: "Yay" %>
           <% end %>
         </h1>
-        <nav class="dashboard-nav">
-          
-        </nav>
-
         <div class="d-flex align-items-center">
           <% if user_signed_in? %>
-            <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--ghost" %>
-
             <% if current_user.profile.url %>
-              <p class="user__img">
+              <p class="user__img"
+                id="profile-image-button">
                 <%= image_tag current_user.profile.url %>
               </p>
             <% else %>
               <p class="user__img--placeholder"
+                id="profile-image-button"
                 aria-hidden="true">
                 <%= current_user.name[0] %>
               </p>
             <% end %>
+
+            <div id="profile-menu">
+              <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--ghost" %>
+            </div>
+
+            <script>
+              (function() {
+                var profileImageButton = document.getElementById("profile-image-button");
+                var profileMenu = document.getElementById("profile-menu");
+
+                profileImageButton.addEventListener("click", toggleProfileMenu);
+
+                function toggleProfileMenu () {
+                  profileMenu.classList.toggle("active");
+                  profileImageButton.classList.toggle("active");
+                }
+              })()
+            </script>
           <% else %>
             <% if !current_page?(new_user_session_path) %>
               <%= link_to "로그인", new_user_session_path, class: "btn--ghost" %>
