@@ -14,7 +14,8 @@ class CoursesController < ApplicationController
 
     case current_user.user_type
       when 0 
-        @enrolled_students = @course.users
+        @enrolled_students = @course.users.where(user_type: 0)
+        @is_user_enrolled = @enrolled_students.where(id: current_user.id).exists? ? true : false
     end
   end
 

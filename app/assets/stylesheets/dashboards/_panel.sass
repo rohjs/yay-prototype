@@ -1,0 +1,23 @@
+.panel
+  &__item
+    +p()
+    a
+      display: block
+      transition: opacity 100ms
+      &:hover,
+      &:focus,
+      &:active
+        opacity: .5
+  &__content
+    +flex()
+    +ai()
+    +w()
+    +p(8px 0)
+    h1
+      @extend %ui-heading
+      +mb()
+      +ml(12px)
+    span
+      +mt(5px)
+      font-size: 12px
+  

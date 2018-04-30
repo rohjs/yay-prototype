@@ -1,12 +1,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="form__radio">
-    <p class="form__label">사용자 유형</p>
-    <%= f.radio_button :user_type, 0, :checked => true, class: "form__radio-btn" %>
-    <%= f.label :user_type, '학생', :value => 0 , class: "form__label--radio" %>
-    <%= f.radio_button :user_type, 1, class: "form__radio-btn" %>
-    <%= f.label :user_type, '선생님', :value => 1, class: "form__label--radio" %>
-  </div>
+  
+  <% if !is_edit %>
+    <div class="form__radio"></div>
+      <p class="form__label">사용자 유형</p>
+      <%= f.radio_button :user_type, 0, :checked => true, class: "form__radio-btn" %>
+      <%= f.label :user_type, '학생', :value => 0 , class: "form__label--radio" %>
+      <%= f.radio_button :user_type, 1, class: "form__radio-btn" %>
+      <%= f.label :user_type, '선생님', :value => 1, class: "form__label--radio" %>
+    </div>
+  <% end %>
+  
   <div class="form__item">
     <%= f.label :name, '이름', class: "form__label" %>
     <%= f.text_field :name, autofocus: true, autocomplete: "off", class: "form__input" %>
@@ -61,7 +65,7 @@
   </div>
 
   <div class="form__submit">
-    <%= f.submit "회원가입하기", class: "form__submit btn--default" %>
+    <%= f.submit btn, class: "form__submit btn--default" %>
   </div>
 
 <% end %>

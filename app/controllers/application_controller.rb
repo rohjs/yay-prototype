@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
+  layout "dashboard", only: [:edit], if: :devise_controller?
+
   def after_sign_in_path_for(resource)
     dashboard_path(resource.id)
   end
@@ -20,4 +22,5 @@ class ApplicationController < ActionController::Base
     locale = params[:locale].to_s.strip.to_sym
     I18n.locale = I18n.available_locales.include?(locale) ? locale : I18n.default_locale
   end
+
 end
