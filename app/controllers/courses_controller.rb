@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :set_course_and_user, only: [:add_student, :minus_student]
+  before_action :set_assignment, only: [:show]
 
   layout "dashboard"
 
@@ -9,8 +10,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
-    @enrolled_students = @course.users.where(user_type: 0)
     @students = User.where(user_type: 0) - @enrolled_students
 
     case current_user.user_type
@@ -33,11 +32,9 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find_by(id: params[:id])
   end
 
   def update
-    @course = Course.find_by(id: params[:id])
     if @course.update_attributes(course_params)
       redirect_to @course
     else
@@ -84,5 +81,21 @@ class CoursesController < ApplicationController
     def set_course_and_user
       @student = User.find(params[:id])
       @course = Course.find(params[:course_id])
+    end
+
+    def set_assignment
+      @enrolled_students = @course.users.where(user_type: 0)
+
+      if @enrolled_students.exists?
+        @enrolled_students.each do |stu|
+          @course.requirements.ids.each do |r|
+            if !stu.assignments.where(requirement_id: r).exists?
+              Assignment.create!(user_id: stu.id, requirement_id: r)
+              puts "---- Created new assignment for student #{r}"
+            end
+            puts "---- Already had assignment for student #{r}"
+          end
+        end
+      end
     end
 end
