@@ -17,6 +17,15 @@
       +mr(10px)
     [class*="user__img"]
       +mr(10px)
+    &.enrolled
+      +jc(space-between)
+      .user__info
+        +flex()
+        +ai()
+      .user__total
+        @extend %heading-list-item
+        +mb()
+        +pr(4px)
   &__content
     +max-h(0)
     +pl(62px)

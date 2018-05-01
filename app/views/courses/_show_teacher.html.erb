@@ -1,5 +1,5 @@
 <div class="row flex--freeze">
-  <div class="col-9">
+  <div class="col-12">
     <header class="dashboard__header">
       <h1>
         <%= course.title %>
@@ -8,14 +8,6 @@
         <% end %>
       </h1>
     </header>
-  </div>
-
-  <div class="col-3">
-    <button type="button"
-      class="btn--default btn--large"
-      id="btn-add-student">
-      평가항목 수정하기
-    </button>
   </div>
 
   <div class="col-12 mt-24">
@@ -49,49 +41,7 @@
 
           <ul class="user__list">
             <% @enrolled_students.each do |stu| %>
-
-              <li class="user__item">
-
-                <article class="user">
-
-                  <header class="user__header">
-                    <% if stu.profile.url %>
-                      <p class="user__img"
-                        aria-hidden="true">
-                        <%= image_tag stu.profile.url %>
-                      </p>
-                    <% else %>
-                      <p class="user__img--placeholder"
-                        aria-hidden="true">
-                        <%= stu.name[0] %>
-                      </p>
-                    <% end %>
-
-                    <h1>
-                      <%= stu.name %>
-                    </h1>
-                    <p class="ui--secondary">
-                      서강대학교 / <%= stu.user_department_str %>
-                    </p>
-                  </header>
-
-                  <section class="user__content">
-                    <ul class="user__assignments">
-
-                      <% course.requirements.each do |r| %>
-                        <%= render partial: "assignment", locals: { stu: stu, r: r } %>
-                      <% end %>
-
-                    </ul>
-
-                    <footer>
-                      <%= link_to '이 수강생을 목록에서 제거', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
-                    </footer>
-                  </section>
-                </article>
-
-
-              </li>
+              <%= render partial: "student", locals: { stu: stu, course: course} %>
             <% end %>
 
           </ul>
@@ -108,9 +58,6 @@
       <header class="dashboard-section__header">
         <h1>
           수강생 추가하기
-          <span>
-            <%= students.count %>
-          </span>
         </h1>
       </header>
 
@@ -142,6 +89,7 @@
           
       </div>
     </section>
+    
   </div>
 
 </div>

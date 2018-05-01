@@ -1,0 +1,48 @@
+<li class="user__item">
+
+  <article class="user">
+
+    <header class="user__header enrolled">
+      <div class="user__info">
+        <% if stu.profile.url %>
+          <p class="user__img"
+            aria-hidden="true">
+            <%= image_tag stu.profile.url %>
+          </p>
+        <% else %>
+          <p class="user__img--placeholder"
+            aria-hidden="true">
+            <%= stu.name[0] %>
+          </p>
+        <% end %>
+
+        <h1>
+          <%= stu.name %>
+        </h1>
+        <p class="ui--secondary">
+          서강대학교 / <%= stu.user_department_str %>
+        </p>
+      </div>
+
+      <p class="user__total">
+        1 / <%= course.requirements.count %>
+      </p>
+    </header>
+
+    <section class="user__content">
+      <ul class="user__assignments">
+
+        <% course.requirements.each do |r| %>
+          <%= render partial: "assignment", locals: { stu: stu, r: r } %>
+        <% end %>
+
+      </ul>
+
+      <footer>
+        <%= link_to '이 수강생을 목록에서 제거', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
+      </footer>
+    </section>
+  </article>
+
+
+</li>
