@@ -11,7 +11,9 @@
 <div class="row">
   <div class="col-lg-9">
     <div class="dash-content">
-      <%= render "form" %>
+      <%= form_for(@course, url: @course, html: { method: "put"} ) do |f| %>
+        <%= render partial: "form", locals: { user: current_user, f: f, btn: "수업 개설하기" }  %>
+      <% end %>
     </div>
   </div>
 </div>
