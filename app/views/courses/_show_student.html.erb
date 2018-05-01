@@ -42,8 +42,7 @@
                     <%= r.description %>
                   </p>
                 </div>
-                <% status = r.assignments.where(user_id: current_user.id).first.status %>
-                <% if status %>
+                <% if assignment_status?(r, user) %>
                   <p class="user__status--completed">제출</p>
                 <% else %>
                   <p class="user__status">미제출</p>

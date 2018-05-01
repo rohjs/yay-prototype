@@ -6,9 +6,8 @@ class DashboardsController < ApplicationController
 
   def show
     courses = @user.courses
-
+    
     @ongoing_courses = courses.where("closing_date >= ?", Date.today)
-
     @completed_courses = courses.where("closing_date < ?", Date.today)
 
     if current_user.student?
