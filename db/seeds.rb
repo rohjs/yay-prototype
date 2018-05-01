@@ -10,6 +10,8 @@ teachers_json = ActiveSupport::JSON.decode(File.read("db/seeds/teachers.json"))
 
 students_json = ActiveSupport::JSON.decode(File.read("db/seeds/students.json"))
 
+courses_json = ActiveSupport::JSON.decode(File.read("db/seeds/courses.json"))
+
 teachers_json.each do |t|
   User.create!(t)
     puts "A teacher is created!"
@@ -20,29 +22,10 @@ students_json.each do |s|
     puts "A student is created!"
 end
 
-# 5.times do |i|
-#   User.create(
-#     email: "woohyeon#{i}@gmail.com",
-#     name: "wooheyon#{i}",
-#     user_type: 1,
-#     phone_number: "xxx-xxx-xxxx",
-#     department: rand(1..5),
-#     password: "123123",
-#     password_confirmation: "123123"
-#   )
-#   puts "woohyeon#{i} created!"
-# end
-
-
-# 5.times do |i|
-#   User.create(
-#     email: "chanha#{i}@naver.com",
-#     name: "chanha#{i}",
-#     user_type: 0,
-#     phone_number: "xxx-xxx-xxxx",
-#     department: rand(1..5),
-#     password: "123456",
-#     password_confirmation: "123456"
-#   )
-#   puts "chanha#{i} created!"
-# end
+courses_json.each do |c|
+  v = c.values
+  user = User.find(v[0])
+  course = user.courses.create(v[1])
+  course.requirements.create(v[2])
+  puts "A course is created!"
+end
