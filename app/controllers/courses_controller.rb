@@ -68,6 +68,7 @@ class CoursesController < ApplicationController
     redirect_to @course
   end
 
+
   private
 
     def set_course
@@ -75,16 +76,17 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:title, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:title, :description, :_destroy])
+      params.require(:course).permit(:title, :description, :category, :level, :credit, :capacity, :start_date, :end_date, :closing_date, requirements_attributes: [:id, :title, :description, :_destroy])
     end
 
     def set_course_and_user
       @student = User.find(params[:id])
       @course = Course.find(params[:course_id])
     end
+    
 
     def set_assignment
-      @enrolled_students = @course.users.where(user_type: 0)
+      @enrolled_students ||= @course.users.where(user_type: 0)
 
       if @enrolled_students.exists?
         @enrolled_students.each do |stu|
@@ -93,7 +95,6 @@ class CoursesController < ApplicationController
               Assignment.create!(user_id: stu.id, requirement_id: r)
               puts "---- Created new assignment for student #{r}"
             end
-            puts "---- Already had assignment for student #{r}"
           end
         end
       end
