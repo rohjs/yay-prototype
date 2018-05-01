@@ -12,8 +12,8 @@
       <header class="dashboard-section__header">
         <h1>
           진행중인 수업
-          <span aria-label="<%= @ongoing_courses.length %>개">
-            <%= @ongoing_courses.length %>
+          <span aria-label="<%= @ongoing_courses.count %>개">
+            <%= @ongoing_courses.count %>
           </span>
         </h1>
       </header>
@@ -22,24 +22,7 @@
         style="height: 408px;">
         <ul class="dashboard__courses">
           <% @ongoing_courses.each do |c| %>
-
-            <li>
-              <% @ongoing_courses.each do |course| %>
-                <li class="dash__course">
-                  <article>
-                    <%= link_to course_path(course) do %>
-                      <h1>
-                        <%= course.title %>
-                      </h1>
-                      <p>
-                        <%= course.course_category_str %>  |  <%= course.course_level_str %>
-                      </p>
-                    <% end %>
-                  </article>
-                </li>
-              <% end %>
-            </li>
-
+            <%= render partial: "course_item", locals: { c: c } %>
           <% end %>
         </ul>
       </div>
