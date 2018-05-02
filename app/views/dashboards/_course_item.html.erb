@@ -5,7 +5,9 @@
         <%= c.title %>
       </h1>
       <p>
-        <%= c.course_category_str %>  |  <%= c.course_level_str %>
+        <%= c.course_category_str %>
+        <span aria-hidden="true">|</span>
+        <%= c.course_level_str %>
       </p>
     <% end %>
   </article>
