@@ -19,30 +19,11 @@
       </header>
 
       <div class="dashboard__content"
-        style="height: 408px;">
+        style="height: 438px;">
         <ul class="dash__courses">
-
           <% @ongoing_courses.each do |c| %>
-
-            <li>
-              <% @ongoing_courses.each do |course| %>
-                <li class="dash__course">
-                  <article>
-                    <%= link_to course_path(course) do %>
-                      <h1>
-                        <%= course.title %>
-                      </h1>
-                      <p>
-                        <%= course.course_category_str %>  |  <%= course.course_level_str %>
-                      </p>
-                    <% end %>
-                  </article>
-                </li>
-              <% end %>
-            </li>
-
-          <% end %>
-          
+            <%= render partial: "course_item", locals: { c: c } %>
+          <% end %>  
         </ul>
       </div>
     </section>
@@ -57,10 +38,10 @@
         </h1>
       </header>
       <div class="dashboard__content">
-        <ul class="dash__courses">
+        <ul class="dash__courses completed">
 
           <% @completed_courses.each do |course| %>
-            <li class="dash__course--completed">
+            <li class="dash__course">
               <article>
                 <%= link_to course_path(course) do %>
                   <h1>

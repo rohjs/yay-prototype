@@ -17,6 +17,8 @@ class CoursesController < ApplicationController
     case @user.user_type
       when 0
         @is_user_enrolled = @enrolled_students.where(id: @user.id).exists? ? true : false
+      when 1
+        @course_status = helpers.course_status(@course)
     end
   end
 

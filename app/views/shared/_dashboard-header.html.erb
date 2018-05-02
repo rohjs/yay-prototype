@@ -9,18 +9,8 @@
         </h1>
         <div class="d-flex align-items-center">
           <% if user_signed_in? %>
-            <% if current_user.profile.url %>
-              <p class="user__img"
-                id="profile-image-button">
-                <%= image_tag current_user.profile.url %>
-              </p>
-            <% else %>
-              <p class="user__img--placeholder"
-                id="profile-image-button"
-                aria-hidden="true">
-                <%= current_user.name[0] %>
-              </p>
-            <% end %>
+            <%= render partial: "shared/user_profile", locals: { u: @user, alt: true } %>
+            
 
             <div id="profile-menu">
               <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--ghost" %>
@@ -28,7 +18,7 @@
 
             <script>
               (function() {
-                var profileImageButton = document.getElementById("profile-image-button");
+                var profileImageButton = document.querySelector(".dashboard-header [class*='user__img']");
                 var profileMenu = document.getElementById("profile-menu");
 
                 profileImageButton.addEventListener("click", toggleProfileMenu);
