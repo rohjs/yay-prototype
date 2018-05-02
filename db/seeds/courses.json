@@ -194,27 +194,83 @@
     ]
   },
   {
-    "teacher": 2,
+    "teacher": 1,
     "course": {
-      "title": "실습 UI 개발로 배워보는 VueJS 개발",
-      "description": "MVVM 아키텍쳐를 왜 써야하는지 이해하고 그 구현체인 VueJS를 공부한다. 기존 UI 개발 방식의 한계를 파악한 뒤 해결책으로 VueJS를 학습힌다.",
-      "category": "programming",
-      "level": "intermediate",
-      "credit": "credit_9",
-      "capacity": 30,
-      "start_date": "2018-03-01 15:00:00",
-      "end_date": "2018-04-01 15:00:00",
-      "closing_date": "2018-4-15 15:00:00"
+      "title": "2015년 월드프렌즈 코리아 ICT 중기 봉사단",
+      "description": "따뜻한 봉사정신을 바탕으로 개도국 ICT봉사활동을 통해 국가간 정보격차를 해소하고, 대한민국의 국제적 위상을 높이는 역할을 수행할 2015년도 월드프렌즈 ICT봉사단으로 활동한다.",
+      "category": "volunteer",
+      "level": "advanced",
+      "credit": "credit_15",
+      "capacity": 10,
+      "start_date": "2015-09-01 15:00:00",
+      "end_date": "2015-01-01 15:00:00",
+      "closing_date": "2015-03-01 15:00:00"
     },
     "requirements": [
       {
-        "title": "추천 검색창 구현",
-        "description": "VueJS를 활용해 추천 검색창 구현",
+        "title": "1차 서류 심사",
+        "description": "지원동기, 활동계획서의 충실성",
         "status": false
       },
       {
-        "title": "Vue CLI 와 싱글파일 컴포넌트를 이용한 컴포넌트 등록",
-        "description": "GitHub 제출",
+        "title": "2차 면접 심사",
+        "description": "지원동기 및 참여의지, 사명감 및 봉사정신",
+        "status": false
+      },
+      {
+        "title": "최종 합격 및 사전 교육 참석",
+        "description": "NIA 주최 사전교육 이수",
+        "status": false
+      },
+      {
+        "title": "현지 파견",
+        "description": "해외 파견 (7-8월)",
+        "status": false
+      },
+      {
+        "title": "활동보고서 및 자료 제출",
+        "description": " 활동결과 보고서, 현지기관 설문지, 활동지원비 사용내역서, 근무내역 확인서, 물품기증서 등",
+        "status": false
+      }
+    ]
+  },
+  {
+    "teacher": 1,
+    "course": {
+      "title": "2015년 월드프렌즈 코리아 ICT 중기 봉사단",
+      "description": "따뜻한 봉사정신을 바탕으로 개도국 ICT봉사활동을 통해 국가간 정보격차를 해소하고, 대한민국의 국제적 위상을 높이는 역할을 수행할 2015년도 월드프렌즈 ICT봉사단으로 활동한다.",
+      "category": "volunteer",
+      "level": "advanced",
+      "credit": "credit_15",
+      "capacity": 10,
+      "start_date": "2015-09-01 15:00:00",
+      "end_date": "2015-01-01 15:00:00",
+      "closing_date": "2015-03-01 15:00:00"
+    },
+    "requirements": [
+      {
+        "title": "1차 서류 심사",
+        "description": "지원동기, 활동계획서의 충실성",
+        "status": false
+      },
+      {
+        "title": "2차 면접 심사",
+        "description": "지원동기 및 참여의지, 사명감 및 봉사정신",
+        "status": false
+      },
+      {
+        "title": "최종 합격 및 사전 교육 참석",
+        "description": "NIA 주최 사전교육 이수",
+        "status": false
+      },
+      {
+        "title": "현지 파견",
+        "description": "해외 파견 (7-8월)",
+        "status": false
+      },
+      {
+        "title": "활동보고서 및 자료 제출",
+        "description": " 활동결과 보고서, 현지기관 설문지, 활동지원비 사용내역서, 근무내역 확인서, 물품기증서 등",
         "status": false
       }
     ]
@@ -248,7 +304,7 @@
   {
     "teacher": 2,
     "course": {
-      "title": "Rails로 쉽고 빠른 웹사이트 제작",
+      "title": "Rails 기초",
       "description": "기본적인 읽기, 쓰기, 수정하기, 삭제하기(CRUD)가 가능한 게시판을 제작하는 것을 목표로 한다. 프로젝트를 통해 풀스택 프레임워크 Rails의 생산성을 경험한다.",
       "category": "programming",
       "level": "basic",
