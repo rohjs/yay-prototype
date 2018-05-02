@@ -4,17 +4,7 @@
 
     <header class="user__header enrolled">
       <div class="user__info">
-        <% if stu.profile.url %>
-          <p class="user__img"
-            aria-hidden="true">
-            <%= image_tag stu.profile.url %>
-          </p>
-        <% else %>
-          <p class="user__img--placeholder"
-            aria-hidden="true">
-            <%= stu.name[0] %>
-          </p>
-        <% end %>
+        <%= render partial: "shared/user_profile", locals: { u: stu, alt: false } %>
 
         <h1>
           <%= stu.name %>
@@ -25,7 +15,7 @@
       </div>
 
       <p class="user__total">
-        1 / <%= course.requirements.count %>
+        <%= how_much_completed?(course, stu) %> / <%= course.requirements.count %>
       </p>
     </header>
 
@@ -33,14 +23,16 @@
       <ul class="user__assignments">
 
         <% course.requirements.each do |r| %>
-          <%= render partial: "assignment", locals: { stu: stu, r: r } %>
+          <%= render partial: "assignment", locals: { stu: stu, r: r, status: status } %>
         <% end %>
 
       </ul>
 
-      <footer>
-        <%= link_to '이 수강생을 목록에서 제거', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
-      </footer>
+      <% if status == "ongoing" %>
+        <footer>
+          <%= link_to '이 수강생을 목록에서 제거', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
+        </footer>
+      <% end %>
     </section>
   </article>
 

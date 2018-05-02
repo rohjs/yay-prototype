@@ -1,4 +1,4 @@
-%user__img,
+%user-img,
 .user__img
   +ai()
   +jc()
@@ -11,8 +11,8 @@
   img
     +w()
     +h()
-
-%user__img--placeholder
+  
+%user-img-placeholder
   +jc()
   +ai()
   +m()
@@ -23,12 +23,51 @@
   text-transform: uppercase !important
   text-align: center
 
-=user__img--placeholder($s: 36px, $fs: 18px)
-  @extend %user__img--placeholder
+=user-img-placeholder($s: 36px, $fs: 18px)
+  @extend %user-img-placeholder
   +w($s)
   +h($s)
   font-size: $fs
   line-height: $s
 
 .user__img--placeholder
-  +user__img--placeholder()
+  +user-img-placeholder()
+  
+
+.dash__course-enrolled
+  +flex()
+  +ai()
+  +h(24px)
+  +pl(3px)
+  .user__img--placeholder
+    +user-img-placeholder(24px, 11px)
+    &.and--more
+      +bgc($primary-blue)
+      font-weight: 400
+  .user__img
+    +w(24px)
+    +h(24px)
+  .user__img--placeholder,
+  .user__img
+    +ml(-5px)
+    border: 1px solid $white
+
+.certified
+  .user__img,
+  .user__img--placeholder
+    +rel()
+    &::after
+      +abs()
+      +b(-1px)
+      +r(-4px)
+      +w(13px)
+      +h(13px)
+      +bgi-url(image-url('icons/icon-check-sm.svg'))
+      +bgr()
+      +bgs(contain)
+      +bgp()
+      +bgc($mint)
+      content: ''
+      border-radius: 20px
+
+

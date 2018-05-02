@@ -1,0 +1,10 @@
+<% if u.profile.url %>
+  <p class="user__img">
+    <%= image_tag u.profile.url, alt: alt ? alt : "" %>
+  </p>
+<% else %>
+  <p class="user__img--placeholder"
+    aria-label="<%= u.name %>">
+    <%= u.name[0] %>
+  </p>
+<% end %>
