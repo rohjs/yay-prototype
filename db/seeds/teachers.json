@@ -3,7 +3,7 @@
     "name": "KIV",
     "email": "kiv@yay.com",
     "user_type": 1,
-    "department": "humanities",
+    "department": "etc",
     "phone_number": "010-1234-5684",
     "password": "123123",
     "password_confirmation": "123123"
