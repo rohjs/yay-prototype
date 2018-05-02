@@ -71,5 +71,14 @@
     "phone_number": "010-1234-5684",
     "password": "123123",
     "password_confirmation": "123123"
+  },
+  {
+    "name": "김성한",
+    "email": "sunghan@yay.com",
+    "user_type": 1,
+    "department": "social_science",
+    "phone_number": "010-1234-0000",
+    "password": "123123",
+    "password_confirmation": "123123"
   }
 ]
