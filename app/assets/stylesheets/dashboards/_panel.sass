@@ -1,6 +1,7 @@
 .panel
   &__item
     +p()
+    +mb(2px)
     a
       display: block
       transition: opacity 100ms
@@ -8,6 +9,11 @@
       &:focus,
       &:active
         opacity: .5
+      .disabled &
+        opacity: .08
+        pointer-events: none
+        cursor: default
+    
   &__content
     +flex()
     +ai()
@@ -20,4 +26,19 @@
     span
       +mt(5px)
       font-size: 12px
+    [class*="user__img"]
+      +rel()
+      +b(2px)
+
+  &__list.disabled
+    +rel()
+    &::after
+      @extend %ui-secondary
+      +abs()
+      +t(30px)
+      +l(50%)
+      content: "수강인원을 초과했습니다."
+      text-align: center
+      white-space: nowrap
+      transform: translateX(-50%)
   

@@ -1,0 +1,31 @@
+<section class="dashboard-section height--max"
+  id="panel">
+
+  <header class="dashboard-section__header">
+    <h1>
+      수강생 추가하기
+    </h1>
+  </header>
+
+  <div class="dashboard__content">
+
+    <% if s.count == 0 %>
+
+      <p class="ui--secondary pt-16 pb-16 text-center">
+        추가 가능한 학생이 없습니다.
+      </p>
+
+    <% else %>
+      <ul class="panel__list<%= is_full?(e, c) ? " disabled" : ""%>">
+        <% s.each do |stu| %>
+          <li class="panel__item">
+            <%= link_to add_student_course_user_path(c.id, stu.id) do %>
+              <%= render partial: "panel_item", locals: { stu: stu } %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    
+  </div>
+</section>
