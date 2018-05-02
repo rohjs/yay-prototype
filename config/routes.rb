@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+  resources :users
 
-  post '/assignments/check_assignment' => 'assignments#check_assignment', as: 'check_assignment'
+  post "/assignments/check_assignment" => "assignments#check_assignment", as: "check_assignment"
 
   get "/courses/:course_id/students/:student_id", to: "courses#add_student", as: "add_student"
 
