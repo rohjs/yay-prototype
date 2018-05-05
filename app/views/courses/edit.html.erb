@@ -9,7 +9,7 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-9">
+  <div class="col-md-9">
     <div class="dash-content">
       <%= form_for(@course, url: @course, html: { method: "put"} ) do |f| %>
         <%= render partial: "form", locals: { user: current_user, f: f, btn: "수업 수정하기" }  %>

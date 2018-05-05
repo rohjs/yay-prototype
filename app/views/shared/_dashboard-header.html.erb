@@ -9,7 +9,7 @@
         </h1>
         <div class="d-flex align-items-center">
           <% if user_signed_in? %>
-            <%= render partial: "shared/user_profile", locals: { u: @user, alt: true } %>
+            <%= render partial: "shared/user_profile", locals: { u: current_user, alt: true } %>
             
 
             <div id="profile-menu">
@@ -30,14 +30,7 @@
                 }
               })()
             </script>
-          <% else %>
-            <% if !current_page?(new_user_session_path) %>
-              <%= link_to "로그인", new_user_session_path, class: "btn--ghost" %>
-            <% end %>
-
-            <% if !current_page?(new_user_registration_path) %>
-              <%= link_to "회원가입하기", new_user_registration_path, class: "btn--default" %>
-            <% end %>
+          
           <% end %>
         </div>
       </div>

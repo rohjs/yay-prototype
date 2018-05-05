@@ -1,4 +1,26 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% content_for :title, "마이페이지 | #{current_user.name}님의 대시보드" %>
 
-<%= @user.email %>
+<% content_for :main_class, "--fixed" %>
+
+<div class="row">
+  <div class="col-md-9 height--max">
+    <header class="dashboard__header fixed--height flex--freeze">
+      <h1>
+        마이페이지
+      </h1>
+    </header>
+
+    <section class="dashboard__content">
+      
+      <div class="form__radio">
+        <p class="form__label">사용자 유형</p>
+        <p>
+          <%= @user.user_type %>
+        </p>
+      </div>
+      
+    </section>
+  </div>
+
+  <%= render partial: "shared/sidebar", locals: { user: @user, is_edit: true } %>
+</div>
