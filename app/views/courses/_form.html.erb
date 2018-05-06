@@ -101,13 +101,15 @@
 
     <div class="div"
       id="requirements">
-      <%= link_to_add_association "평가항목 추가하기", f, :requirements, class: "btn--ghost" %>
-
-      <ul id="requirement-list">
+      <%= link_to_add_association "평가항목 추가하기", f, :requirements, class: "btn--ghost", data: { "data-association-insertion-node": "#requirement-list"} %>
+      <section id="requirement-list">
         <%= f.fields_for :requirements do |requirement| %>
           <%= render "requirement_fields", f: requirement %>
         <% end %>
-      </ul>
+      </section>
+
+      <section id="requirement-list">
+      </section>
 
       
     </div>
