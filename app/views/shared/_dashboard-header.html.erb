@@ -4,7 +4,7 @@
       <div class="col-12">
         <h1 class="dashboard-yay">
           <%= link_to root_path do %>
-            <%= image_tag 'logo-dashboard.svg', alt: "Yay" %>
+            <%= image_tag "logo-dashboard.svg", alt: "Yay" %>
           <% end %>
         </h1>
         <div class="d-flex align-items-center">
@@ -19,7 +19,7 @@
 
             <script>
               (function() {
-                var profileImageButton = document.querySelector(".dashboard-header [class*='user__img']");
+                var profileImageButton = document.querySelector(".dashboard-header [class*="user__img"]");
                 var profileMenu = document.getElementById("profile-menu");
 
                 profileImageButton.addEventListener("click", toggleProfileMenu);

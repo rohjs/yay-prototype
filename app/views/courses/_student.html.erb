@@ -30,7 +30,7 @@
 
       <% if status == "ongoing" %>
         <footer>
-          <%= link_to '이 수강생을 목록에서 제거', minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
+          <%= link_to "이 수강생을 목록에서 제거", minus_student_course_user_path(course.id, stu.id), class: "ui--accent" %>
         </footer>
       <% end %>
     </section>

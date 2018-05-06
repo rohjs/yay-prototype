@@ -32,11 +32,11 @@
       <%= f.label :category, "수업 분야", class: "form__label" %>
       <%= f.select :category,
         options_for_select({
-          '웹 프로그래밍' => "programming",
-          '데이터 사이언스' => "data_science",
-          '디자인' => "design",
-          '마케팅' => "marketing",
-          '비즈니스' => "business",
+          "웹 프로그래밍" => "programming",
+          "데이터 사이언스" => "data_science",
+          "디자인" => "design",
+          "마케팅" => "marketing",
+          "비즈니스" => "business",
           "봉사" => "volunteer"
         }, 0),
         {},
@@ -48,10 +48,10 @@
       <%= f.label :level, "수업 난이도", class: "form__label" %>
       <%= f.select :level,
         options_for_select({
-          '입문' => "introductory",
-          '초급' => "basic",
-          '중급' => "intermediate",
-          '고급' => "advanced"
+          "입문" => "introductory",
+          "초급" => "basic",
+          "중급" => "intermediate",
+          "고급" => "advanced"
         }, 0),
         {},
         class: "form__input" %>
@@ -101,11 +101,11 @@
 
     <div class="div"
       id="requirements">
-      <%= link_to_add_association '평가항목 추가하기', f, :requirements, class: "btn--ghost" %>
+      <%= link_to_add_association "평가항목 추가하기", f, :requirements, class: "btn--ghost" %>
 
       <ul id="requirement-list">
         <%= f.fields_for :requirements do |requirement| %>
-          <%= render 'requirement_fields', f: requirement %>
+          <%= render "requirement_fields", f: requirement %>
         <% end %>
       </ul>
 
