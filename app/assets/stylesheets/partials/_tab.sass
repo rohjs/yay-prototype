@@ -29,22 +29,21 @@
       +l(50%)
       +r(50%)
       +h(2px)
-      +bgc($black)
       content: ''
       transition: right 200ms, left 200ms
     &:focus,
     &:hover,
-    &:active,
-    &.active
+    &:active
       outline: none
       box-shadow: none
       text-decoration: none
-      &::after
-        +r()
-        +l()
+      opacity: .5
     &.active
       font-weight: 700
       color: $primary-blue
       &::after
-        +bgc($secondary-blue)
+        +r()
+        +l()
+      &:hover
+        opacity: 1
     
