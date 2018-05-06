@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $("#requirements a.add_fields")
     .data("association-insertion-method", 'append')
-    .data("association-insertion-node", "#requirement-list")
+    .data("association-insertion-node", "#requirement-items")
     .on("cocoon:before-insert", function(e, elm_to_be_added) {
         elm_to_be_added.fadeIn("slow");
       })
