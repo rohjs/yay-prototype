@@ -66,4 +66,8 @@
   @extend %button-icon
   &.btn--settings
     +ml(4px)
-    +bgi-url(image-url('icons/icon-settings.svg'))  
+    +bgi(image-url('icons/icon-settings.svg'))
+    &:active,
+    &:focus,
+    &:hover
+      opacity: .5 

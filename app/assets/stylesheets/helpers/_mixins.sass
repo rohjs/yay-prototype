@@ -104,11 +104,11 @@
 =sh($s: 0)
   flex-shrink: $s
 
-=bgi($url)
+=bgi-url($url)
   background-image: url($url)
 
-=bgi-url($url)
-  background-image: $url
+=bgi($v)
+  background-image: $v
 
 =bgp($p: center center)
   background-position: $p
@@ -122,8 +122,14 @@
 =bgr($r: no-repeat)
   background-repeat: $r
 
-=bg($url)
-  +bgi($url)
+=bg($v)
+  +bgi($v)
+  +bgs()
+  +bgp()
+  +bgr()
+
+=bg-url($url)
+  +bgi-url($url)
   +bgs()
   +bgp()
   +bgr()
