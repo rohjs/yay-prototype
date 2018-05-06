@@ -23,10 +23,16 @@
                 var profileMenu = document.getElementById("profile-menu");
 
                 profileImageButton.addEventListener("click", toggleProfileMenu);
+                profileImageButton.addEventListener("blur", removeProfileMenu);
 
                 function toggleProfileMenu () {
                   profileMenu.classList.toggle("active");
                   profileImageButton.classList.toggle("active");
+                }
+
+                function removeProfileMenu () {
+                  profileMenu.classList.remove("active");
+                  profileImageButton.classList.remove("active");
                 }
               })()
             </script>
