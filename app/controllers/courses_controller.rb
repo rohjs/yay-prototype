@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy, :set_assignment]
   before_action :set_user, only: [:show, :new, :edit, :update, :destroy]
   before_action :set_course_and_student, only: [:add_student, :minus_student]
-  before_action :set_assignment, only: [:update]
+  before_action :set_assignment, only: [:update, :show]
 
   layout "dashboard"
 
@@ -106,3 +106,6 @@ class CoursesController < ApplicationController
       end
     end
 end
+
+
+
