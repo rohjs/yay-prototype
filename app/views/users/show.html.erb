@@ -4,11 +4,11 @@
 
 <div class="row justify-content-center">
   <div class="col-md-9 height--max">
-    <header class="dashboard__header">
+    <header class="dashboard__header profile">
       <h1 class="sr-only">
         <%= @user.name %>님의 프로필
       </h1>
-      <%= link_to "프로필 수정하기", edit_user_registration_path(@user), class: "btn--ghost" %>
+      <%= link_to "프로필 수정하기", edit_user_registration_path(@user), class: "btn--icon btn--settings" %>
     </header>
 
     <section class="dashboard__content">
@@ -21,7 +21,7 @@
           <h1 class="profile__username">
             <%= @user.name %>
           </h1>
-          <p>
+          <p class="ui--secondary">
             <%= @user.student? ? "학생" : "선생님" %> / <%= @user.user_department_str %>
           </p>
         </div>

@@ -80,6 +80,9 @@
     transition: box-shadow 200ms, border-color 200ms, opacity 100ms
     &:hover:not(.active)
       opacity: .8
+    &:focus
+      outline: none
+      box-shadow: 0 0 0px 4px rgba($secondary-blue, .2)
     &.active
       border-color: rgba($secondary-blue, .4)
       outline: none

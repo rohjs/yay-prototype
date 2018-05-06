@@ -22,6 +22,14 @@ em
   font-style: normal
   font-weight: 700
 
+button,
+input,
+textarea
+  &:focus,
+  &:active
+    box-shadow: none
+    outline: none
+
 @each $sizing in $sizing-lists
   .mt-#{$sizing/($sizing*0+1)}
     +mt(#{$sizing} !important)
