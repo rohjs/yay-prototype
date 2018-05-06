@@ -8,6 +8,10 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <script src="/js/webfont.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="/css/webfont.css">
+    </noscript>
   </head>
 
   <body class="dashboard<%= content_for(:main_class) || "" %>">
