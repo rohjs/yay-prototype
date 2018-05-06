@@ -2,7 +2,7 @@
   @extend %dashboard
   main
     +gr(1)
-    +pt(56px)
+    +pt(40px)
     +pb(40px)
     overflow: auto
     
@@ -49,3 +49,9 @@
   @extend %dashboard-stretch-height
   .height--max &
     overflow-y: auto
+
+
+.dashboard__tab-panel
+  display: none
+  &.active
+    +flex(column)
