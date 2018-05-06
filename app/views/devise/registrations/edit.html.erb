@@ -2,10 +2,9 @@
 
 <% content_for :main_class, "--fixed" %>
 
-<div class="row">
-  <%= render partial: "shared/sidebar", locals: { user: @user, is_edit: true } %>
+<div class="row justify-content-center">
 
-  <div class="col-md-9 height--max">
+  <div class="col-12 col-md-9 height--max">
     <header class="dashboard__header fixed--height flex--freeze">
       <h1>
         프로필 수정하기
