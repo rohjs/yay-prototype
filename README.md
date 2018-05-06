@@ -18,3 +18,50 @@
 
 ![dashboard - my courses 00](https://user-images.githubusercontent.com/19285811/39503014-694a41ac-4dfe-11e8-8f27-5469324f1c65.jpg)
 
+### 4. How to Start
+
+#### 1. 개발환경 설정
+bundle을 설치하세요. Rails가 로컬에 설치가 되어 있지 않으신 분들은 [Install Rails](http://installrails.com/)를 참고하여 Ruby와 Rails를 설치해주세요.
+
+```bash
+$ cd yay-prototype
+$ gem install bundle
+$ bundle i
+```
+
+#### 2. 데이터베이스 생성
+개발환경이 세팅이 되면 다음의 커맨드를 순서대로 입력해주세요. DB를 생성하고 마이그레이션을 해줍니다.
+```bash
+$ rake db:create
+# Created database 'db/development.sqlite3'
+# Created database 'db/test.sqlite3'
+
+$ rake db:migrate
+# == 20180425043748 DeviseCreateUsers: migrating ================================
+# -- create_table(:users)
+#    -> 0.0015s
+# ...
+```
+
+#### 3. 시드 생성
+테스팅을 위한 시드를 생성해줍니다.
+
+```bash
+$ rake db:seed
+# A course is created!
+# ...
+```
+
+#### 4. 레일즈 프로젝트 시작
+마지막으로 레일즈 서버를 실행시킵니다. 
+
+```bash
+$ rails s
+# http://localhost:3000
+```
+
+이때 다른 포트로 서버를 시작하고 싶다면 `-p PORT_NUMBER`를 추가해주시면 됩니다.
+```bash
+$ rails s -p 8080
+# http://localhost:8080
+```
