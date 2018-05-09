@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20180427121854) do
   enable_extension "plpgsql"
 
   create_table "assignments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "requirement_id"
+    t.bigint "user_id"
+    t.bigint "requirement_id"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20180427121854) do
   end
 
   create_table "courses_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "course_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
   end
 
   create_table "dashboards", force: :cascade do |t|
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180427121854) do
   end
 
   create_table "requirements", force: :cascade do |t|
-    t.integer "course_id"
+    t.bigint "course_id"
     t.string "title"
     t.string "description"
     t.boolean "status", default: false
@@ -81,4 +81,7 @@ ActiveRecord::Schema.define(version: 20180427121854) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assignments", "requirements"
+  add_foreign_key "assignments", "users"
+  add_foreign_key "requirements", "courses"
 end
