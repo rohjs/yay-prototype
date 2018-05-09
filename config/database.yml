@@ -1,4 +1,4 @@
-g# PostgreSQL. Versions 9.1 and up are supported.
+# PostgreSQL. Versions 9.1 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
@@ -74,8 +74,11 @@ development:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
-  database: yay_prototype_production
-  username: yay_prototype
-  password: <%= ENV['YAY_PROTOTYPE_DATABASE_PASSWORD'] %>
+   adapter: postgresql
+   encoding: unicode
+   database: yay_prototype_production
+   pool: 5
+   username: root
+   password: <%= ENV['YAY_PROTOTYPE_DATABASE_PASSWORD'] %>
