@@ -7,7 +7,7 @@
       <h1>수업 개설하기</h1>
     </header>
 
-    <section class="dashboard__content pb-80">
+    <section class="dashboard__content pb-100">
       <%= form_for(@course) do |f| %>
         <%= render partial: "form", locals: { user: @user, f: f, btn: "수업 개설하기" }  %>
       <% end %>
