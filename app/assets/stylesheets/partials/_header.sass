@@ -30,12 +30,33 @@
     +abs()
     +z(1)
     +l(50%)
-    +b(-40px)
+    +b(-70px)
+    border-radius: 2px
     white-space: nowrap
     box-shadow: 0 4px 20px 0 rgba($gray, .2)
     transform: translateX(-50%)
     opacity: 0
     transition: bottom 200ms, transform 250ms, opacity 200ms
+    &:active,
+    &:focus,
+    &:hover
+      transform: translate(-50%, 2px)
+    .btn--menu
+      @extend %button
+      +flex()
+      +bgc(rgba($black, .85))
+      font-size: 13px
+      color: $white
+      transition: background-color 150ms
+      &:active,
+      &:focus,
+      &:hover
+        +bgc(rgba($black, 1))
+        transform: translateY(0px)
+      &:first-child
+        border-radius: 2px 2px 0 0
+      &:last-child
+        border-radius: 0 0 2px 2px 
     &::after
       +abs()
       +l(50%)
@@ -48,16 +69,8 @@
       border-left: 4px solid transparent
       border-right: 4px solid transparent
       transform: translateX(-50%)
-      transition: transform 250ms
-    &:hover
-      &::after
-        transform: translate(-50%, 2px)
-    .btn--ghost
-      +bgc(rgba($black, .9))
-      color: $white
-      border: none
     &.active
-      +b(-46px)
+      +b(-80px)
       opacity: 1
 
 
@@ -67,6 +80,9 @@
     transition: box-shadow 200ms, border-color 200ms, opacity 100ms
     &:hover:not(.active)
       opacity: .8
+    &:focus
+      outline: none
+      box-shadow: 0 0 0px 4px rgba($secondary-blue, .2)
     &.active
       border-color: rgba($secondary-blue, .4)
       outline: none

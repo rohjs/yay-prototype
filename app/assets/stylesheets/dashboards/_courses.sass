@@ -1,15 +1,21 @@
 .dash__course
   @extend %list-item
-  &--completed
-    @extend .dash__course
+  .completed &,
     +bgc($bg-gray)
   a
     @extend %list-item-anchor
     +flex(column)
     +jc()
-    +h(88px)
+    +pt(24px)
+    +pb(24px)
   h1
     @extend %heading-list-item
-    +mb(8px)
+    +mb(10px)
   p
     @extend %ui-secondary
+    span
+      +rel()
+      +b(2px)
+      +ml(4px)
+      +mr(4px)
+      font-size: 10px

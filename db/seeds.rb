@@ -14,18 +14,23 @@ courses_json = ActiveSupport::JSON.decode(File.read("db/seeds/courses.json"))
 
 teachers_json.each do |t|
   User.create!(t)
-    puts "A teacher is created!"
+    # puts "A teacher is created!"
 end
 
 students_json.each do |s|
   User.create!(s)
-    puts "A student is created!"
+    # puts "A student is created!"
 end
 
 courses_json.each do |c|
-  v = c.values
-  user = User.find(v[0])
-  course = user.courses.create(v[1])
-  course.requirements.create(v[2])
+
+  keys = c.keys
+  user = User.find(c[keys[0]])
+
+
+  course = user.courses.create!(c[keys[1]])
+
+  course.requirements.create!(c[keys[2]])
+
   puts "A course is created!"
 end

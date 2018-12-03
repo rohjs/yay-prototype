@@ -1,6 +1,6 @@
 *
   margin: 0
-  font-family: $noto
+  font-family: $spoqa !important
   letter-spacing: -.015em
  
 html
@@ -17,10 +17,26 @@ a
   &:hover
     text-decoration: none
     color: inherit
+  &:visited
+    color: initial
 
 em
   font-style: normal
-  font-weight: 500
+  font-weight: 700
+
+button,
+input,
+textarea
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="button"],
+input[type="submit"]
+  -webkit-appearance: none
+  &:focus,
+  &:active
+    box-shadow: none
+    outline: none
 
 @each $sizing in $sizing-lists
   .mt-#{$sizing/($sizing*0+1)}

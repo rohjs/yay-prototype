@@ -1,0 +1,49 @@
+.tabs
+  +rel()
+  +b(8px)
+  +sh(0)
+  +flex()
+  +ai()
+  +mb(16px)
+  .tab
+    +rel()
+    +jc()
+    +ai()
+    +h(30px)
+    +pb(4px)
+    +pl()
+    +pr()
+    +bgc($white)
+    box-sizing: content-box
+    display: inline-flex
+    border: none
+    outline: none
+    font-size: 14px
+    line-height: 1
+    letter-spacing: -.01em
+    cursor: pointer
+    color: $black
+    &::after
+      +abs()
+      +b(-2px)
+      +l(50%)
+      +r(50%)
+      +h(2px)
+      content: ''
+      transition: right 200ms, left 200ms
+    &:focus,
+    &:hover,
+    &:active
+      outline: none
+      box-shadow: none
+      text-decoration: none
+      opacity: .5
+    &.active
+      font-weight: 700
+      color: $primary-blue
+      &::after
+        +r()
+        +l()
+      &:hover
+        opacity: 1
+    

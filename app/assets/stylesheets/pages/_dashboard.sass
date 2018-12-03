@@ -2,9 +2,10 @@
   @extend %dashboard
   main
     +gr(1)
-    +pt(56px)
+    +pt(40px)
     +pb(40px)
-    overflow: auto
+    -webkit-overflow-scrolling: touch
+    overflow: scroll
     
 
 .dashboard--fixed
@@ -22,6 +23,10 @@
     +mb()
   &.fixed--height
     +h(80px)
+  &.profile
+    .btn--settings
+      +ml(auto)
+      display: block
   &__detail
     +flex()
     dl:not(:last-child)
@@ -32,7 +37,7 @@
       +sh(1)
       dd
         +h(36px)
-        +mb(48px)
+        +mb(54px)
         line-height: 1.38
         overflow: hidden
     dt
@@ -44,8 +49,11 @@
 .dashboard__content
   @extend %dashboard-stretch-height
   .height--max &
+    -webkit-overflow-scrolling: touch
     overflow-y: auto
 
-.btn--ghost
-  &.add_fields
-    +mb(24px)
+
+.dashboard__tab-panel
+  display: none
+  &.active
+    +flex(column)

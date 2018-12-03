@@ -1,0 +1,21 @@
+<section class="dashboard-section height--max"
+  id="panel">
+
+  <header class="dashboard-section__header">
+    <h1>
+      수료증 발급 대상
+    </h1>
+  </header>
+
+  <div class="dashboard__content">
+
+    <ul class="panel__list">
+      <% s.each do |stu| %>
+        <li class="panel__item certified">
+          <%= render partial: "panel_item", locals: { stu: stu } %>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+</section>

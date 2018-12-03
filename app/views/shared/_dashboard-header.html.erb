@@ -4,49 +4,39 @@
       <div class="col-12">
         <h1 class="dashboard-yay">
           <%= link_to root_path do %>
-            <%= image_tag 'logo-dashboard.svg', alt: "Yay" %>
+            <%= image_tag "logo-dashboard.svg", alt: "Yay" %>
           <% end %>
         </h1>
         <div class="d-flex align-items-center">
           <% if user_signed_in? %>
-            <% if current_user.profile.url %>
-              <p class="user__img"
-                id="profile-image-button">
-                <%= image_tag current_user.profile.url %>
-              </p>
-            <% else %>
-              <p class="user__img--placeholder"
-                id="profile-image-button"
-                aria-hidden="true">
-                <%= current_user.name[0] %>
-              </p>
-            <% end %>
+            <%= render partial: "shared/user_profile", locals: { u: current_user, alt: true } %>
+            
 
             <div id="profile-menu">
-              <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--ghost" %>
+              <%= link_to "마이페이지", @user, class: "btn--menu" %>
+              <%= link_to "로그아웃", destroy_session_path(:user), :method => :delete, class: "btn--menu" %>
             </div>
 
             <script>
               (function() {
-                var profileImageButton = document.getElementById("profile-image-button");
+                var profileImageButton = document.querySelector(".dashboard-header [class*='user__img']");
                 var profileMenu = document.getElementById("profile-menu");
 
                 profileImageButton.addEventListener("click", toggleProfileMenu);
+                profileImageButton.addEventListener("blur", removeProfileMenu);
 
                 function toggleProfileMenu () {
                   profileMenu.classList.toggle("active");
                   profileImageButton.classList.toggle("active");
                 }
+
+                function removeProfileMenu () {
+                  profileMenu.classList.remove("active");
+                  profileImageButton.classList.remove("active");
+                }
               })()
             </script>
-          <% else %>
-            <% if !current_page?(new_user_session_path) %>
-              <%= link_to "로그인", new_user_session_path, class: "btn--ghost" %>
-            <% end %>
-
-            <% if !current_page?(new_user_registration_path) %>
-              <%= link_to "회원가입하기", new_user_registration_path, class: "btn--default" %>
-            <% end %>
+          
           <% end %>
         </div>
       </div>

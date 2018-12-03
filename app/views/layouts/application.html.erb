@@ -4,13 +4,17 @@
     <title>함께 하면 즐거운 사람들, Yay!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <script src="/js/webfont.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="/css/webfont.css">
+    </noscript>
   </head>
 
   <body>
     <%= render "shared/home-header" %>
     <%= yield %>
+
   </body>
 </html>

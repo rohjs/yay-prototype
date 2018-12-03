@@ -32,11 +32,11 @@
       <%= f.label :category, "수업 분야", class: "form__label" %>
       <%= f.select :category,
         options_for_select({
-          '웹 프로그래밍' => "programming",
-          '데이터 사이언스' => "data_science",
-          '디자인' => "design",
-          '마케팅' => "marketing",
-          '비즈니스' => "business",
+          "웹 프로그래밍" => "programming",
+          "데이터 사이언스" => "data_science",
+          "디자인" => "design",
+          "마케팅" => "marketing",
+          "비즈니스" => "business",
           "봉사" => "volunteer"
         }, 0),
         {},
@@ -48,10 +48,10 @@
       <%= f.label :level, "수업 난이도", class: "form__label" %>
       <%= f.select :level,
         options_for_select({
-          '입문' => "introductory",
-          '초급' => "basic",
-          '중급' => "intermediate",
-          '고급' => "advanced"
+          "입문" => "introductory",
+          "초급" => "basic",
+          "중급" => "intermediate",
+          "고급" => "advanced"
         }, 0),
         {},
         class: "form__input" %>
@@ -84,36 +84,31 @@
 
 
   <section class="form__section">
-    <header>
+    <header class="mb-5">
       <h1>수료기준 설정</h1>
       <p>
         평가항목 및 이수 기준을 설정해주세요.<br/>
         수료 기준을 모두 충족시키는 수강생에겐 수료증이 발급됩니다.
       </p>
     </header>
-    
-    <p class="count"
-      style="opacity: 0">
-      <span>
-        <%= @course.requirements.count %>
-      </span>
-    </p>
 
     <div class="div"
       id="requirements">
-      <%= link_to_add_association '평가항목 추가하기', f, :requirements, class: "btn--ghost" %>
+      <section id="requirement-list">
+        <div id="requirement-items">
+          <%= f.fields_for :requirements do |requirement| %>
+            <%= render "requirement_fields", f: requirement %>
+          <% end %>
+        </div>
 
-      <ul id="requirement-list">
-        <%= f.fields_for :requirements do |requirement| %>
-          <%= render 'requirement_fields', f: requirement %>
-        <% end %>
-      </ul>
-
-      
+        <div>
+          <%= link_to_add_association "평가항목 추가하기", f, :requirements, class: "btn--ghost", data: { "data-association-insertion-node": "#requirement-items"} %>
+        </div>
+      </section>
     </div>
   </section>
 
 
   <div class="form__submit">
-    <%= f.submit btn, class: "form__submit btn--default" %>
+    <%= f.submit btn, class: "btn--default" %>
   </div>

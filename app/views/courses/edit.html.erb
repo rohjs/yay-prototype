@@ -1,16 +1,16 @@
 <% content_for :title, "수업 수정하기 | #{current_user.name}님의 대시보드" %>
 
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-12 mb-5">
-    <header class="dashboard__header">
+    <header class="dashboard__header text-center">
       <h1>수업 수정하기</h1>
     </header>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-9">
-    <div class="dash-content">
+<div class="row justify-content-center">
+  <div class="col-12 col-md-9">
+    <div class="dash__content">
       <%= form_for(@course, url: @course, html: { method: "put"} ) do |f| %>
         <%= render partial: "form", locals: { user: current_user, f: f, btn: "수업 수정하기" }  %>
       <% end %>

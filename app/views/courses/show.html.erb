@@ -2,9 +2,9 @@
 <% content_for :main_class, "--fixed" %>
 
 <% if user_signed_in? %>
-  <% if current_user.user_type == 1 %>
-    <%= render partial: "show_teacher", locals: { course: @course, students: @students } %>
+  <% if is_teacher?(current_user) %>
+    <%= render partial: "show_teacher", locals: { course: @course, students: @students, user: @user } %>
   <% else %>
-    <%= render partial: "show_student", locals: { course: @course } %>
+    <%= render partial: "show_student", locals: { course: @course, user: @user } %>
   <% end %>
 <% end %>

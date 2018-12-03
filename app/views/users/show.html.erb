@@ -1,4 +1,51 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% content_for :title, "마이페이지 | #{current_user.name}님의 대시보드" %>
 
-<%= @user.email %>
+<% content_for :main_class, "--fixed" %>
+
+<div class="row justify-content-center">
+  <div class="col-md-9 height--max">
+    <header class="dashboard__header profile">
+      <h1 class="sr-only">
+        <%= @user.name %>님의 프로필
+      </h1>
+      <%= link_to "프로필 수정하기", edit_user_registration_path(@user), class: "btn--icon btn--settings" %>
+    </header>
+
+    <section class="dashboard__content">
+      <header class="profile__header">
+        <div class="user__profile">
+          <%= render partial: "shared/user_profile", locals: { u: @user, alt: false } %>
+        </div>
+  
+        <div class="profile__item">
+          <h1 class="profile__username">
+            <%= @user.name %>
+          </h1>
+          <p class="ui--secondary">
+            <%= @user.student? ? "학생" : "선생님" %> / <%= @user.user_department_str %>
+          </p>
+        </div>
+      </header>
+
+      <div>
+        
+      </div>
+
+      <div class="profile__item">
+        <p class="form__label">이메일</p>
+        <p>
+          <%= @user.email %>
+        </p>
+      </div>
+
+      <div class="profile__item">
+        <p class="form__label">휴대 전화 번호</p>
+        <p>
+          <%= @user.phone_number %>
+        </p>
+      </div>
+
+    </section>
+  </div>
+
+</div>

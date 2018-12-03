@@ -7,8 +7,8 @@
   border: none
   border-radius: 2px
   outline: none
-  font-weight: 500
   font-size: 14px
+  line-height: 1
   letter-spacing: -.01em
   transition: transform 250ms
   cursor: pointer
@@ -34,11 +34,11 @@
 .btn--default
   @extend %button
   +bgc($primary-blue) 
-  color: $white
+  color: $white !important
   &:active,
   &:focus,
   &:hover
-    color: $white
+    color: $white !important
 
 .btn--large
   +w()
@@ -66,4 +66,8 @@
   @extend %button-icon
   &.btn--settings
     +ml(4px)
-    +bgi-url(image-url('icons/icon-settings.svg'))  
+    +bgi(image-url('icons/icon-settings.svg'))
+    &:active,
+    &:focus,
+    &:hover
+      opacity: .5 

@@ -1,34 +1,57 @@
-%user__img,
+%user-img,
 .user__img
   +ai()
   +jc()
-  +w(36px)
-  +h(36px)
+  +w(36px !important)
+  +h(36px !important)
   +m()
-  display: inline-flex
   border-radius: 100px
+  display: inline-flex
   overflow: hidden
   img
     +w()
     +h()
-
-%user__img--placeholder
+    border-radius: 100px
+  
+%user-img-placeholder
   +jc()
   +ai()
   +m()
   +bgc($foggy-gray)
+  +bgi($gray-gradient)
+  +bgs(100% 100%)
   border-radius: 100px
   font-weight: 300 !important
   color: #fff !important
   text-transform: uppercase !important
   text-align: center
 
-=user__img--placeholder($s: 36px, $fs: 18px)
-  @extend %user__img--placeholder
+=user-img-placeholder($s: 36px, $fs: 18px)
+  @extend %user-img-placeholder
   +w($s)
   +h($s)
   font-size: $fs
   line-height: $s
 
 .user__img--placeholder
-  +user__img--placeholder()
+  +user-img-placeholder()
+
+.certified
+  .user__img,
+  .user__img--placeholder
+    +rel()
+    &::after
+      +abs()
+      +b(-1px)
+      +r(-4px)
+      +w(13px)
+      +h(13px)
+      +bgi(image-url('icons/icon-check-sm.svg'))
+      +bgr()
+      +bgs(contain)
+      +bgp()
+      +bgc($mint)
+      content: ''
+      border-radius: 20px
+
+

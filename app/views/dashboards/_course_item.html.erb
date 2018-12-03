@@ -1,0 +1,14 @@
+<li class="dash__course">
+  <article>
+    <%= link_to course_path(c) do %>
+      <h1>
+        <%= c.title %>
+      </h1>
+      <p>
+        <%= c.course_category_str %>
+        <span aria-hidden="true">|</span>
+        <%= c.course_level_str %>
+      </p>
+    <% end %>
+  </article>
+</li>

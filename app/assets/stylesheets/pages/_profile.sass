@@ -1,0 +1,30 @@
+.user__profile
+  +flex()
+  +jc()
+  +ai()
+  +w()
+  [class*="user__img"]
+    +w(80px)
+    +h(80px)
+    +mb(12px)
+    font-size: 40px
+    font-weight: 300
+    line-height: 80px
+
+
+
+.profile
+  &__header
+    +flex()
+    +jc()
+    +wrap()
+    text-align: center
+  &__item 
+    +mb(24px)
+    p
+      +mb()
+  &__username
+    font-size: 26px
+    font-weight: 300
+    line-height: 1
+    color: $black
